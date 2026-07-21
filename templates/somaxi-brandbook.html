@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandbook SOMAXI | Sistema Visual e Verbal</title>
+<meta name="description" content="Brandbook profissional da SOMAXI baseado na landing page LGPD: identidade visual, cores, tipografia, componentes, fotografia, voz, motion e regras de uso.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#07111f">
+<link rel="icon" type="image/webp" href="/static/img/LGPD-2026/1314beb9ffb78d18_443609-f9cb09e69d49bb84420a199.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#07111f;
+  --navy-2:#0c1b2d;
+  --navy-3:#06101e;
+  --ink:#101828;
+  --ink-2:#26364c;
+  --muted:#62748b;
+  --muted-2:#8a9aae;
+  --paper:#f7f9fc;
+  --paper-2:#f3f7fb;
+  --white:#ffffff;
+  --line:#dbe4ee;
+  --line-dark:rgba(255,255,255,.18);
+  --cyan:#00bce7;
+  --cyan-dark:#008ec0;
+  --cyan-soft:#a7edff;
+  --amber:#f2b84b;
+  --red:#d64545;
+  --green:#0e9f6e;
+  --radius:8px;
+  --shadow:0 20px 55px rgba(9,22,42,.16);
+  --soft-shadow:0 14px 34px rgba(9,22,42,.07);
+  --max:1180px;
+  --sidebar:292px;
+  --font-title:'IBM Plex Sans','Inter',system-ui,sans-serif;
+  --font-body:'IBM Plex Sans','Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-width:320px;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+ul{list-style:none}
+code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+
+.page-shell{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:var(--sidebar) minmax(0,1fr);
+}
+.sidebar{
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  padding:28px 22px;
+  background:var(--navy);
+  color:#d8e9f8;
+  border-right:1px solid rgba(255,255,255,.08);
+  overflow-y:auto;
+}
+.brand-lockup{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding-bottom:22px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.brand-lockup img{height:34px;width:auto}
+.doc-pill{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:5px 10px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  color:var(--cyan-soft);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.nav-title{
+  margin-bottom:8px;
+  color:#9eb5cc;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.book-nav{
+  display:grid;
+  gap:4px;
+}
+.book-nav a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:var(--radius);
+  color:rgba(255,255,255,.74);
+  font-size:14px;
+  font-weight:750;
+  transition:background .2s ease,color .2s ease,transform .2s ease;
+}
+.book-nav a:hover,.book-nav a.is-active{
+  color:#fff;
+  background:rgba(255,255,255,.08);
+}
+.book-nav a:hover{transform:translateX(2px)}
+.sidebar-note{
+  margin-top:auto;
+  padding:14px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.05);
+  color:#bad0e5;
+  font-size:12px;
+}
+
+.content{min-width:0}
+.cover{
+  position:relative;
+  min-height:94vh;
+  display:flex;
+  align-items:flex-end;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(7,17,31,.96) 0%,rgba(7,17,31,.82) 44%,rgba(7,17,31,.32) 72%,rgba(7,17,31,.08) 100%),
+    url("/static/img/LGPD-2026/banne.webp") right center/auto 96% no-repeat,
+    var(--navy);
+  overflow:hidden;
+}
+.cover::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:28%;
+  background:linear-gradient(180deg,rgba(7,17,31,0),var(--navy));
+  pointer-events:none;
+}
+.cover-inner{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:960px;
+  padding:96px clamp(28px,6vw,86px) 88px;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:18px;
+  color:var(--cyan-soft);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.eyebrow::before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 0 6px rgba(0,188,231,.14);
+}
+h1,h2,h3,h4{
+  font-family:var(--font-title);
+  letter-spacing:0;
+  line-height:1.12;
+}
+.cover h1{
+  max-width:800px;
+  font-size:clamp(42px,6vw,74px);
+  font-weight:700;
+}
+.cover-lead{
+  max-width:720px;
+  margin-top:22px;
+  color:#d5e4f4;
+  font-size:19px;
+}
+.cover-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:32px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:52px;
+  padding:14px 22px;
+  border:1px solid transparent;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--cyan),#67e2ff);
+  color:#00131c;
+  font-family:var(--font-title);
+  font-size:15px;
+  font-weight:800;
+  line-height:1.15;
+  text-align:center;
+  box-shadow:0 16px 34px rgba(0,155,206,.28);
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(0,155,206,.35)}
+.btn:active{transform:translateY(0)}
+.btn--ghost{background:rgba(255,255,255,.08);color:#fff;border-color:var(--line-dark);box-shadow:none}
+.btn--ghost:hover{background:rgba(255,255,255,.14);box-shadow:none}
+.btn--dark{background:#111827;color:#fff;border-color:#111827;box-shadow:none}
+.btn--full{width:100%}
+
+.marquee{
+  overflow:hidden;
+  background:var(--navy);
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  padding:18px 0;
+}
+.marquee-track{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  animation:marquee 34s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-item{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  padding:0 28px;
+  color:#d8e9f8;
+  font-size:14px;
+  font-weight:700;
+  white-space:nowrap;
+}
+.marquee-item svg{width:12px;height:12px;color:var(--cyan);flex:none}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.section{
+  padding:86px clamp(24px,5vw,72px);
+  scroll-margin-top:32px;
+}
+.section--white{background:#fff}
+.section--light{background:var(--paper-2)}
+.section--dark{
+  position:relative;
+  background:
+    radial-gradient(80% 60% at 50% 52%,rgba(0,120,200,.20),transparent 70%),
+    linear-gradient(180deg,rgba(4,10,20,.97) 0%,rgba(4,10,20,.90) 38%,rgba(4,10,20,.88) 62%,rgba(4,10,20,.97) 100%),
+    url("/static/img/LGPD-2026/space-bg.webp") center/cover no-repeat;
+  color:#fff;
+  box-shadow:inset 0 0 160px rgba(0,70,140,.35);
+}
+.wrap{max-width:var(--max);margin:0 auto}
+.section-head{
+  max-width:780px;
+  margin-bottom:38px;
+}
+.section-head--center{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+.section-kicker{
+  color:var(--cyan-dark);
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.section--dark .section-kicker{color:var(--cyan-soft)}
+.section-head h2{
+  font-size:clamp(30px,4vw,42px);
+  color:inherit;
+}
+.section-head p{
+  margin-top:14px;
+  color:var(--muted);
+  font-size:18px;
+}
+.section--dark .section-head p{color:#bad0e5}
+.grid-2{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:22px;
+}
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+.panel{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  box-shadow:0 12px 28px rgba(9,22,42,.05);
+}
+.panel-pad{padding:22px}
+.panel-dark{
+  border-color:rgba(255,255,255,.14);
+  background:rgba(11,22,38,.62);
+  color:#fff;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.label{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.caption{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.brand-story{
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);
+  gap:28px;
+  align-items:start;
+}
+.voice-card{
+  min-height:100%;
+  padding:26px;
+  border-left:4px solid var(--amber);
+  border-radius:0 var(--radius) var(--radius) 0;
+  background:#fff8eb;
+  color:#5c3a08;
+}
+.voice-card strong{display:block;margin-bottom:8px;color:#7a4d08;font-family:var(--font-title);font-size:19px}
+.principles{
+  display:grid;
+  gap:12px;
+}
+.principle{
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:14px;
+  align-items:start;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.principle-icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:var(--radius);
+  background:#eef5fb;
+  color:var(--cyan-dark);
+}
+.principle-icon svg{width:23px;height:23px}
+.principle h3{font-size:18px}
+.principle p{margin-top:4px;color:var(--muted);font-size:15px}
+
+.logo-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
+  gap:20px;
+}
+.logo-stage{
+  min-height:300px;
+  display:grid;
+  place-items:center;
+  padding:42px;
+  border-radius:var(--radius);
+  background:
+    linear-gradient(135deg,rgba(0,188,231,.14),rgba(242,184,75,.06)),
+    var(--navy);
+  border:1px solid rgba(255,255,255,.12);
+}
+.logo-stage img{width:min(100%,520px)}
+.logo-card img{height:58px;width:auto;margin-bottom:16px}
+.clearspace{
+  position:relative;
+  display:grid;
+  place-items:center;
+  min-height:190px;
+  border:1px dashed #b9c8da;
+  border-radius:var(--radius);
+  background:
+    linear-gradient(90deg,rgba(0,188,231,.08) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(0,188,231,.08) 1px,transparent 1px),
+    #fff;
+  background-size:28px 28px;
+}
+.clearspace img{width:250px}
+.use-list{
+  display:grid;
+  gap:10px;
+  margin-top:14px;
+}
+.use-list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:15px;
+}
+.use-list svg{width:18px;height:18px;margin-top:3px;color:var(--green);flex:none}
+.use-list .danger svg{color:var(--red)}
+
+.color-chip{
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.swatch{
+  min-height:102px;
+  display:flex;
+  align-items:flex-end;
+  padding:14px;
+  color:#fff;
+}
+.swatch--light{color:var(--ink)}
+.chip-body{
+  display:grid;
+  gap:8px;
+  padding:14px;
+}
+.chip-name{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  font-weight:800;
+}
+.copy-code{
+  min-height:32px;
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  color:var(--cyan-dark);
+  font-size:12px;
+  font-weight:800;
+}
+.copy-code:hover{border-color:#b9d8e6;box-shadow:0 6px 18px rgba(9,22,42,.06)}
+
+.type-specimen{
+  display:grid;
+  gap:18px;
+}
+.type-row{
+  display:grid;
+  grid-template-columns:210px minmax(0,1fr);
+  gap:20px;
+  align-items:start;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.type-row strong{font-family:var(--font-title)}
+.type-sample h3{
+  max-width:760px;
+  font-size:40px;
+}
+.type-sample .hero-type{
+  font-size:58px;
+  line-height:1.12;
+  font-weight:700;
+}
+.type-sample p{
+  max-width:720px;
+  color:var(--muted);
+  font-size:18px;
+}
+.type-scale{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+.token{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:5px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+  color:var(--ink-2);
+  font-size:12px;
+  font-weight:800;
+}
+
+.component-gallery{
+  display:grid;
+  gap:18px;
+}
+.nav-demo{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  padding:0 22px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius);
+  background:rgba(7,17,31,.82);
+  box-shadow:0 10px 34px rgba(3,10,20,.24);
+}
+.nav-demo img{height:32px;width:auto}
+.nav-demo-links{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+.nav-demo-links a{
+  color:rgba(255,255,255,.76);
+  font-size:14px;
+  font-weight:700;
+}
+.nav-demo-links a:hover{color:#fff}
+.nav-demo .btn{min-height:42px;padding:10px 16px;font-size:13px}
+.component-row{
+  display:grid;
+  grid-template-columns:minmax(220px,.34fr) minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+}
+.component-note{
+  position:sticky;
+  top:24px;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.component-note h3{font-size:18px}
+.component-note p{margin-top:8px;color:var(--muted);font-size:14px}
+.demo-surface{
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.demo-surface--dark{
+  background:var(--navy);
+  color:#fff;
+  border-color:rgba(255,255,255,.14);
+}
+.risk-item{
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:14px;
+  align-items:start;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  box-shadow:0 12px 28px rgba(9,22,42,.06);
+}
+.risk-icon{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:var(--radius);
+  background:#fff3f2;
+  color:var(--red);
+}
+.risk-icon svg{width:24px;height:24px}
+.risk-item h3{font-size:18px}
+.risk-item p{margin-top:4px;color:var(--muted);font-size:15px}
+.deliver{
+  min-height:220px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.deliver:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(11,30,54,.1);border-color:#b9d8e6}
+.deliver svg{width:30px;height:30px;color:var(--cyan-dark);margin-bottom:18px}
+.deliver h3{font-size:19px}
+.deliver p{margin-top:10px;color:var(--muted);font-size:15px}
+.steps{
+  position:relative;
+  display:grid;
+  gap:0;
+}
+.steps::before{
+  content:"";
+  position:absolute;
+  left:25px;
+  top:12px;
+  bottom:12px;
+  width:2px;
+  background:#d4e0ec;
+}
+.step{
+  position:relative;
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:18px;
+  padding:0 0 20px;
+}
+.step:last-child{padding-bottom:0}
+.step-num{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:var(--radius);
+  background:var(--navy);
+  color:#fff;
+  font-family:var(--font-title);
+  font-weight:700;
+  position:relative;
+  z-index:1;
+}
+.step > div:last-child{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  box-shadow:var(--soft-shadow);
+}
+.step h3{font-size:19px}
+.step p{margin-top:6px;color:var(--muted);font-size:15px}
+.lead-card{
+  position:relative;
+  width:100%;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.96);
+  color:var(--ink);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.lead-card::before{
+  content:"";
+  display:block;
+  height:6px;
+  background:linear-gradient(90deg,var(--cyan),var(--amber));
+}
+.lead-card__body{padding:26px}
+.lead-card h3{font-size:25px;color:var(--ink)}
+.lead-card p{margin-top:8px;color:var(--muted);font-size:14px}
+.fields{display:grid;gap:12px;margin-top:20px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field label{
+  display:block;
+  margin-bottom:5px;
+  color:var(--ink-2);
+  font-size:12px;
+  font-weight:800;
+}
+.field input,.field select{
+  width:100%;
+  height:46px;
+  border:1px solid #cfd9e6;
+  border-radius:var(--radius);
+  background:#fff;
+  color:var(--ink);
+  padding:0 12px;
+  font-size:15px;
+  outline:none;
+  transition:border-color .2s ease,box-shadow .2s ease;
+}
+.field input:focus,.field select:focus{
+  border-color:var(--cyan-dark);
+  box-shadow:0 0 0 3px rgba(0,188,231,.14);
+}
+.field input::placeholder{color:#98a7b8}
+.field select{
+  appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath fill='%2362748b' d='M7 9 0 0h14z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 12px center;
+  padding-right:34px;
+}
+.field-help{
+  display:block;
+  min-height:18px;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:700;
+}
+.consent{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin:4px 0 2px;
+  color:var(--muted);
+  font-size:12px;
+}
+.consent input{width:16px;height:16px;margin-top:3px;accent-color:var(--cyan-dark);flex:none}
+.form-note{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:12px;
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+}
+.form-note svg{width:15px;height:15px}
+.proof-caption{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:18px;
+  padding:18px 24px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--radius);
+  background:rgba(11,22,38,.62);
+}
+.proof-author{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.proof-avatar{
+  width:56px;
+  height:56px;
+  flex:none;
+  border-radius:var(--radius);
+  object-fit:cover;
+  object-position:center 15%;
+  border:1px solid rgba(255,255,255,.18);
+  background:#0b1626;
+}
+.proof-author strong{
+  display:block;
+  color:#fff;
+  font-family:var(--font-title);
+  font-size:17px;
+  font-weight:800;
+}
+.proof-author small{
+  display:block;
+  margin-top:2px;
+  color:#9eb5cc;
+  font-size:13px;
+  font-weight:650;
+}
+.proof-meta{display:flex;align-items:center;gap:16px}
+.stars{color:var(--amber);font-size:19px;line-height:1}
+.proof-tag{
+  display:inline-flex;
+  align-items:center;
+  min-height:32px;
+  padding:6px 14px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  color:var(--cyan-soft);
+  font-size:12px;
+  font-weight:800;
+}
+.video-demo{
+  position:relative;
+  aspect-ratio:16/9;
+  width:100%;
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:#000;
+  box-shadow:0 30px 70px rgba(0,0,0,.36),0 0 60px rgba(0,140,220,.18);
+}
+.video-cover-demo{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  border:0;
+  background:
+    linear-gradient(90deg,rgba(7,17,31,.42),rgba(7,17,31,.08)),
+    url("https://i.ytimg.com/vi/sa63LdUJdMg/hqdefault.jpg") center/cover no-repeat,
+    var(--navy);
+}
+.video-cover-demo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center,rgba(34,211,238,.18),transparent 34%);
+}
+.video-play{
+  position:relative;
+  z-index:1;
+  width:74px;
+  height:74px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 18px 46px rgba(34,211,238,.35);
+}
+.video-play::before{
+  content:"";
+  position:absolute;
+  left:30px;
+  top:23px;
+  border-left:22px solid var(--navy);
+  border-top:14px solid transparent;
+  border-bottom:14px solid transparent;
+}
+.sector-metric{
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.sector-metric strong{
+  display:block;
+  font-family:var(--font-title);
+  font-size:40px;
+  line-height:1;
+  color:var(--navy);
+}
+.sector-metric span{
+  display:block;
+  margin-top:6px;
+  color:var(--muted);
+  font-size:14px;
+  font-weight:750;
+}
+.sector-card{
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  box-shadow:0 12px 28px rgba(9,22,42,.05);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.sector-card:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(11,30,54,.1);border-color:#b9d8e6}
+.sector-name{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--ink);
+  font-family:var(--font-title);
+  font-size:19px;
+  font-weight:800;
+}
+.sector-name::before{
+  content:"";
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--cyan-dark);
+  box-shadow:0 0 0 4px rgba(0,142,192,.12);
+  flex:none;
+}
+.sector-card p{margin-top:10px;color:var(--muted);font-size:15px;line-height:1.5}
+.faq-list{display:grid;gap:12px}
+.faq{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  overflow:hidden;
+}
+.faq[open]{border-color:#b9d8e6;box-shadow:0 14px 32px rgba(9,22,42,.08)}
+.faq summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 22px;
+  cursor:pointer;
+  list-style:none;
+  font-family:var(--font-title);
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--cyan-dark)}
+.faq-chevron{
+  width:22px;
+  height:22px;
+  flex:none;
+  color:var(--cyan-dark);
+  transition:transform .25s ease;
+}
+.faq[open] .faq-chevron{transform:rotate(180deg)}
+.faq-answer{padding:0 22px 20px;color:var(--muted);font-size:15px}
+
+.do-dont{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.rule-card{
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.rule-card h3{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:20px;
+}
+.rule-card h3 svg{width:22px;height:22px;flex:none}
+.rule-card--do h3{color:var(--green)}
+.rule-card--dont h3{color:var(--red)}
+.rule-card ul{display:grid;gap:10px;margin-top:14px;color:var(--muted);font-size:15px}
+.rule-card li{position:relative;padding-left:18px}
+.rule-card li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.7em;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:currentColor;
+}
+
+.copy-columns{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.copy-card{
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+}
+.copy-card h3{font-size:19px}
+.copy-card p{margin-top:10px;color:var(--muted);font-size:15px}
+.copy-card blockquote{
+  margin-top:14px;
+  padding:14px 16px;
+  border-left:4px solid var(--cyan);
+  background:#eef9fd;
+  color:var(--ink-2);
+  font-weight:700;
+}
+
+.final-sample{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:26px;
+  align-items:center;
+  padding:38px;
+  border-radius:var(--radius);
+  background:
+    linear-gradient(90deg,rgba(7,17,31,.96),rgba(7,17,31,.86)),
+    url("/static/img/LGPD-2026/be17cd09d9601eaa_443609-2fe1b5e4f939eb67435d456.webp") center/cover no-repeat;
+  color:#fff;
+}
+.final-sample h3{font-size:34px;max-width:760px}
+.final-sample p{margin-top:12px;color:#c6d9eb;font-size:17px;max-width:720px}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:24px;
+  z-index:80;
+  transform:translate(-50%,20px);
+  opacity:0;
+  pointer-events:none;
+  padding:12px 16px;
+  border-radius:var(--radius);
+  background:var(--navy);
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  box-shadow:var(--shadow);
+  transition:opacity .2s ease,transform .2s ease;
+}
+.toast.is-visible{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+@media(max-width:1180px){
+  .page-shell{grid-template-columns:1fr}
+  .sidebar{
+    position:relative;
+    height:auto;
+    padding:18px 20px;
+  }
+  .book-nav{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    padding-bottom:4px;
+  }
+  .book-nav a{white-space:nowrap}
+  .sidebar-note{display:none}
+}
+@media(max-width:920px){
+  .grid-2,.grid-3,.grid-4,.brand-story,.logo-grid,.component-row,.copy-columns,.do-dont,.final-sample{
+    grid-template-columns:1fr;
+  }
+  .component-note{position:relative;top:auto}
+  .final-sample .btn{width:max-content}
+}
+@media(max-width:720px){
+  .cover{
+    min-height:96vh;
+    align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(7,17,31,0) 0%,rgba(7,17,31,0) 42%,rgba(7,17,31,.58) 62%,rgba(7,17,31,.95) 84%,var(--navy) 100%),
+      url("/static/img/LGPD-2026/banner%20cel.webp") top center/100% auto no-repeat,
+      var(--navy);
+  }
+  .cover-inner{padding:82px 28px 44px}
+  .cover h1{font-size:34px;max-width:100%}
+  .cover-lead{font-size:16px}
+  .cover-actions .btn{width:100%}
+  .section{padding:62px 24px}
+  .section-head p{font-size:16px}
+  .type-row{grid-template-columns:1fr}
+  .type-sample .hero-type{font-size:34px}
+  .type-sample h3{font-size:29px}
+  .nav-demo{align-items:flex-start;flex-direction:column;padding:18px}
+  .nav-demo-links{display:none}
+  .field-row{grid-template-columns:1fr}
+  .proof-meta{width:100%;justify-content:space-between}
+  .final-sample{padding:28px}
+  .final-sample h3{font-size:28px}
+  .final-sample .btn{width:100%;white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.deliver,.sector-card,.book-nav a{transition:none}
+  .marquee-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto;gap:8px}
+}
+@media print{
+  .sidebar,.cover-actions,.copy-code,.toast{display:none}
+  .page-shell{display:block}
+  .cover{min-height:auto;padding:80px 0;background:var(--navy)}
+  .section{break-inside:avoid;padding:38px 0}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<div class="page-shell">
+  <aside class="sidebar" aria-label="Navegação do brandbook">
+    <div class="brand-lockup">
+      <img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="SOMAXI Group">
+      <span class="doc-pill">Brandbook</span>
+    </div>
+    <div>
+      <div class="nav-title">Manual</div>
+      <nav class="book-nav">
+        <a href="#essencia">Essência <span>01</span></a>
+        <a href="#logo">Logo <span>02</span></a>
+        <a href="#cores">Cores <span>03</span></a>
+        <a href="#tipografia">Tipo <span>04</span></a>
+        <a href="#componentes">Componentes <span>05</span></a>
+        <a href="#voz">Voz <span>06</span></a>
+        <a href="#regras">Regras <span>07</span></a>
+      </nav>
+    </div>
+    <p class="sidebar-note">Baseado diretamente na LP SOMAXI LGPD: cores, fontes, botões, cards, formulário, prova social, setores, FAQ, motion e tracking.</p>
+  </aside>
+
+  <main class="content">
+    <section class="cover" id="topo">
+      <div class="cover-inner">
+        <div class="eyebrow">SOMAXI Group</div>
+        <h1>Sistema de marca para adequação LGPD, DPO e governança de dados.</h1>
+        <p class="cover-lead">Um brandbook operacional para manter consistência visual, verbal e de interface em páginas, apresentações, anúncios e materiais comerciais da SOMAXI.</p>
+        <div class="cover-actions">
+          <a class="btn" href="#essencia">
+            Ver sistema
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="/somaxi-lgpd">Abrir LP original</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Diferenciais SOMAXI">
+      <div class="marquee-track">
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> DPO terceirizado certificado</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Jurídico, processos e segurança</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Evidências para auditorias</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Resposta a titulares e incidentes</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Plataforma de gestão LGPD</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> +300 empresas adequadas</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> DPO terceirizado certificado</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Jurídico, processos e segurança</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Evidências para auditorias</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Resposta a titulares e incidentes</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> Plataforma de gestão LGPD</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg> +300 empresas adequadas</span>
+      </div>
+    </div>
+
+    <section class="section section--white" id="essencia">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">01. Essência da marca</div>
+          <h2>Confiança técnica com linguagem direta de negócio.</h2>
+          <p>A SOMAXI deve parecer sólida, consultiva e objetiva. A marca não vende medo: organiza risco, prova conformidade e reduz atrito em contratos, auditorias e incidentes.</p>
+        </div>
+        <div class="brand-story">
+          <div class="principles">
+            <article class="principle">
+              <div class="principle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-5"/></svg></div>
+              <div>
+                <h3>Prova de conformidade</h3>
+                <p>O foco visual e verbal é evidência: documentos, processos, trilhas, registros, responsáveis e resposta rápida.</p>
+              </div>
+            </article>
+            <article class="principle">
+              <div class="principle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg></div>
+              <div>
+                <h3>Um fornecedor responsável</h3>
+                <p>Jurídico, processos, tecnologia, cibersegurança e DPO em uma narrativa única e bem coordenada.</p>
+              </div>
+            </article>
+            <article class="principle">
+              <div class="principle-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/></svg></div>
+              <div>
+                <h3>Execução sem improviso</h3>
+                <p>A marca comunica método, prioridades e caminho prático, evitando promessas genéricas de conformidade.</p>
+              </div>
+            </article>
+          </div>
+          <aside class="voice-card">
+            <strong>Frase-mãe da LP</strong>
+            <p>Adequação LGPD para empresas que precisam provar conformidade.</p>
+            <p style="margin-top:14px">Use esta ideia como norte: toda peça deve deixar claro que a SOMAXI transforma LGPD em evidência aplicável ao negócio.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="logo">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">02. Logo e assinatura</div>
+          <h2>Marca branca, alto contraste e presença institucional.</h2>
+          <p>A LP usa a assinatura horizontal SOMAXI Group em branco, aplicada sobre fundos escuros. Essa deve ser a versão preferencial em páginas e materiais digitais.</p>
+        </div>
+        <div class="logo-grid">
+          <div class="logo-stage">
+            <img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="Logo horizontal SOMAXI Group">
+          </div>
+          <div class="panel panel-pad logo-card">
+            <img src="/static/img/LGPD-2026/1314beb9ffb78d18_443609-f9cb09e69d49bb84420a199.webp" alt="Ícone SOMAXI">
+            <div class="label">Assinatura principal</div>
+            <h3 style="margin-top:8px">SOMAXI Group</h3>
+            <p class="caption" style="margin-top:8px">Preferir fundo navy, fotografia escurecida ou área com overlay. Evitar aplicação sobre fundos claros sem versão positiva dedicada.</p>
+            <ul class="use-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg> Header: altura observada de 32px no desktop.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg> Footer: altura observada de 34px.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg> Mobile: reduzir para 26px mantendo respiro.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:20px">
+          <div class="panel panel-pad">
+            <div class="label">Área de proteção</div>
+            <div class="clearspace" style="margin-top:14px">
+              <img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="Logo SOMAXI com respiro">
+            </div>
+            <p class="caption" style="margin-top:12px">Manter respiro mínimo proporcional à altura do símbolo S em todos os lados. Em barras de navegação, preservar pelo menos 12px entre logo e elementos vizinhos.</p>
+          </div>
+          <div class="panel panel-pad">
+            <div class="label">Usos indevidos</div>
+            <ul class="use-list">
+              <li class="danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Não achatar, distorcer ou recriar o logotipo em texto.</li>
+              <li class="danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Não aplicar sobre fotografia clara sem overlay escuro.</li>
+              <li class="danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Não trocar o ciano por variações improvisadas.</li>
+              <li class="danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Não usar raio excessivo nos elementos de suporte: a marca trabalha com 8px.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="cores">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">03. Paleta cromática</div>
+          <h2>Navy como base, ciano como ação, amber como alerta estratégico.</h2>
+          <p>A paleta é corporativa e tecnológica. O azul-marinho cria confiança; o ciano sinaliza avanço, link e CTA; o amber destaca risco, urgência e pontos de atenção.</p>
+        </div>
+        <div class="grid-4">
+          <article class="color-chip">
+            <div class="swatch" style="background:#07111f">Base digital</div>
+            <div class="chip-body"><div class="chip-name">Navy <button class="copy-code" data-copy="#07111f">#07111f</button></div><p class="caption">Hero, header, footer, CTA escuro.</p></div>
+          </article>
+          <article class="color-chip">
+            <div class="swatch" style="background:#0c1b2d">Profundidade</div>
+            <div class="chip-body"><div class="chip-name">Navy 2 <button class="copy-code" data-copy="#0c1b2d">#0c1b2d</button></div><p class="caption">Superfícies escuras e overlays.</p></div>
+          </article>
+          <article class="color-chip">
+            <div class="swatch" style="background:#00bce7;color:#00131c">Ação</div>
+            <div class="chip-body"><div class="chip-name">Cyan <button class="copy-code" data-copy="#00bce7">#00bce7</button></div><p class="caption">CTAs, bullets, gradientes, foco.</p></div>
+          </article>
+          <article class="color-chip">
+            <div class="swatch" style="background:#008ec0">Link</div>
+            <div class="chip-body"><div class="chip-name">Cyan Dark <button class="copy-code" data-copy="#008ec0">#008ec0</button></div><p class="caption">Links, ícones, estado hover.</p></div>
+          </article>
+          <article class="color-chip">
+            <div class="swatch swatch--light" style="background:#f2b84b">Atenção</div>
+            <div class="chip-body"><div class="chip-name">Amber <button class="copy-code" data-copy="#f2b84b">#f2b84b</button></div><p class="caption">Avisos, notas legais, estrelas.</p></div>
+          </article>
+          <article class="color-chip">
+            <div class="swatch" style="background:#d64545">Risco</div>
+            <div class="chip-body"><div class="chip-name">Red <button class="copy-code" data-copy="#d64545">#d64545</button></div><p class="caption">Erro, sanção, risco real.</p></div>
+          </article>
+          <article class="color-chip">
+            <div class="swatch" style="background:#0e9f6e">Validação</div>
+            <div class="chip-body"><div class="chip-name">Green <button class="copy-code" data-copy="#0e9f6e">#0e9f6e</button></div><p class="caption">Sucesso, CNPJ validado.</p></div>
+          </article>
+          <article class="color-chip">
+            <div class="swatch swatch--light" style="background:#f7f9fc">Fundo</div>
+            <div class="chip-body"><div class="chip-name">Paper <button class="copy-code" data-copy="#f7f9fc">#f7f9fc</button></div><p class="caption">Áreas claras e respiro.</p></div>
+          </article>
+        </div>
+        <div class="grid-3" style="margin-top:16px">
+          <div class="panel panel-pad"><div class="label">Texto forte</div><h3 style="margin-top:8px;color:#101828">#101828</h3><p class="caption">Títulos e conteúdo principal em áreas claras.</p></div>
+          <div class="panel panel-pad"><div class="label">Texto secundário</div><h3 style="margin-top:8px;color:#62748b">#62748b</h3><p class="caption">Parágrafos, descrições e microcopy.</p></div>
+          <div class="panel panel-pad"><div class="label">Bordas</div><h3 style="margin-top:8px;color:#dbe4ee">#dbe4ee</h3><p class="caption">Cards, inputs, FAQs e divisórias.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="tipografia">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">04. Tipografia</div>
+          <h2>IBM Plex Sans para autoridade técnica sem perder clareza comercial.</h2>
+          <p>A LP usa IBM Plex Sans como fonte principal e Inter como fallback. Pesos 700 e 800 sustentam títulos, CTAs e labels; pesos 400 a 600 mantêm leitura em textos longos.</p>
+        </div>
+        <div class="type-specimen">
+          <div class="type-row">
+            <div>
+              <strong>Hero H1</strong>
+              <p class="caption">58px, 700, line-height 1.12</p>
+              <div class="type-scale"><span class="token">Desktop</span><span class="token">Mobile 27-28px</span></div>
+            </div>
+            <div class="type-sample"><div class="hero-type">Adequação LGPD para empresas que precisam provar conformidade.</div></div>
+          </div>
+          <div class="type-row">
+            <div>
+              <strong>Section H2</strong>
+              <p class="caption">38px, 700, line-height 1.12</p>
+            </div>
+            <div class="type-sample"><h3>Uma solução completa. Um único fornecedor responsável.</h3></div>
+          </div>
+          <div class="type-row">
+            <div>
+              <strong>Body e apoio</strong>
+              <p class="caption">18px para leads, 15-16px para cards</p>
+            </div>
+            <div class="type-sample"><p>Jurídico, tecnologia, processos e DPO em uma operação única, com evidências e rotina de gestão para auditorias, contratos e incidentes.</p></div>
+          </div>
+          <div class="type-row">
+            <div>
+              <strong>Labels e botões</strong>
+              <p class="caption">12-15px, peso 800</p>
+            </div>
+            <div>
+              <span class="section-kicker">Diagnóstico gratuito</span>
+              <div style="margin-top:14px"><a class="btn" href="#componentes">Receber diagnóstico gratuito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="componentes">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">05. Componentes da LP</div>
+          <h2>Biblioteca visual pronta para páginas, anúncios e materiais comerciais.</h2>
+          <p>Os elementos abaixo foram recriados a partir da LP: botões, cards de risco, formulário, entregas, método, prova social, métricas, setores, FAQ e CTA final.</p>
+        </div>
+        <div class="component-gallery">
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Header e navegação</h3>
+              <p>Barra escura translúcida, logo à esquerda, links com peso alto e CTA compacto. No mobile, links somem e o foco fica no conteúdo.</p>
+            </aside>
+            <div class="demo-surface demo-surface--dark">
+              <div class="nav-demo">
+                <a href="#topo" aria-label="SOMAXI">
+                  <img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="SOMAXI Group">
+                </a>
+                <nav class="nav-demo-links" aria-label="Exemplo de navegação">
+                  <a href="#componentes">Risco</a>
+                  <a href="#componentes">Solução</a>
+                  <a href="#componentes">Método</a>
+                  <a href="#componentes">Prova</a>
+                  <a href="#componentes">FAQ</a>
+                </nav>
+                <a href="#componentes" class="btn">Diagnóstico gratuito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Botões e CTAs</h3>
+              <p>Cantos de 8px, peso alto, ícone de avanço e gradiente ciano. Use uma ação primária por bloco.</p>
+            </aside>
+            <div class="demo-surface demo-surface--dark">
+              <div style="display:flex;flex-wrap:wrap;gap:12px">
+                <a class="btn" href="#voz">Receber diagnóstico gratuito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+                <a class="btn btn--ghost" href="#componentes">Ver solução completa</a>
+                <a class="btn btn--dark" href="#regras">Checklist de uso</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Risco real</h3>
+              <p>Cards pequenos com ícone vermelho, título direto e texto de consequência. Bons para objeções e dores.</p>
+            </aside>
+            <div class="grid-3">
+              <article class="risk-item">
+                <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/></svg></div>
+                <div><h3>Contrato parado</h3><p>Cliente pede política e base legal. Sem isso, a negociação esfria.</p></div>
+              </article>
+              <article class="risk-item">
+                <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6l-9-4Z"/><path d="M12 8v5"/><path d="M12 17h.01"/></svg></div>
+                <div><h3>Incidente sem fluxo</h3><p>Sem rito definido, um vazamento vira crise.</p></div>
+              </article>
+              <article class="risk-item">
+                <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 21h20L12 2Z"/><path d="M12 9v5"/><path d="M12 17.5h.01"/></svg></div>
+                <div><h3>Sanção administrativa</h3><p>Advertência, bloqueio de dados e multa por infração.</p></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Formulário de diagnóstico</h3>
+              <p>Card branco sobre fundo claro ou escuro, faixa superior ciano-amber, labels fortes e microcopy de segurança.</p>
+            </aside>
+            <div class="demo-surface" style="background:#eef5fb">
+              <aside class="lead-card" aria-label="Exemplo visual de formulário">
+                <div class="lead-card__body">
+                  <h3>Receba seu mapa inicial de exposição.</h3>
+                  <p>O time SOMAXI retorna com uma primeira leitura da sua operação e o caminho mais direto para adequação.</p>
+                  <form class="fields" data-demo-form>
+                    <div class="field-row">
+                      <div class="field"><label for="demoNome">Nome</label><input id="demoNome" type="text" placeholder="Seu nome"></div>
+                      <div class="field"><label for="demoWhats">WhatsApp</label><input id="demoWhats" type="tel" placeholder="(00) 00000-0000"></div>
+                    </div>
+                    <div class="field"><label for="demoEmail">E-mail corporativo</label><input id="demoEmail" type="email" placeholder="nome@empresa.com.br"></div>
+                    <div class="field"><label for="demoCnpj">CNPJ</label><input id="demoCnpj" type="text" placeholder="00.000.000/0000-00"><small class="field-help">Informe um CNPJ válido para liberar o diagnóstico.</small></div>
+                    <div class="field-row">
+                      <div class="field"><label for="demoEmpresa">Empresa</label><input id="demoEmpresa" type="text" placeholder="Nome da empresa"></div>
+                      <div class="field"><label for="demoCargo">Cargo / Função</label><select id="demoCargo"><option>Selecione</option><option>CEO / Sócio / Fundador</option><option>Jurídico / Compliance</option></select></div>
+                    </div>
+                    <label class="consent"><input type="checkbox"> <span>Autorizo a SOMAXI a entrar em contato para diagnóstico LGPD.</span></label>
+                    <button type="submit" class="btn btn--full">Solicitar diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+                    <div class="form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Seus dados serão usados apenas para este atendimento.</div>
+                  </form>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Entregas</h3>
+              <p>Cards brancos, ícone ciano, sombra sutil no hover. Use para modular ofertas e escopos.</p>
+            </aside>
+            <div class="grid-3">
+              <article class="deliver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg><h3>Implementação LGPD</h3><p>Mapeamento de dados, bases legais, políticas, contratos e registros.</p></article>
+              <article class="deliver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/><path d="m17 4 1 1 2-2"/></svg><h3>DPO as a Service</h3><p>Encarregado terceirizado para titulares, clientes e a autoridade competente.</p></article>
+              <article class="deliver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v2.5"/></svg><h3>Cibersegurança</h3><p>Diagnóstico técnico e vulnerabilidades prioritárias alinhadas à governança.</p></article>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Método</h3>
+              <p>Timeline vertical com números navy. Ideal para orientar execução, prazos e entregas.</p>
+            </aside>
+            <div class="demo-surface">
+              <div class="steps">
+                <article class="step"><div class="step-num">1</div><div><h3>Diagnóstico em até 24h</h3><p>Analisamos CNPJ, segmento, porte, volume de dados e urgências comerciais.</p></div></article>
+                <article class="step"><div class="step-num">2</div><div><h3>Mapa de exposição</h3><p>Visão objetiva do que trava contratos, auditorias e segurança.</p></div></article>
+                <article class="step"><div class="step-num">3</div><div><h3>Plano de adequação</h3><p>Escopo, responsáveis, cronograma, documentos, controles e rotina do DPO.</p></div></article>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Prova social</h3>
+              <p>Use fundo escuro, avatar quadrado 8px, estrelas amber e tag ciano. O vídeo pode aparecer com capa e botão circular.</p>
+            </aside>
+            <div class="demo-surface demo-surface--dark" style="display:grid;gap:16px">
+              <div class="video-demo" aria-label="Exemplo de player de vídeo">
+                <button class="video-cover-demo" type="button" data-demo-video aria-label="Assistir depoimento">
+                  <span class="video-play" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="proof-caption">
+                <div class="proof-author">
+                  <img class="proof-avatar" src="/static/img/LGPD-2026/hyperion-franquias.webp" alt="Dr. Cláudio Rodrigues">
+                  <div><strong>Dr. Cláudio Rodrigues</strong><small>CEO · Hyperion Franquias</small></div>
+                </div>
+                <div class="proof-meta"><span class="stars" aria-label="Avaliação 5 estrelas">★★★★★</span><span class="proof-tag">Implementação LGPD</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>Métricas e setores</h3>
+              <p>Métricas devem ser grandes e objetivas. Setores usam bullet ciano e texto curto focado no risco operacional.</p>
+            </aside>
+            <div class="demo-surface" style="display:grid;gap:16px">
+              <div class="grid-2">
+                <div class="sector-metric"><strong>+300</strong><span>empresas adequadas</span></div>
+                <div class="sector-metric"><strong>360°</strong><span>jurídico, processos e segurança</span></div>
+              </div>
+              <div class="grid-3">
+                <article class="sector-card"><strong class="sector-name">Saúde</strong><p>Dados sensíveis, prontuários e evidências clínicas auditáveis.</p></article>
+                <article class="sector-card"><strong class="sector-name">Franquias</strong><p>Modelo replicável de documentos e processos para franqueadora e unidades.</p></article>
+                <article class="sector-card"><strong class="sector-name">Tecnologia</strong><p>Segurança de dados, controle de acessos e integrações.</p></article>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-row">
+            <aside class="component-note">
+              <h3>FAQ e CTA final</h3>
+              <p>FAQ em acordeão com apenas uma resposta aberta. CTA final usa fotografia escura e chamada de urgência objetiva.</p>
+            </aside>
+            <div style="display:grid;gap:18px">
+              <div class="faq-list">
+                <details class="faq" open>
+                  <summary><span>A SOMAXI atua como DPO?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+                  <div class="faq-answer">Sim. O serviço inclui DPO terceirizado para apoiar a rotina de privacidade e a comunicação com titulares, clientes e autoridades.</div>
+                </details>
+                <details class="faq">
+                  <summary><span>O diagnóstico gratuito já resolve a LGPD?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+                  <div class="faq-answer">Não. Ele aponta exposição, prioridades e próximos passos. A adequação vem na implementação do plano, documentos, processos e controles.</div>
+                </details>
+              </div>
+              <div class="final-sample">
+                <div><h3>Não espere o cliente pedir evidências para descobrir que sua LGPD está incompleta.</h3><p>Comece pelo diagnóstico gratuito e receba uma leitura objetiva dos riscos.</p></div>
+                <a class="btn" href="#topo">Receber diagnóstico <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="voz">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">06. Voz, copy e conteúdo</div>
+          <h2>Direto, consultivo e orientado a evidências.</h2>
+          <p>A comunicação deve falar com decisores que precisam reduzir risco sem inflar a operação. Prefira consequência concreta, solução integrada e próximo passo claro.</p>
+        </div>
+        <div class="copy-columns">
+          <article class="copy-card">
+            <h3>Promessa central</h3>
+            <p>Traduzir LGPD em processos, documentos e rotina de gestão que sustentam contratos, auditorias e incidentes.</p>
+            <blockquote>Adequação LGPD para empresas que precisam provar conformidade.</blockquote>
+          </article>
+          <article class="copy-card">
+            <h3>Tom de risco</h3>
+            <p>Mostrar urgência sem exagero. Evitar pânico e usar fatos operacionais: contrato travado, auditoria, cliente corporativo, incidente.</p>
+            <blockquote>Sem evidência, o contrato trava.</blockquote>
+          </article>
+          <article class="copy-card">
+            <h3>Tom de solução</h3>
+            <p>Conectar jurídico, tecnologia, processos e DPO como uma operação única, não como uma lista solta de serviços.</p>
+            <blockquote>Uma solução completa. Um único fornecedor responsável.</blockquote>
+          </article>
+        </div>
+        <div class="grid-2" style="margin-top:18px">
+          <div class="panel panel-pad">
+            <div class="label">Vocabulário preferencial</div>
+            <ul class="use-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg> Evidências, governança, processos, DPO as a Service, mapa de exposição, diagnóstico, adequação, rotina de privacidade.</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg> Clientes, auditorias, contratos, incidentes, titulares, autoridade competente, segurança da informação.</li>
+            </ul>
+          </div>
+          <div class="panel panel-pad">
+            <div class="label">Evitar</div>
+            <ul class="use-list">
+              <li class="danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Promessas absolutas como "risco zero", "100% livre de multa" ou "adequação instantânea".</li>
+              <li class="danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Linguagem genérica de tecnologia sem relação com privacidade, prova e operação.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="regras">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">07. Regras de aplicação</div>
+          <h2>Checklist para manter a LP e futuras peças consistentes.</h2>
+          <p>Use este bloco como guia rápido antes de criar novas páginas, anúncios, criativos, propostas ou apresentações da SOMAXI.</p>
+        </div>
+        <div class="do-dont">
+          <article class="rule-card rule-card--do">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg> Fazer</h3>
+            <ul>
+              <li>Usar navy como fundo principal em heros, headers e rodapés.</li>
+              <li>Manter raio de 8px em cards, inputs, avatars, botões e vídeos.</li>
+              <li>Usar ciano para ações, ícones de entrega, bullets e estados de foco.</li>
+              <li>Aplicar fotografia escura com overlay para garantir legibilidade.</li>
+              <li>Escrever títulos com consequência clara e subtítulos com solução prática.</li>
+              <li>Preservar CTAs diretos: diagnóstico gratuito, mapa de exposição, solução completa.</li>
+            </ul>
+          </article>
+          <article class="rule-card rule-card--dont">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg> Evitar</h3>
+            <ul>
+              <li>Paletas claras demais que removem a autoridade técnica da marca.</li>
+              <li>Cards com cantos muito arredondados ou elementos com aparência lúdica.</li>
+              <li>Textos longos dentro de CTAs, cards compactos e labels.</li>
+              <li>Fotos genéricas claras, sem tecnologia, sem risco ou sem contexto corporativo.</li>
+              <li>Usar amber como cor principal. Ele é acento de alerta e prova, não base.</li>
+              <li>Adicionar botões aparentes sem ação, destino ou estado desabilitado.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="grid-3" style="margin-top:18px">
+          <div class="panel panel-pad">
+            <div class="label">Motion</div>
+            <h3 style="margin-top:8px">Sutil e funcional</h3>
+            <p class="caption" style="margin-top:8px">Reveal de 20px, transição de 0.65s, hover de cards com translateY(-3px), marquee pausável e respeito a reduced motion.</p>
+          </div>
+          <div class="panel panel-pad">
+            <div class="label">Tracking</div>
+            <h3 style="margin-top:8px">Eventos essenciais</h3>
+            <p class="caption" style="margin-top:8px">A LP usa <code>page_view</code>, <code>click_cta</code>, <code>generate_lead</code>, UTMs ocultos, GTM <code>GTM-MWBQBCPC</code> e origem <code>lp-somaxi-lgpd</code>.</p>
+          </div>
+          <div class="panel panel-pad">
+            <div class="label">Responsivo</div>
+            <h3 style="margin-top:8px">Hero dedicado no mobile</h3>
+            <p class="caption" style="margin-top:8px">Desktop usa `banne.webp` à direita. Mobile usa `banner cel.webp` no topo, com copy no terço inferior e botões em largura total.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Copiado</div>
+
+<script>
+(function(){
+  var toast = document.getElementById('toast');
+  var toastTimer;
+  function showToast(message){
+    if(!toast){ return; }
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function(){ toast.classList.remove('is-visible'); }, 1600);
+  }
+
+  document.querySelectorAll('[data-copy]').forEach(function(button){
+    button.addEventListener('click', function(){
+      var value = button.getAttribute('data-copy');
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(value).then(function(){
+          showToast(value + ' copiado');
+        }).catch(function(){
+          showToast(value);
+        });
+      }else{
+        showToast(value);
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-demo-form]').forEach(function(form){
+    form.addEventListener('submit', function(event){
+      event.preventDefault();
+      showToast('Exemplo visual do formulário SOMAXI');
+    });
+  });
+
+  document.querySelectorAll('[data-demo-video]').forEach(function(button){
+    button.addEventListener('click', function(){
+      showToast('Exemplo visual do player de depoimento');
+    });
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.book-nav a'));
+  var sections = links.map(function(link){
+    var id = link.getAttribute('href');
+    return document.querySelector(id);
+  }).filter(Boolean);
+
+  if('IntersectionObserver' in window && sections.length){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          links.forEach(function(link){ link.classList.remove('is-active'); });
+          var active = document.querySelector('.book-nav a[href="#' + entry.target.id + '"]');
+          if(active){ active.classList.add('is-active'); }
+        }
+      });
+    }, {rootMargin:'-30% 0px -58% 0px', threshold:0});
+    sections.forEach(function(section){ observer.observe(section); });
+  }
+
+  var faqItems = document.querySelectorAll('.faq-list details.faq');
+  faqItems.forEach(function(item){
+    item.addEventListener('toggle', function(){
+      if(item.open){
+        faqItems.forEach(function(other){
+          if(other !== item && other.closest('.component-row') === item.closest('.component-row')){
+            other.open = false;
+          }
+        });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

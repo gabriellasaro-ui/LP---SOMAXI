@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(cd 'c:\\\\Users\\\\Gabriel\\\\Documents\\\\Projetos\\\\LP - SOMAXI\\\\assets' && rm -f dark_*.png dk_*.png && echo \"temp limpo\")",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Bash(python -c \"import playwright; print\\('playwright ok'\\)\")",
+      "Bash(awk '{print $9, $5\" bytes\"}')",
+      "Read(//c/Users/Gabriel/.claude/projects/c--Users-Gabriel-Documents-Projetos-LP---SOMAXI/memory/**)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Gabriel\\Documents\\Projetos\\LP - SOMAXI\\assets"
+    ]
+  }
+}
