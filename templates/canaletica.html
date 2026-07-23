@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- SEO OBRIGATÓRIO -->
+    <title>Canal de Ética para Empresas | Implementação Completa | Somaxi</title>
+    <meta name="description"
+        content="Implemente um Canal de Ética seguro e confidencial com a Somaxi: plataforma, políticas, treinamento e apoio especializado nas apurações. Fale com um especialista.">
+
+    <!-- Open Graph OBRIGATÓRIO -->
+    <meta property="og:title" content="Canal de Ética para Empresas | Implementação Completa | Somaxi">
+    <meta property="og:description"
+        content="Receba, acompanhe e trate relatos com processos definidos. A Somaxi estrutura seu Canal de Ética do início à gestão dos relatos.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#07111f">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tracking base obrigatório -->
+    <script src="/static/tracking.js" defer></script>
+
+    <style>
+        :root {
+            --navy: #07111f;
+            --navy-2: #0c1b2d;
+            --navy-3: #06101e;
+            --ink: #101828;
+            --ink-2: #26364c;
+            --muted: #62748b;
+            --muted-2: #8a9aae;
+            --paper: #f7f9fc;
+            --paper-2: #f3f7fb;
+            --white: #ffffff;
+            --line: #dbe4ee;
+            --line-dark: rgba(255, 255, 255, .18);
+            --cyan: #00bce7;
+            --cyan-dark: #008ec0;
+            --cyan-soft: #a7edff;
+            --amber: #f2b84b;
+            --red: #d64545;
+            --green: #0e9f6e;
+            --radius: 8px;
+            --shadow: 0 20px 55px rgba(9, 22, 42, .16);
+            --soft-shadow: 0 14px 34px rgba(9, 22, 42, .07);
+            --max: 1180px;
+            --font-title: 'IBM Plex Sans', 'Inter', system-ui, sans-serif;
+            --font-body: 'IBM Plex Sans', 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            min-width: 320px;
+            font-family: var(--font-body);
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button,
+        input,
+        select {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        ul {
+            list-style: none
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-title);
+            letter-spacing: 0;
+            line-height: 1.14;
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 86px clamp(24px, 5vw, 72px);
+            scroll-margin-top: 84px;
+        }
+
+        .section--white { background: #fff }
+        .section--light { background: var(--paper-2) }
+
+        .section--dark {
+            position: relative;
+            background:
+                radial-gradient(80% 60% at 50% 0%, rgba(0, 150, 200, .28), transparent 60%),
+                radial-gradient(60% 50% at 90% 100%, rgba(242, 184, 75, .10), transparent 60%),
+                linear-gradient(180deg, #07111f 0%, #0c1b2d 55%, #07111f 100%);
+            color: #fff;
+        }
+
+
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cyan-dark);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-kicker::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cyan-dark);
+        }
+
+        .section--dark .section-kicker { color: var(--cyan-soft) }
+        .section--dark .section-kicker::before { background: var(--cyan-soft) }
+
+        .section-head {
+            max-width: 760px;
+            margin-bottom: 42px;
+        }
+
+        .section-head--center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .section-head h2 {
+            font-size: clamp(28px, 3.6vw, 40px);
+            color: inherit;
+        }
+
+        .section-head p {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .section--dark .section-head p { color: #bad0e5 }
+
+        /* ===== Header ===== */
+        header.site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 16px clamp(20px, 4vw, 56px);
+            background: rgba(7, 17, 31, .92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        header.site-header img { height: 30px; width: auto }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .header-nav a {
+            color: rgba(255, 255, 255, .76);
+            font-size: 14px;
+            font-weight: 700;
+            transition: color .2s ease;
+        }
+
+        .header-nav a:hover { color: #fff }
+
+        /* ===== Buttons ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 14px 24px;
+            border: 1px solid transparent;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--cyan), #67e2ff);
+            color: #00131c;
+            font-family: var(--font-title);
+            font-size: 15px;
+            font-weight: 800;
+            line-height: 1.15;
+            text-align: center;
+            box-shadow: 0 16px 34px rgba(0, 155, 206, .28);
+            transition: transform .2s ease, box-shadow .2s ease;
+            white-space: nowrap;
+        }
+
+        .btn svg { width: 18px; height: 18px; flex: none }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0, 155, 206, .35) }
+        .btn:active { transform: translateY(0) }
+
+        .btn--ghost {
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            border-color: var(--line-dark);
+            box-shadow: none;
+        }
+        .btn--ghost:hover { background: rgba(255, 255, 255, .14); box-shadow: none }
+
+        .btn--dark {
+            background: #111827;
+            color: #fff;
+            border-color: #111827;
+            box-shadow: none;
+        }
+
+        .btn--full { width: 100% }
+        .btn--sm { min-height: 44px; padding: 10px 18px; font-size: 13px }
+
+        .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; align-items: center }
+
+        .microcopy {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 650;
+        }
+
+        .section--dark .microcopy { color: #9eb5cc }
+
+        /* ===== Hero ===== */
+        .hero {
+            position: relative;
+            padding: 74px clamp(20px, 5vw, 56px) 60px;
+            background:
+                radial-gradient(60% 70% at 78% 20%, rgba(0, 188, 231, .35), transparent 60%),
+                radial-gradient(45% 40% at 15% 85%, rgba(242, 184, 75, .12), transparent 60%),
+                linear-gradient(160deg, #07111f 0%, #0c1b2d 60%, #07111f 100%);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+            background-size: 42px 42px;
+            mask-image: radial-gradient(80% 70% at 60% 30%, #000 20%, transparent 78%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
+            gap: 48px;
+            align-items: start;
+            max-width: var(--max);
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 6px 14px 6px 10px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .06);
+            color: var(--cyan-soft);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 0 5px rgba(0, 188, 231, .16);
+        }
+
+        .hero h1 {
+            max-width: 700px;
+            font-size: clamp(34px, 4.6vw, 54px);
+            font-weight: 700;
+        }
+
+        .hero-lead {
+            max-width: 620px;
+            margin-top: 20px;
+            color: #d5e4f4;
+            font-size: 18px;
+        }
+
+        .hero-lead2 {
+            max-width: 640px;
+            margin-top: 14px;
+            color: #bad0e5;
+            font-size: 15px;
+        }
+
+        .hero-checks {
+            display: grid;
+            gap: 10px;
+            margin-top: 28px;
+            max-width: 560px;
+        }
+
+        .hero-checks li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 650;
+            color: #e7f1fa;
+        }
+
+        .hero-checks svg {
+            width: 20px;
+            height: 20px;
+            flex: none;
+            margin-top: 1px;
+            color: var(--cyan);
+        }
+
+        /* ===== Lead card / form ===== */
+        .lead-card {
+            position: relative;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, .98);
+            color: var(--ink);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .lead-card::before {
+            content: "";
+            display: block;
+            height: 6px;
+            background: linear-gradient(90deg, var(--cyan), var(--amber));
+        }
+
+        .lead-card__body { padding: 28px }
+
+        .lead-card h3 { font-size: 23px; color: var(--ink) }
+        .lead-card p { margin-top: 8px; color: var(--muted); font-size: 14px }
+
+        .fields { display: grid; gap: 14px; margin-top: 22px }
+
+        .field label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--ink-2);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .field input,
+        .field select {
+            width: 100%;
+            height: 48px;
+            border: 1px solid #cfd9e6;
+            border-radius: var(--radius);
+            background: #fff;
+            color: var(--ink);
+            padding: 0 14px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .field input:focus,
+        .field select:focus {
+            border-color: var(--cyan-dark);
+            box-shadow: 0 0 0 3px rgba(0, 188, 231, .14);
+        }
+
+        .field input::placeholder { color: #98a7b8 }
+
+        .field select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath fill='%2362748b' d='M7 9 0 0h14z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .form-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .form-note svg { width: 15px; height: 15px; flex: none }
+
+        .form-success {
+            display: none;
+            padding: 10px 0 4px;
+            text-align: center;
+        }
+
+        .form-success.is-visible { display: block }
+        .form-success .ok-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 14px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #e6f8f1;
+            color: var(--green);
+        }
+        .form-success h4 { font-size: 19px; color: var(--ink) }
+        .form-success p { margin-top: 8px; color: var(--muted); font-size: 14px }
+
+        /* ===== Trust / marquee strip ===== */
+        .marquee {
+            overflow: hidden;
+            background: var(--navy-3);
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            padding: 16px 0;
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: marquee 32s linear infinite;
+        }
+
+        .marquee:hover .marquee-track { animation-play-state: paused }
+
+        .marquee-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 26px;
+            color: #d8e9f8;
+            font-size: 13.5px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .marquee-item svg { width: 16px; height: 16px; color: var(--cyan); flex: none }
+
+        @keyframes marquee {
+            from { transform: translateX(0) }
+            to { transform: translateX(-50%) }
+        }
+
+        /* ===== Grids ===== */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px }
+        .grid-6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px }
+
+        /* ===== Risk / problem cards ===== */
+        .risk-item {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            gap: 14px;
+            align-items: start;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: 0 12px 28px rgba(9, 22, 42, .05);
+        }
+
+        .risk-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: #eef5fb;
+            color: var(--cyan-dark);
+        }
+
+        .risk-icon svg { width: 23px; height: 23px }
+        .risk-item h3 { font-size: 16.5px }
+        .risk-item p { margin-top: 4px; color: var(--muted); font-size: 14.5px }
+
+        .impact-quote {
+            margin-top: 32px;
+            padding: 28px 30px;
+            border-left: 4px solid var(--amber);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            background: #fff8eb;
+            color: #5c3a08;
+        }
+
+        .impact-quote p {
+            font-family: var(--font-title);
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #7a4d08;
+        }
+
+        /* ===== Deliver cards ===== */
+        .deliver {
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+
+        .deliver:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 38px rgba(11, 30, 54, .1);
+            border-color: #b9d8e6;
+        }
+
+        .deliver .deliver-icon {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: #eef5fb;
+            color: var(--cyan-dark);
+            margin-bottom: 18px;
+        }
+
+        .deliver .deliver-icon svg { width: 24px; height: 24px }
+        .deliver h3 { font-size: 18px }
+        .deliver p { margin-top: 10px; color: var(--muted); font-size: 14.5px }
+
+        /* ===== Benefit cards (dark) ===== */
+        .benefit-card {
+            padding: 26px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, .05);
+            backdrop-filter: blur(6px);
+        }
+
+        .benefit-card .benefit-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: rgba(0, 188, 231, .14);
+            color: var(--cyan-soft);
+            margin-bottom: 16px;
+        }
+
+        .benefit-card .benefit-icon svg { width: 23px; height: 23px }
+        .benefit-card h3 { font-size: 18px; color: #fff }
+        .benefit-card p { margin-top: 10px; color: #bad0e5; font-size: 14.5px }
+
+        .closing-quote {
+            margin-top: 44px;
+            padding: 30px clamp(20px, 4vw, 40px);
+            border: 1px solid rgba(255, 255, 255, .14);
+            border-radius: var(--radius);
+            background: rgba(11, 22, 38, .5);
+            text-align: center;
+        }
+
+        .closing-quote p {
+            font-family: var(--font-title);
+            font-size: clamp(19px, 2.4vw, 25px);
+            font-weight: 700;
+            line-height: 1.45;
+            color: #fff;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .closing-quote p:first-child { color: #bad0e5; font-weight: 500; font-size: 17px; margin-bottom: 6px }
+
+        /* ===== Legal section ===== */
+        .legal-card {
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: 0 12px 28px rgba(9, 22, 42, .05);
+        }
+
+        .legal-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: #eef5fb;
+            color: var(--cyan-dark);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .02em;
+        }
+
+        .legal-card h3 { margin-top: 14px; font-size: 18px }
+        .legal-card p { margin-top: 10px; color: var(--muted); font-size: 14.5px }
+
+        .legal-disclaimer {
+            margin-top: 26px;
+            padding: 18px 22px;
+            border: 1px dashed #b9c8da;
+            border-radius: var(--radius);
+            background: #f3f7fb;
+            color: var(--muted);
+            font-size: 13.5px;
+        }
+
+        /* ===== Steps / method ===== */
+        .steps {
+            position: relative;
+            display: grid;
+            gap: 0;
+            margin-top: 8px;
+        }
+
+        .steps::before {
+            content: "";
+            position: absolute;
+            left: 25px;
+            top: 12px;
+            bottom: 12px;
+            width: 2px;
+            background: #d4e0ec;
+        }
+
+        .step {
+            position: relative;
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 18px;
+            padding: 0 0 22px;
+        }
+
+        .step:last-child { padding-bottom: 0 }
+
+        .step-num {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: var(--navy);
+            color: #fff;
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step > div:last-child {
+            padding: 20px 22px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            box-shadow: var(--soft-shadow);
+        }
+
+        .step h3 { font-size: 18px }
+        .step p { margin-top: 6px; color: var(--muted); font-size: 14.5px }
+
+        .support-phrase {
+            margin-top: 36px;
+            padding: 26px 30px;
+            border-radius: var(--radius);
+            background: var(--navy);
+            color: #fff;
+            text-align: center;
+        }
+
+        .support-phrase p {
+            font-family: var(--font-title);
+            font-size: 19px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .support-phrase p:first-child { color: var(--cyan-soft); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px }
+
+        /* ===== Why Somaxi ===== */
+        .pillar-card {
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+        }
+
+        .pillar-card .pillar-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            background: #eef5fb;
+            color: var(--cyan-dark);
+            margin-bottom: 14px;
+        }
+
+        .pillar-card .pillar-icon svg { width: 22px; height: 22px }
+        .pillar-card h3 { font-size: 17px }
+        .pillar-card p { margin-top: 8px; color: var(--muted); font-size: 14px }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(240px, .85fr);
+            gap: 34px;
+            align-items: start;
+        }
+
+        .seal-panel {
+            position: sticky;
+            top: 100px;
+            padding: 38px 28px 32px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, #fff, var(--paper-2));
+            box-shadow: var(--soft-shadow);
+            text-align: center;
+        }
+
+        .seal-panel img {
+            width: min(210px, 68%);
+            margin: 0 auto 22px;
+            filter: drop-shadow(0 18px 30px rgba(9, 22, 42, .18));
+            mix-blend-mode: multiply;
+        }
+
+        .seal-panel h3 { font-size: 19px }
+        .seal-panel p { margin-top: 10px; color: var(--muted); font-size: 14.5px }
+
+        .client-bar {
+            margin-top: 44px;
+            padding: 30px clamp(20px, 4vw, 40px);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+        }
+
+        .client-bar .label {
+            display: block;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .client-names {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 14px 34px;
+        }
+
+        .client-names span {
+            font-family: var(--font-title);
+            font-weight: 700;
+            font-size: 17px;
+            letter-spacing: .01em;
+            color: var(--ink-2);
+            opacity: .78;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list { display: grid; gap: 12px }
+
+        .faq {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .faq[open] { border-color: #b9d8e6; box-shadow: 0 14px 32px rgba(9, 22, 42, .08) }
+
+        .faq summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 22px;
+            cursor: pointer;
+            list-style: none;
+            font-family: var(--font-title);
+            font-size: 16.5px;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .faq summary::-webkit-details-marker { display: none }
+        .faq summary:hover { color: var(--cyan-dark) }
+
+        .faq-chevron {
+            width: 22px;
+            height: 22px;
+            flex: none;
+            color: var(--cyan-dark);
+            transition: transform .25s ease;
+        }
+
+        .faq[open] .faq-chevron { transform: rotate(180deg) }
+
+        .faq-answer { padding: 0 22px 20px; color: var(--muted); font-size: 15px }
+
+        /* ===== Final CTA ===== */
+        .final-cta {
+            position: relative;
+            text-align: center;
+            padding: 20px 0 0;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .final-cta p {
+            margin-top: 18px;
+            color: #c6d9eb;
+            font-size: 17px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .cta-row { justify-content: center }
+
+        /* ===== Footer ===== */
+        footer.site-footer {
+            padding: 40px clamp(20px, 4vw, 56px);
+            background: var(--navy-3);
+            color: #9eb5cc;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .footer-inner {
+            max-width: var(--max);
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        footer.site-footer img { height: 24px; width: auto; opacity: .9 }
+        .footer-inner p { font-size: 12.5px }
+
+        /* ===== Sticky mobile CTA ===== */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 90;
+            padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+            background: rgba(7, 17, 31, .96);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255, 255, 255, .12);
+        }
+
+        .sticky-cta .btn { width: 100% }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 980px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .grid-2, .grid-3, .grid-4, .grid-6 { grid-template-columns: 1fr 1fr; }
+            .header-nav { display: none }
+            .why-grid { grid-template-columns: 1fr; }
+            .seal-panel { position: static; max-width: 420px; margin: 0 auto; }
+        }
+
+        @media (max-width: 720px) {
+            .grid-2, .grid-3, .grid-4, .grid-6 { grid-template-columns: 1fr; }
+            .section { padding: 56px 20px 60px }
+            .hero { padding: 40px 18px 40px }
+            .hero h1 { font-size: 30px }
+            .field-row { grid-template-columns: 1fr }
+            .cta-row .btn { width: 100% }
+            .sticky-cta { display: block }
+            body { padding-bottom: 78px }
+            .client-names { gap: 12px 20px }
+            .client-names span { font-size: 14px }
+        }
+
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto }
+            .btn, .deliver, .marquee-track { transition: none; animation: none }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="site-header">
+        <a href="#topo" aria-label="Somaxi">
+            <img src="https://static.wixstatic.com/media/0083b8_128b03c1c9c84d1b96da0aad344fb388~mv2.png/v1/fill/w_430,h_110,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_SOMAXI_GROUP_BRANCAA.png"
+                alt="Somaxi Group">
+        </a>
+        <nav class="header-nav" aria-label="Navegação principal">
+            <a href="#problema">O problema</a>
+            <a href="#solucao">Solução</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#por-que-somaxi">Por que Somaxi</a>
+            <a href="#faq">FAQ</a>
+        </nav>
+        <a class="btn btn--sm" href="#formulario" onclick="trackCTA('header')">Falar com especialista</a>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="topo">
+        <div class="hero-grid">
+            <div>
+                <div class="eyebrow">Canal de Ética para empresas</div>
+                <h1>Implemente um Canal de Ética seguro, confidencial e preparado para funcionar</h1>
+                <p class="hero-lead">Receba, acompanhe e trate relatos com processos definidos, mais segurança para
+                    as pessoas e apoio especializado para sua empresa.</p>
+                <p class="hero-lead2">A Somaxi reúne plataforma, políticas internas, treinamento e orientação em
+                    Compliance para estruturar seu canal do início à gestão dos relatos.</p>
+
+                <ul class="hero-checks">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m20 6-11 11-5-5" />
+                        </svg> Plataforma para recebimento de relatos</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m20 6-11 11-5-5" />
+                        </svg> Políticas e fluxos de tratamento</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m20 6-11 11-5-5" />
+                        </svg> Treinamento e comunicação interna</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m20 6-11 11-5-5" />
+                        </svg> Apoio especializado nas apurações</li>
+                </ul>
+
+                <div class="cta-row">
+                    <a class="btn" href="#formulario" onclick="trackCTA('hero_principal')">
+                        Quero estruturar meu Canal de Ética
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m13 6 6 6-6 6" />
+                        </svg>
+                    </a>
+                </div>
+                <p class="microcopy">Converse com um especialista e entenda qual modelo atende às necessidades da
+                    sua empresa.</p>
+            </div>
+
+            <aside class="lead-card" id="formulario" aria-label="Formulário de contato">
+                <div class="lead-card__body">
+                    <div id="leadFormWrap">
+                        <h3>Fale com um especialista em Compliance</h3>
+                        <p>Preencha seus dados para receber uma análise inicial da necessidade da sua empresa.</p>
+                        <form class="fields" id="leadForm">
+                            <div class="field">
+                                <label for="fNome">Nome</label>
+                                <input id="fNome" name="nome" type="text" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="field">
+                                <label for="fEmail">E-mail corporativo</label>
+                                <input id="fEmail" name="email" type="email" placeholder="nome@empresa.com.br"
+                                    required>
+                            </div>
+                            <div class="field">
+                                <label for="fTelefone">Telefone com DDD</label>
+                                <input id="fTelefone" name="telefone" type="tel" placeholder="(00) 00000-0000"
+                                    required>
+                            </div>
+                            <div class="field">
+                                <label for="fEmpresa">Empresa</label>
+                                <input id="fEmpresa" name="empresa" type="text" placeholder="Nome da empresa"
+                                    required>
+                            </div>
+                            <div class="field">
+                                <label for="fColaboradores">Número de colaboradores</label>
+                                <select id="fColaboradores" name="colaboradores" required>
+                                    <option value="" selected disabled>Selecione</option>
+                                    <option>Até 50</option>
+                                    <option>51 a 200</option>
+                                    <option>201 a 500</option>
+                                    <option>Mais de 500</option>
+                                </select>
+                            </div>
+                            <input type="hidden" name="utm_source" id="utmSource">
+                            <input type="hidden" name="utm_medium" id="utmMedium">
+                            <input type="hidden" name="utm_campaign" id="utmCampaign">
+                            <input type="hidden" name="utm_term" id="utmTerm">
+                            <input type="hidden" name="utm_content" id="utmContent">
+
+                            <button type="submit" class="btn btn--full" onclick="trackCTA('form_submit')">
+                                Falar com especialista
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m13 6 6 6-6 6" />
+                                </svg>
+                            </button>
+                            <div class="form-note">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                                    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                                </svg> Seus dados serão usados apenas para este atendimento.
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-success" id="formSuccess">
+                        <div class="ok-icon">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor"
+                                stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m20 6-11 11-5-5" />
+                            </svg>
+                        </div>
+                        <h4>Recebemos seus dados.</h4>
+                        <p>Um especialista da Somaxi entrará em contato para a análise inicial da necessidade da
+                            sua empresa.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ===================== TRUST STRIP ===================== -->
+    <div class="marquee" aria-label="Diferenciais Somaxi">
+        <div class="marquee-track">
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Plataforma para recebimento de relatos</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Políticas e fluxos de tratamento</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Treinamento e comunicação interna</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Apoio especializado nas apurações</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Anonimato e confidencialidade</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Jurídico, processos e tecnologia integrados</span>
+            <!-- duplicate for seamless loop -->
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Plataforma para recebimento de relatos</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Políticas e fluxos de tratamento</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Treinamento e comunicação interna</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Apoio especializado nas apurações</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Anonimato e confidencialidade</span>
+            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="5" />
+                </svg> Jurídico, processos e tecnologia integrados</span>
+        </div>
+    </div>
+
+    <!-- ===================== PROBLEMA ===================== -->
+    <section class="section section--light" id="problema">
+        <div class="wrap">
+            <div class="section-head">
+                <div class="section-kicker">O problema</div>
+                <h2>Apenas receber denúncias não significa ter um Canal de Ética funcionando</h2>
+                <p>Sem um processo estruturado, relatos sensíveis podem ser ignorados, encaminhados para as pessoas
+                    erradas ou tratados sem os critérios necessários. Isso aumenta a exposição da empresa a
+                    conflitos internos, riscos trabalhistas, danos reputacionais e decisões tomadas sem informações
+                    suficientes.</p>
+            </div>
+
+            <p class="label"
+                style="font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">
+                Um Canal de Ética estruturado ajuda sua organização a:</p>
+
+            <div class="grid-3">
+                <article class="risk-item">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6l-9-4Z" />
+                            <path d="M12 8v5" />
+                            <path d="M12 17h.01" />
+                        </svg></div>
+                    <div>
+                        <h3>Identificar antes da crise</h3>
+                        <p>Identificar irregularidades antes que se transformem em crises.</p>
+                    </div>
+                </article>
+                <article class="risk-item">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="10" width="14" height="10" rx="2" />
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                        </svg></div>
+                    <div>
+                        <h3>Ambiente mais seguro</h3>
+                        <p>Criar um ambiente mais seguro para o registro de relatos.</p>
+                    </div>
+                </article>
+                <article class="risk-item">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
+                            <path d="m2 21 4-4" />
+                            <path d="m22 21-4-4" />
+                        </svg></div>
+                    <div>
+                        <h3>Menos conflito de interesse</h3>
+                        <p>Reduzir conflitos de interesse durante o tratamento dos casos.</p>
+                    </div>
+                </article>
+                <article class="risk-item">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 7h16" />
+                            <path d="M4 12h16" />
+                            <path d="M4 17h10" />
+                        </svg></div>
+                    <div>
+                        <h3>Triagem padronizada</h3>
+                        <p>Padronizar a triagem, o encaminhamento e a apuração.</p>
+                    </div>
+                </article>
+                <article class="risk-item">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h9l4 4v14H6z" />
+                            <path d="M14 3v5h5" />
+                            <path d="M9 13h6" />
+                            <path d="M9 17h6" />
+                        </svg></div>
+                    <div>
+                        <h3>Registro das providências</h3>
+                        <p>Registrar as providências adotadas pela empresa.</p>
+                    </div>
+                </article>
+                <article class="risk-item">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m4.5 12.5 5 5 10-10" />
+                        </svg></div>
+                    <div>
+                        <h3>Mais confiança</h3>
+                        <p>Fortalecer a confiança entre colaboradores e liderança.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="impact-quote">
+                <p>O risco não termina quando a denúncia é recebida. É nesse momento que começa a responsabilidade
+                    da empresa.</p>
+            </div>
+
+            <div class="cta-row">
+                <a class="btn" href="#formulario" onclick="trackCTA('problema')">
+                    Quero proteger minha empresa
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SOLUÇÃO ===================== -->
+    <section class="section section--white" id="solucao">
+        <div class="wrap">
+            <div class="section-head">
+                <div class="section-kicker">A solução Somaxi</div>
+                <h2>Mais do que uma plataforma, uma estrutura completa para o seu Canal de Ética</h2>
+                <p>A Somaxi ajuda sua empresa a implementar um canal confiável, acessível e integrado ao Programa de
+                    Integridade. O projeto considera a realidade da organização, os riscos envolvidos, as áreas
+                    responsáveis e os procedimentos necessários para que cada relato seja tratado com organização,
+                    confidencialidade e imparcialidade.</p>
+            </div>
+
+            <p class="label"
+                style="font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">
+                O que pode estar incluído na solução</p>
+
+            <div class="grid-3">
+                <article class="deliver">
+                    <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" />
+                            <path d="M8 9h8" />
+                            <path d="M8 13h8" />
+                            <path d="M8 17h5" />
+                        </svg></div>
+                    <h3>Plataforma para recebimento de relatos</h3>
+                    <p>Um ambiente centralizado para registrar, organizar e acompanhar as manifestações recebidas.
+                    </p>
+                </article>
+                <article class="deliver">
+                    <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h9l4 4v14H6z" />
+                            <path d="M14 3v5h5" />
+                            <path d="M9 13h6" />
+                            <path d="M9 17h6" />
+                        </svg></div>
+                    <h3>Políticas e procedimentos internos</h3>
+                    <p>Criação ou revisão das regras que orientam o recebimento, a classificação, o encaminhamento e
+                        o tratamento dos relatos.</p>
+                </article>
+                <article class="deliver">
+                    <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="8" r="3" />
+                            <path d="M2.5 20c.7-3.4 3.4-5.5 6.5-5.5s5.8 2.1 6.5 5.5" />
+                            <circle cx="18" cy="7" r="2.4" />
+                            <path d="M15.8 14.2c2.3.3 4.2 2.1 4.7 4.6" />
+                        </svg></div>
+                    <h3>Definição de responsabilidades</h3>
+                    <p>Estruturação dos papéis de RH, Jurídico, Compliance, diretoria e demais profissionais
+                        envolvidos no processo.</p>
+                </article>
+                <article class="deliver">
+                    <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 11v2a2 2 0 0 0 2 2h2l4 4V5l-4 4H5a2 2 0 0 0-2 2Z" />
+                            <path d="M16 9a4 4 0 0 1 0 6" />
+                            <path d="M19 6a8 8 0 0 1 0 12" />
+                        </svg></div>
+                    <h3>Comunicação e lançamento</h3>
+                    <p>Orientação para apresentar o canal aos colaboradores, explicar sua finalidade e aumentar a
+                        confiança no uso da ferramenta.</p>
+                </article>
+                <article class="deliver">
+                    <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Z" />
+                            <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+                        </svg></div>
+                    <h3>Treinamento das equipes</h3>
+                    <p>Capacitação dos profissionais responsáveis pelo recebimento, análise e tratamento dos casos.
+                    </p>
+                </article>
+                <article class="deliver">
+                    <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg></div>
+                    <h3>Apoio nas apurações</h3>
+                    <p>Modelos, playbooks e orientação especializada para conduzir processos mais seguros,
+                        consistentes e imparciais.</p>
+                </article>
+            </div>
+
+            <div class="cta-row">
+                <a class="btn" href="#formulario" onclick="trackCTA('solucao')">
+                    Falar com um especialista em Compliance
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== BENEFÍCIOS ===================== -->
+    <section class="section section--dark" id="beneficios">
+        <div class="wrap">
+            <div class="section-head">
+                <div class="section-kicker">Benefícios</div>
+                <h2>Mais segurança para as pessoas. Mais controle para a empresa.</h2>
+            </div>
+
+            <div class="grid-3">
+                <article class="benefit-card">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="10" width="14" height="10" rx="2" />
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+                        </svg></div>
+                    <h3>Confidencialidade</h3>
+                    <p>Ofereça um ambiente mais seguro para que colaboradores e terceiros possam comunicar condutas
+                        inadequadas.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 7h16" />
+                            <path d="M4 12h16" />
+                            <path d="M4 17h10" />
+                        </svg></div>
+                    <h3>Organização</h3>
+                    <p>Estabeleça critérios claros para receber, classificar, encaminhar e acompanhar cada relato.
+                    </p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6l-9-4Z" />
+                            <path d="m9 12 2 2 4-5" />
+                        </svg></div>
+                    <h3>Prevenção</h3>
+                    <p>Identifique sinais de assédio, discriminação, fraude, corrupção e conflitos de interesse
+                        antes que o problema aumente.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18" />
+                            <path d="M5 21V10l7-5 7 5v11" />
+                            <path d="M9 21v-6h6v6" />
+                        </svg></div>
+                    <h3>Governança</h3>
+                    <p>Demonstre que a empresa possui mecanismos reais para prevenir, identificar e tratar
+                        irregularidades.</p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18" />
+                            <path d="m7 15 4-5 3 3 5-7" />
+                        </svg></div>
+                    <h3>Tomada de decisão</h3>
+                    <p>Transforme relatos e indicadores em informações úteis para ações corretivas e preventivas.
+                    </p>
+                </article>
+                <article class="benefit-card">
+                    <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 21s-7-4.35-9.5-8.4C1 9.5 2.3 6 5.6 6c1.9 0 3.3 1.1 4 2.2C10.3 7.1 11.7 6 13.6 6 16.9 6 18.2 9.5 21.5 12.6 19 16.65 12 21 12 21Z" />
+                        </svg></div>
+                    <h3>Cultura ética</h3>
+                    <p>Mostre, na prática, que os valores da empresa fazem parte das decisões e dos comportamentos
+                        esperados.</p>
+                </article>
+            </div>
+
+            <div class="closing-quote">
+                <p>Uma empresa ética não é aquela que nunca enfrenta problemas.</p>
+                <p>É aquela que possui mecanismos para identificá-los, tratá-los e evitar que se repitam.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== AMPARO LEGAL ===================== -->
+    <section class="section section--light" id="amparo-legal">
+        <div class="wrap">
+            <div class="section-head">
+                <div class="section-kicker">Amparo legal</div>
+                <h2>O que diz a legislação sobre denúncias e ambiente de trabalho</h2>
+                <p>O Canal de Ética se conecta a diferentes obrigações legais, cada uma com um alcance específico.
+                    Veja como cada norma se relaciona com o canal.</p>
+            </div>
+
+            <div class="grid-3">
+                <article class="legal-card">
+                    <span class="legal-tag">NR-1</span>
+                    <h3>Riscos psicossociais no trabalho</h3>
+                    <p>Vigente desde 26 de maio de 2026, a nova redação da NR-1 determina o gerenciamento dos
+                        riscos ocupacionais e inclui expressamente os fatores de riscos psicossociais relacionados
+                        ao trabalho. O Canal de Ética pode apoiar a identificação, a prevenção e o tratamento
+                        desses riscos, mas não é a única medida exigida pela norma.</p>
+                </article>
+                <article class="legal-card">
+                    <span class="legal-tag">Lei 14.457/2022</span>
+                    <h3>Procedimentos para denúncias na CIPA</h3>
+                    <p>Para empresas obrigadas a constituir CIPA, a lei prevê procedimentos para recebimento e
+                        acompanhamento de denúncias, apuração dos fatos, aplicação de sanções quando cabível e
+                        garantia de anonimato da pessoa denunciante — a conexão legal mais direta com o Canal de
+                        Ética.</p>
+                </article>
+                <article class="legal-card">
+                    <span class="legal-tag">Lei 14.611/2023</span>
+                    <h3>Igualdade salarial</h3>
+                    <p>Trata principalmente de igualdade salarial e critérios remuneratórios entre mulheres e
+                        homens. O canal pode apoiar a identificação de discriminações relacionadas ao tema, mas a
+                        lei não institui diretamente a obrigação de contratar um Canal de Ética.</p>
+                </article>
+            </div>
+
+            <p class="legal-disclaimer">A aplicabilidade das normas deve ser analisada conforme o porte, a
+                estrutura, a atividade e as obrigações específicas de cada empresa. As informações acima têm
+                caráter orientativo e não substituem uma análise jurídica.</p>
+        </div>
+    </section>
+
+    <!-- ===================== COMO FUNCIONA ===================== -->
+    <section class="section section--white" id="como-funciona">
+        <div class="wrap">
+            <div class="section-head">
+                <div class="section-kicker">Como funciona</div>
+                <h2>Da implantação à gestão dos relatos</h2>
+            </div>
+
+            <div class="steps">
+                <article class="step">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h3>Diagnóstico</h3>
+                        <p>Analisamos a estrutura, o porte, os riscos e o nível de maturidade da sua empresa.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h3>Estruturação</h3>
+                        <p>Definimos os meios de acesso, as políticas, os responsáveis, os níveis de permissão e os
+                            fluxos de tratamento.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h3>Implementação</h3>
+                        <p>Configuramos o canal e preparamos a comunicação necessária para o lançamento.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h3>Treinamento</h3>
+                        <p>Capacitamos os profissionais responsáveis pela gestão e pelo encaminhamento dos
+                            relatos.</p>
+                    </div>
+                </article>
+                <article class="step">
+                    <div class="step-num">5</div>
+                    <div>
+                        <h3>Operação e acompanhamento</h3>
+                        <p>Apoiamos a organização dos casos, as apurações e o aprimoramento contínuo do processo.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="support-phrase">
+                <p>Sua empresa não recebe apenas uma ferramenta.</p>
+                <p>Recebe um Canal de Ética preparado para funcionar no dia a dia.</p>
+            </div>
+
+            <div class="cta-row" style="justify-content:center">
+                <a class="btn" href="#formulario" onclick="trackCTA('como_funciona')">
+                    Conhecer o processo de implementação
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== POR QUE SOMAXI ===================== -->
+    <section class="section section--light" id="por-que-somaxi">
+        <div class="wrap">
+            <div class="why-grid">
+                <div>
+                    <div class="section-head">
+                        <div class="section-kicker">Por que escolher a Somaxi</div>
+                        <h2>Experiência prática para transformar Compliance em proteção</h2>
+                        <p>A Somaxi combina conhecimento jurídico, tecnologia, processos e capacitação de pessoas
+                            para ajudar empresas a estruturar mecanismos reais de governança e integridade.
+                            Diferentemente de soluções que apenas disponibilizam uma plataforma, a Somaxi atua na
+                            estruturação do processo completo, desde a definição das políticas até o apoio no
+                            tratamento dos relatos.</p>
+                    </div>
+
+                    <p class="label"
+                        style="font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">
+                        Com a Somaxi, sua empresa reúne:</p>
+
+                    <div class="grid-2">
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="12" rx="2" />
+                                    <path d="M8 20h8" />
+                                    <path d="M12 16v4" />
+                                </svg></div>
+                            <h3>Tecnologia</h3>
+                            <p>Uma plataforma para centralizar e acompanhar as manifestações.</p>
+                        </article>
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 7h16" />
+                                    <path d="M4 12h16" />
+                                    <path d="M4 17h10" />
+                                </svg></div>
+                            <h3>Processos</h3>
+                            <p>Fluxos claros para organizar o recebimento, a análise e o encaminhamento dos casos.
+                            </p>
+                        </article>
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="9" cy="8" r="3" />
+                                    <path d="M2.5 20c.7-3.4 3.4-5.5 6.5-5.5s5.8 2.1 6.5 5.5" />
+                                    <circle cx="18" cy="7" r="2.4" />
+                                    <path d="M15.8 14.2c2.3.3 4.2 2.1 4.7 4.6" />
+                                </svg></div>
+                            <h3>Pessoas</h3>
+                            <p>Treinamento para que gestores e equipes saibam utilizar o canal corretamente.</p>
+                        </article>
+                        <article class="pillar-card">
+                            <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path d="M4 21c0-4 3.8-7 8-7s8 3 8 7" />
+                                    <path d="m9 8 2 2 3-3" />
+                                </svg></div>
+                            <h3>Orientação especializada</h3>
+                            <p>Apoio multidisciplinar para lidar com situações sensíveis e decisões complexas.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <aside class="seal-panel">
+                    <img src="/static/img/ETICA/selo-compliance.webp"
+                        alt="Selo Compliance Somaxi — Ética, Transparência e Integridade" loading="lazy">
+                    <h3>Um padrão que você pode comprovar</h3>
+                    <p>Ética, transparência e integridade aplicadas em cada etapa da implementação do seu Canal de
+                        Ética — do diagnóstico ao acompanhamento dos relatos.</p>
+                </aside>
+            </div>
+
+            <div class="client-bar">
+                <span class="label">Empresas que escolheram a Somaxi</span>
+                <div class="client-names">
+                    <span>SPARQ</span>
+                    <span>G&amp;P</span>
+                    <span>Jovem Pan Fortaleza</span>
+                    <span>Grupo Euro Américas Chevrolet</span>
+                    <span>Record Fortaleza</span>
+                    <span>MH Têxtil</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section section--white" id="faq">
+        <div class="wrap">
+            <div class="section-head">
+                <div class="section-kicker">Perguntas frequentes</div>
+                <h2>Tire suas dúvidas sobre o Canal de Ética</h2>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq" open>
+                    <summary><span>O que é um Canal de Ética?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </summary>
+                    <div class="faq-answer">É um mecanismo utilizado para receber relatos sobre violações de leis,
+                        políticas internas, códigos de conduta e princípios éticos da organização. Para funcionar
+                        corretamente, ele deve estar acompanhado de procedimentos para triagem, encaminhamento,
+                        análise e resposta.</div>
+                </details>
+                <details class="faq">
+                    <summary><span>Canal de Ética e canal de denúncias são a mesma coisa?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </summary>
+                    <div class="faq-answer">Os termos são frequentemente utilizados como sinônimos. A expressão
+                        Canal de Ética reforça uma atuação mais ampla, relacionada à prevenção, à cultura
+                        organizacional e ao Programa de Integridade.</div>
+                </details>
+                <details class="faq">
+                    <summary><span>O canal pode receber relatos anônimos?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </summary>
+                    <div class="faq-answer">O projeto pode prever o recebimento de relatos anônimos, conforme a
+                        tecnologia utilizada, o modelo contratado e as regras aplicáveis à empresa.</div>
+                </details>
+                <details class="faq">
+                    <summary><span>Quem terá acesso aos relatos?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </summary>
+                    <div class="faq-answer">Os acessos são definidos durante a implementação. A recomendação é
+                        limitar o acesso aos profissionais responsáveis e estabelecer permissões de acordo com a
+                        natureza e a sensibilidade de cada caso.</div>
+                </details>
+                <details class="faq">
+                    <summary><span>A Somaxi ajuda nas apurações?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </summary>
+                    <div class="faq-answer">A participação da Somaxi depende do escopo contratado. A solução pode
+                        incluir modelos, playbooks, orientação técnica e apoio especializado para a condução das
+                        apurações.</div>
+                </details>
+                <details class="faq">
+                    <summary><span>Quanto tempo demora a implementação?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </summary>
+                    <div class="faq-answer">O prazo depende do porte da organização, da complexidade dos fluxos,
+                        das políticas existentes e do nível de personalização necessário. Após o diagnóstico, a
+                        Somaxi apresenta o plano de implantação.</div>
+                </details>
+                <details class="faq">
+                    <summary><span>O Canal de Ética atende às exigências legais?</span>
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m6 9 6 6 6-6" />
+                        </svg>
+                    </summary>
+                    <div class="faq-answer">O canal pode apoiar o cumprimento de obrigações relacionadas a
+                        integridade, ambiente de trabalho, prevenção e tratamento de irregularidades. A
+                        aplicabilidade das normas deve ser analisada conforme o porte, a estrutura, a atividade e
+                        as obrigações específicas da empresa.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section class="section section--dark" id="cta-final">
+        <div class="wrap final-cta">
+            <div class="section-kicker" style="justify-content:center;display:flex">Última chamada</div>
+            <h2>Implemente um Canal de Ética preparado para funcionar de verdade</h2>
+            <p>Não espere um conflito, uma denúncia pública ou uma auditoria para descobrir que sua empresa não
+                possui os procedimentos necessários. Fale com um especialista da Somaxi e entenda como estruturar o
+                recebimento, o tratamento e a apuração de relatos com mais segurança.</p>
+            <div class="cta-row">
+                <a class="btn" href="#formulario" onclick="trackCTA('cta_final')">
+                    Quero estruturar meu Canal de Ética
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                    </svg>
+                </a>
+            </div>
+            <p class="microcopy">Receba uma análise inicial da necessidade da sua empresa.</p>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <img src="https://static.wixstatic.com/media/0083b8_128b03c1c9c84d1b96da0aad344fb388~mv2.png/v1/fill/w_430,h_110,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_SOMAXI_GROUP_BRANCAA.png"
+                alt="Somaxi Group">
+            <p>&copy; <span id="ano"></span> Somaxi Group. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- ===================== STICKY MOBILE CTA ===================== -->
+    <div class="sticky-cta">
+        <a class="btn" href="#formulario" onclick="trackCTA('sticky_mobile')">Quero estruturar meu Canal de Ética
+        </a>
+    </div>
+
+    <script>
+        // Tracking obrigatório
+        function trackPageView() {
+            if (window.dataLayer) { window.dataLayer.push({ event: 'page_view', page: 'lp-canaletica' }); }
+            console.log('page_view');
+        }
+        function trackCTA(label) {
+            if (window.dataLayer) { window.dataLayer.push({ event: 'click_cta', cta_label: label }); }
+            console.log('click_cta:', label);
+        }
+        function trackLead() {
+            if (window.dataLayer) { window.dataLayer.push({ event: 'generate_lead' }); }
+            console.log('generate_lead');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            trackPageView();
+            document.getElementById('ano').textContent = new Date().getFullYear();
+
+            // Captura de UTM params
+            var params = new URLSearchParams(window.location.search);
+            var map = {
+                utm_source: 'utmSource',
+                utm_medium: 'utmMedium',
+                utm_campaign: 'utmCampaign',
+                utm_term: 'utmTerm',
+                utm_content: 'utmContent'
+            };
+            Object.keys(map).forEach(function (key) {
+                var field = document.getElementById(map[key]);
+                if (field) { field.value = params.get(key) || ''; }
+            });
+
+            // Submissão do formulário (sem backend nesta página estática)
+            var form = document.getElementById('leadForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    trackLead();
+                    document.getElementById('leadFormWrap').style.display = 'none';
+                    document.getElementById('formSuccess').classList.add('is-visible');
+                });
+            }
+
+            // Acordeão FAQ — apenas um item aberto por vez
+            var faqItems = document.querySelectorAll('.faq-list details.faq');
+            faqItems.forEach(function (item) {
+                item.addEventListener('toggle', function () {
+                    if (item.open) {
+                        faqItems.forEach(function (other) {
+                            if (other !== item) { other.open = false; }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
