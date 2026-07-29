@@ -17,17 +17,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO OBRIGATÓRIO -->
-    <title>DPO Board | Clube Executivo & Live de Lançamento em Agosto</title>
+    <title>Muito Além da Privacidade | Live de Lançamento DPO Board Brasil</title>
     <meta name="description"
-        content="Garanta seu convite exclusivo para a Live de Lançamento do DPO Board em Agosto. O ecossistema executivo de inteligência, benchmarking e práticas reais para DPOs.">
+        content="Inscreva-se gratuitamente na live Muito Além da Privacidade, lançamento do DPO Board Brasil em 12 de agosto às 19h. Posicionamento, venda consultiva, precificação e visão de negócio para DPOs.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#07111f">
     <link rel="canonical" href="https://somaxi.com.br/lp/dpo-board">
 
     <!-- Open Graph OBRIGATÓRIO -->
-    <meta property="og:title" content="DPO Board | Clube Executivo de Inteligência para DPOs">
+    <meta property="og:title" content="Muito Além da Privacidade | DPO Board Brasil">
     <meta property="og:description"
-        content="Participe da Live Oficial de Lançamento em Agosto. Conecte-se aos maiores líderes de privacidade, acesse benchmarking de incidentes e frameworks reais.">
+        content="Participe da live gratuita de lançamento do DPO Board Brasil e descubra como ampliar sua atuação como DPO com estratégia, autoridade, vendas, precificação e comunidade.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:image"
@@ -196,16 +196,14 @@
         }
 
         .nav-inner {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
-            justify-content: space-between;
             gap: 20px;
         }
 
-        .brand-group {
-            display: flex;
-            align-items: center;
-            gap: 18px;
+        .brand-logo {
+            justify-self: start;
         }
 
         .somaxi-logo-img {
@@ -214,15 +212,10 @@
             display: block;
         }
 
-        .brand-divider {
-            width: 1px;
-            height: 28px;
-            background: rgba(255, 255, 255, 0.18);
-        }
-
         .dpo-badge-tag {
             display: flex;
             align-items: center;
+            justify-self: center;
             gap: 8px;
             color: #fff;
             font-family: var(--font-title);
@@ -231,15 +224,8 @@
             letter-spacing: -0.01em;
         }
 
-        .dpo-badge-tag span {
-            color: var(--amber);
-            font-size: 12px;
-            font-weight: 800;
-            padding: 2px 7px;
-            border-radius: 4px;
-            background: rgba(242, 184, 75, 0.15);
-            border: 1px solid rgba(242, 184, 75, 0.3);
-            text-transform: uppercase;
+        .nav-inner > .btn {
+            justify-self: end;
         }
 
         /* Buttons */
@@ -1064,6 +1050,14 @@
             font-size: 14px;
         }
 
+        .leader-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--cyan-dark);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
         /* FAQ Section */
         .faq-list {
             max-width: 860px;
@@ -1246,8 +1240,16 @@
                 padding: 14px 0;
             }
 
-            .brand-group {
-                gap: 10px;
+            .nav-inner {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 12px;
+            }
+
+            .brand-logo,
+            .dpo-badge-tag,
+            .nav-inner > .btn {
+                justify-self: center;
             }
 
             .somaxi-logo-img {
@@ -1283,22 +1285,19 @@
 
     <!-- Top Announcement Bar -->
     <div class="top-bar">
-        <span class="badge-live"><span class="pulse-dot"></span> Evento Ao Vivo em Agosto</span>
-        <span>Convite Oficial de Lançamento do DPO Board • Inscrições Gratuitas & Limitadas</span>
+        <span class="badge-live"><span class="pulse-dot"></span> 12 de Agosto • 19h</span>
+        <span>Live gratuita de lançamento do DPO Board Brasil • Online e ao vivo</span>
     </div>
 
     <!-- Header Navbar featuring Real Somaxi Logo -->
     <header class="site-nav">
         <div class="wrap nav-inner">
-            <div class="brand-group">
-                <a href="#" aria-label="Somaxi Group Home">
-                    <img src="https://static.wixstatic.com/media/0083b8_128b03c1c9c84d1b96da0aad344fb388~mv2.png/v1/fill/w_215,h_55,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_SOMAXI_GROUP_BRANCAA.png"
-                        alt="SOMAXI GROUP" class="somaxi-logo-img">
-                </a>
-                <div class="brand-divider"></div>
-                <div class="dpo-badge-tag">
-                    DPO BOARD <span>CLUB</span>
-                </div>
+            <a href="#" class="brand-logo" aria-label="Somaxi Group Home">
+                <img src="https://static.wixstatic.com/media/0083b8_128b03c1c9c84d1b96da0aad344fb388~mv2.png/v1/fill/w_215,h_55,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_SOMAXI_GROUP_BRANCAA.png"
+                    alt="SOMAXI GROUP" class="somaxi-logo-img">
+            </a>
+            <div class="dpo-badge-tag">
+                DPO BOARD
             </div>
             <a href="#cadastro" class="btn btn--amber" onclick="trackCTA('header_nav_click')">
                 Garantir Vaga na Live
@@ -1311,15 +1310,16 @@
         <div class="wrap hero-grid">
             <div class="hero-content">
                 <div class="hero-eyebrow">
-                    Ecossistema Executivo de Inteligência em Privacidade
+                    A live de lançamento do DPO Board Brasil
                 </div>
                 <h1 class="hero-title">
-                    Transforme a sua atuação como DPO de <span>reativa em altamente estratégica.</span>
+                    Muito além da privacidade: <span>cresça como DPO estratégico.</span>
                 </h1>
                 <p class="hero-lead">
-                    Participe da <strong>Live Oficial DPO Board em 12 de Agosto</strong>. Conecte-se ao clube exclusivo
-                    criado para Encarregados, Gerentes de Privacidade e Líderes de Governança compartilharem
-                    benchmarking real, frameworks validados e resposta coletiva aos desafios da ANPD.
+                    Dominar a LGPD é fundamental, mas o crescimento de um DPO não depende apenas de conhecimento
+                    técnico. Participe da live gratuita em <strong>12 de agosto, às 19h</strong>, e descubra como
+                    posicionar seu valor, vender serviços, negociar, precificar e estruturar uma atuação sustentável no
+                    mercado de privacidade.
                 </p>
 
                 <div class="hero-highlights">
@@ -1327,25 +1327,25 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="m5 12 5 5L20 7" />
                         </svg>
-                        100% Ao Vivo & Gratuito
+                        100% Online, Ao Vivo & Gratuito
                     </div>
                     <div class="hero-badge-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="m5 12 5 5L20 7" />
                         </svg>
-                        Benchmarking de Incidentes
+                        Posicionamento e Autoridade
                     </div>
                     <div class="hero-badge-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="m5 12 5 5L20 7" />
                         </svg>
-                        Acesso ao Grupo VIP WhatsApp
+                        Venda Consultiva e Precificação
                     </div>
                     <div class="hero-badge-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="m5 12 5 5L20 7" />
                         </svg>
-                        Rede Exclusiva de Pares
+                        Comunidade e Networking Profissional
                     </div>
                 </div>
             </div>
@@ -1353,8 +1353,8 @@
             <!-- Registration Lead Card -->
             <div class="lead-card" id="cadastro">
                 <div class="lead-card__header" id="formHeader">
-                    <h3>Garantir Ingresso Gratuito</h3>
-                    <p>Preencha os dados abaixo para confirmar sua presença na live de Agosto e liberar seu acesso VIP.
+                    <h3>Inscrição Gratuita</h3>
+                    <p>Confirme sua presença na live Muito Além da Privacidade e receba os avisos pelo grupo oficial.
                     </p>
                 </div>
 
@@ -1378,15 +1378,15 @@
                     </div>
 
                     <div class="field-group">
-                        <label for="cargo">Sua atuação principal em LGPD</label>
+                        <label for="cargo">Sua atuação principal</label>
                         <select id="cargo" name="cargo" required>
                             <option value="" disabled selected>Selecione seu perfil</option>
-                            <option value="DPO Interno">DPO Interno (Encarregado CLT)</option>
-                            <option value="DPO Terceirizado">DPO Terceirizado / Consultor LGPD</option>
-                            <option value="Advogado / Jurídico">Advogado / Especialista Jurídico em Privacidade</option>
-                            <option value="CISO / TI / Segurança">CISO / Diretor de TI / Segurança da Informação
-                            </option>
-                            <option value="Compliance / Risco">Gerente de Compliance, Governança ou Risco</option>
+                            <option value="DPO Interno">Encarregado de Dados / DPO interno</option>
+                            <option value="Consultor de Privacidade">Consultor de privacidade e proteção de dados</option>
+                            <option value="Advogado / Jurídico">Advogado que atua ou deseja atuar com LGPD</option>
+                            <option value="Segurança / Governança / Riscos">Segurança da informação, governança, riscos
+                                ou compliance</option>
+                            <option value="Transição de Carreira">Profissional em transição para privacidade</option>
                         </select>
                     </div>
 
@@ -1412,13 +1412,13 @@
                         </svg>
                     </div>
                     <h3>Inscrição Confirmada!</h3>
-                    <p>Sua vaga para a Live Oficial de Lançamento em <strong>Agosto</strong> foi reservada com sucesso.
+                    <p>Sua vaga para a live <strong>Muito Além da Privacidade</strong> foi reservada com sucesso.
                     </p>
 
                     <div class="action-box">
                         <strong>PRÓXIMO PASSO OBRIGATÓRIO:</strong>
                         <p style="font-size:13px; color:#c7daec; margin-top:0;">Entre no Grupo VIP de WhatsApp para
-                            receber o link da transmissão ao vivo e materiais antecipados.</p>
+                            receber os avisos, conteúdos preparatórios e o link de acesso à transmissão.</p>
 
                         <a href="https://chat.whatsapp.com/dpo-board-vip" target="_blank"
                             class="btn btn--whatsapp btn--full" onclick="trackCTA('whatsapp_vip_click')">
@@ -1439,208 +1439,24 @@
         </div>
     </section>
 
-    <!-- Marquee Ticker -->
-    <div class="marquee" aria-label="Temas do DPO Board">
-        <div class="marquee-track">
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Benchmarking Real de Incidentes</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Inteligência Regulatória ANPD</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Modelos Práticos de RIPD / DPIA</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Inteligência Artificial & Governança</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Rede Executiva de DPOs</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Resposta Prática a Auditorias</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Benchmarking Real de Incidentes</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Inteligência Regulatória ANPD</span>
-            <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="5" />
-                </svg> Modelos Práticos de RIPD / DPIA</span>
-        </div>
-    </div>
-
-    <!-- The Problem / Challenge Section -->
-    <section class="section section--paper" id="desafios">
-        <div class="wrap">
-            <div class="section-head section-head--center">
-                <div class="section-kicker">O Desafio do DPO Moderno</div>
-                <h2>A rotina de privacidade mudou. Decidir sozinho custa caro.</h2>
-                <p>O mercado de adequação LGPD amadureceu. Hoje, o DPO não enfrenta apenas dúvidas teóricas, mas
-                    demandas complexas de governança, auditorias exigentes e fiscalizações ativas.</p>
-            </div>
-
-            <div class="grid-3">
-                <article class="pain-card">
-                    <div class="pain-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                            <circle cx="9" cy="7" r="4" />
-                            <line x1="18" y1="8" x2="23" y2="13" />
-                            <line x1="23" y1="8" x2="18" y2="13" />
-                        </svg>
-                    </div>
-                    <h3>Isolamento Decisório</h3>
-                    <p>Falta de pares qualificados para validar decisões críticas de base legal, resposta a incidentes e
-                        transferências internacionais sem expor a empresa.</p>
-                </article>
-
-                <article class="pain-card">
-                    <div class="pain-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                            <polyline points="14 2 14 8 20 8" />
-                            <line x1="16" y1="13" x2="8" y2="13" />
-                            <line x1="16" y1="17" x2="8" y2="17" />
-                        </svg>
-                    </div>
-                    <h3>Excesso de Teoria Acadêmica</h3>
-                    <p>Cursos convencionais ensinam a lei, mas não entregam ferramentas operacionais, matrizes de risco
-                        e relatórios prontos para aplicação imediata.</p>
-                </article>
-
-                <article class="pain-card">
-                    <div class="pain-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            <line x1="12" y1="8" x2="12" y2="12" />
-                            <line x1="12" y1="16" x2="12.01" y2="16" />
-                        </svg>
-                    </div>
-                    <h3>Pressão de Clientes & ANPD</h3>
-                    <p>Questionários de segurança intermináveis de grandes fornecedores e a necessidade de comprovação
-                        de governança em prazos extremamente curtos.</p>
-                </article>
-            </div>
-
-            <!-- Feature Highlight Box with Somaxi 3D Graphic Asset -->
-            <div class="somaxi-feature-box">
-                <div class="somaxi-feature-text">
-                    <div class="section-kicker" style="color:var(--cyan-soft);">Inteligência Somaxi Group</div>
-                    <h3>"Governança sólida de dados não se faz no improviso."</h3>
-                    <p>No DPO Board, você se conecta à estrutura de inteligência da SOMAXI para tomar decisões
-                        respaldadas pela prática real dos maiores cases de adequação do Brasil.</p>
-                </div>
-                <div class="somaxi-graphic-wrapper">
-                    <img src="https://static.wixstatic.com/media/023f65_dbf07cbfc2a043bc9c19abff80217f6b~mv2.png/v1/fill/w_340,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/somaxi1%402x.png"
-                        alt="SOMAXI Intelligence Graphic" class="somaxi-graphic-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Solution / DPO Board Pillars with Executive Panel Image -->
-    <section class="section section--dark" id="solucao">
-        <div class="wrap">
-            <div class="section-head section-head--center">
-                <div class="section-kicker">Conheça o DPO Board</div>
-                <h2>Um clube de inteligência prática feito de DPO para DPO.</h2>
-                <p>O DPO Board é um ecossistema executivo totalmente independente projetado para elevar o nível da sua
-                    atuação profissional e conectar você aos maiores líderes do setor.</p>
-            </div>
-
-            <div class="solution-wrapper">
-                <div class="pillars-grid">
-                    <div class="pillar-card">
-                        <span class="pillar-number">PILAR 01</span>
-                        <h3>Benchmarking Real & Casos Práticos</h3>
-                        <p>Discussão aberta e confidencial sobre como grandes empresas estão resolvendo incidentes,
-                            estruturando governança e lidando com solicitações de titulares.</p>
-                        <ul class="pillar-list">
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Análise de casos reais do mercado brasileiro</li>
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Troca direta entre encarregados de grandes operações</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-card">
-                        <span class="pillar-number">PILAR 02</span>
-                        <h3>Acervo de Frameworks & Ativos</h3>
-                        <p>Acesso a modelos de RIPD, cláusulas contratuais testadas, checklists de segurança e políticas
-                            validadas por especialistas para acelerar sua rotina.</p>
-                        <ul class="pillar-list">
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Templates editáveis e prontos para uso</li>
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Padrão de documentação de alto nível</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-card">
-                        <span class="pillar-number">PILAR 03</span>
-                        <h3>Inteligência Regulatória Antecipada</h3>
-                        <p>Leitura estratégica das resoluções, guias e fiscalizações da ANPD antes de se tornarem
-                            problemas operacionais para o seu dia a dia.</p>
-                        <ul class="pillar-list">
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Análise técnica dos posicionamentos da autoridade</li>
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Orientações diretas para adequação contínua</li>
-                        </ul>
-                    </div>
-
-                    <div class="pillar-card">
-                        <span class="pillar-number">PILAR 04</span>
-                        <h3>Networking & Valorização Profissional</h3>
-                        <p>Construção de autoridade e conexões estratégicas de carreira em um grupo seleto focado em
-                            colaboração e evolução mútua.</p>
-                        <ul class="pillar-list">
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Conexão com executivos e consultores de ponta</li>
-                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="m5 12 5 5L20 7" />
-                                </svg> Posicionamento executivo frente à alta gestão</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Side Image Panel -->
-                <div class="solution-image-panel">
-                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1000&q=80"
-                        alt="Reunião Executiva DPO Board">
-                    <div class="solution-image-overlay">
-                        <h4>Membros Executivos DPO Board</h4>
-                        <p>Rede de benchmarking e inteligência estratégica para profissionais de privacidade.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Launch Event Reveal Section with Live Studio Image -->
+    <!-- Live Value Section -->
     <section class="section section--deep" id="live-detalhes">
         <div class="wrap">
             <div class="live-box">
                 <div class="live-details">
-                    <div class="section-kicker">O que será revelado na Live</div>
-                    <h3>O Lançamento Oficial do DPO Board em Agosto.</h3>
-                    <p>Durante a live de transmissão ao vivo, apresentaremos em detalhes o funcionamento do clube, os
-                        benefícios exclusivos dos membros fundadores e um painel técnico imperdível sobre governança
-                        real de dados.</p>
+                    <div class="section-kicker">Por que participar?</div>
+                    <h3>Porque dominar a LGPD é apenas o começo.</h3>
+                    <p>Muitos profissionais conhecem normas, frameworks e processos de adequação, mas travam quando
+                        precisam transformar esse conhecimento em valor percebido, proposta comercial e crescimento
+                        sustentável.</p>
+                    <p>Na live, você vai entender como ampliar sua visão profissional e deixar de enxergar a atuação do
+                        DPO apenas pelo ponto de vista técnico.</p>
+                    <p><strong>Data:</strong> 12 de agosto • <strong>Horário:</strong> 19h • <strong>Formato:</strong>
+                        online e ao vivo • <strong>Inscrição:</strong> gratuita.</p>
 
                     <div style="margin-top:24px;">
                         <a href="#cadastro" class="btn btn--amber" onclick="trackCTA('agenda_cta_click')">
-                            Garantir Meu Lugar na Live Gratuita
+                            Inscrever-se Gratuitamente
                         </a>
                     </div>
                 </div>
@@ -1650,34 +1466,34 @@
                         <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
                             alt="Estúdio de Transmissão Ao Vivo DPO Board">
                         <div class="live-media-badge">
-                            <span class="pulse-dot"></span> Transmissão em HD • Agosto
+                            <span class="pulse-dot"></span> Online e ao vivo • 12/08 às 19h
                         </div>
                     </div>
 
                     <div class="agenda-list">
                         <div class="agenda-item">
-                            <span class="agenda-tag">PAINEL 1</span>
+                            <span class="agenda-tag">01</span>
                             <div>
-                                <strong>O Novo Papel Estratégico do DPO em 2026</strong>
-                                <span>Como sair da postura burocrática e assumir papel decisivo na mesa diretora.</span>
+                                <strong>Se posicionar além do técnico</strong>
+                                <span>Comunicar valor, construir autoridade e influenciar decisões com mais clareza.</span>
                             </div>
                         </div>
 
                         <div class="agenda-item">
-                            <span class="agenda-tag">PAINEL 2</span>
+                            <span class="agenda-tag">02</span>
                             <div>
-                                <strong>Benchmarking de Incidentes & ANPD</strong>
-                                <span>Análise de casos práticos e como estruturar planos de resposta imunes a
-                                    penalidades.</span>
+                                <strong>Vender, negociar e precificar</strong>
+                                <span>Princípios de venda consultiva, apresentação de serviços, negociação e modelos de
+                                    negócio.</span>
                             </div>
                         </div>
 
                         <div class="agenda-item">
-                            <span class="agenda-tag">REVELAÇÃO</span>
+                            <span class="agenda-tag">03</span>
                             <div>
-                                <strong>Abertura das Vagas do DPO Board Club</strong>
-                                <span>Condições exclusivas para os profissionais presentes ao vivo no evento de
-                                    Agosto.</span>
+                                <strong>Planejar crescimento com comunidade</strong>
+                                <span>Metas, visão empresarial, networking profissional e apresentação oficial do DPO
+                                    Board Brasil.</span>
                             </div>
                         </div>
                     </div>
@@ -1690,188 +1506,120 @@
     <section class="section section--white" id="lideranca">
         <div class="wrap">
             <div class="section-head section-head--center">
-                <div class="section-kicker">Anfitriões e Liderança</div>
-                <h2>Criado por quem vive a governança na prática diária.</h2>
-                <p>O DPO Board conta com a curadoria de especialistas com ampla bagagem em adequação LGPD, gestão de
-                    riscos e inteligência regulatória.</p>
+                <div class="section-kicker">Idealizadores</div>
+                <h2>Criado por quem conecta privacidade, gestão e crescimento empresarial.</h2>
+                <p>O DPO Board Brasil é uma iniciativa para desenvolver profissionais e negócios preparados para o
+                    futuro do mercado de privacidade.</p>
             </div>
 
             <div class="grid-2">
                 <div class="leader-card">
                     <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=250&q=80"
-                        alt="Ronaldo Teixeira Santos" class="leader-avatar-img">
+                        alt="Damião Oliveira" class="leader-avatar-img">
                     <div class="leader-info">
-                        <h3>Ronaldo Teixeira Santos</h3>
-                        <div class="role">Liderança Estratégica & Governança</div>
-                        <p>Especialista em adequação LGPD, estratégia de negócios e governança corporativa na SOMAXI,
-                            liderando projetos de alta complexidade em segurança de dados.</p>
+                        <h3>Damião Oliveira</h3>
+                        <div class="role">Cofundador do DPO Board Brasil</div>
+                        <p>Sócio da Somaxi Franchising, empresa especializada em proteção e privacidade de dados, e
+                            mentor de investidores franqueados. Atua no desenvolvimento e crescimento das unidades da
+                            rede, apoiando empresários na estruturação de operações, liderança e resultados
+                            sustentáveis.</p>
+                        <a href="https://www.linkedin.com/in/dpodamiaooliveira/" target="_blank" class="leader-link"
+                            rel="noopener">Ver perfil no LinkedIn</a>
                     </div>
                 </div>
 
                 <div class="leader-card">
                     <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=250&q=80"
-                        alt="Pedro Lucas Ribeiro" class="leader-avatar-img">
+                        alt="Allan Andrade" class="leader-avatar-img">
                     <div class="leader-info">
-                        <h3>Pedro Lucas Ribeiro</h3>
-                        <div class="role">Inteligência Operacional & Privacidade</div>
-                        <p>Especialista na estruturação de processos de privacidade, DPO terceirizado e implementação de
-                            frameworks práticos de resposta a incidentes.</p>
+                        <h3>Allan Andrade</h3>
+                        <div class="role">Cofundador do DPO Board Brasil</div>
+                        <p>Sócio-fundador e CEO da Somaxi Franchising. Graduado em Administração de Empresas, atua na
+                            construção de ativos estratégicos, modelos de receita recorrente, expansão, retenção e
+                            geração de valor, conectando proteção de dados, tecnologia, gestão e crescimento
+                            empresarial.</p>
+                        <a href="https://www.linkedin.com/in/allansomaxi/" target="_blank" class="leader-link"
+                            rel="noopener">Ver perfil no LinkedIn</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section class="section section--paper" id="faq">
-        <div class="wrap">
-            <div class="section-head section-head--center">
-                <div class="section-kicker">Perguntas Frequentes</div>
-                <h2>Tire suas dúvidas sobre a Live de Lançamento</h2>
-            </div>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        A participação na Live de Agosto é gratuita?
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        Sim, a transmissão ao vivo de lançamento em Agosto será 100% gratuita para profissionais
-                        cadastrados antecipadamente nesta landing page.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Para quem é o DPO Board?
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        O clube é voltado para DPOs (internos e terceirizados), Gerentes de Privacidade, Advogados
-                        atuantes em Direito Digital/LGPD, CISOs, Diretores de TI e profissionais de Compliance e
-                        Governança de Dados.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Como funcionará o Grupo VIP no WhatsApp?
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        O Grupo VIP no WhatsApp é o canal direto de ativação. Nele, você receberá os links oficiais da
-                        transmissão ao vivo no mês de Agosto, conteúdos exclusivos de aquecimento e informações da
-                        plataforma Simpla.
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        Haverá gravação da Live de Lançamento?
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="m6 9 6 6 6-6" />
-                        </svg>
-                    </div>
-                    <div class="faq-answer">
-                        As condições especiais de membro fundador do DPO Board e a interação ao vivo no painel técnico
-                        serão exclusivas para quem estiver presente durante o evento ao vivo em Agosto.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bottom CTA Banner with Overlay Background -->
-    <section class="section section--dark">
-        <div class="wrap">
-            <div class="cta-banner">
-                <h2>Não enfrente os desafios da privacidade sozinho.</h2>
-                <p>Garanta sua vaga na Live Oficial em Agosto e faça parte da maior comunidade de inteligência
-                    estratégica para DPOs do Brasil.</p>
+            <div class="cta-banner" style="margin-top:48px;">
+                <h2>Prepare-se para ir muito além da privacidade.</h2>
+                <p>Inscreva-se gratuitamente na live de lançamento do DPO Board Brasil e receba o link de acesso pelo
+                    grupo oficial do evento.</p>
 
                 <div class="cta-actions">
                     <a href="#cadastro" class="btn btn--amber" onclick="trackCTA('bottom_banner_click')">
-                        Garantir Minha Vaga Gratuita Agora →
+                        Inscrever-se Gratuitamente →
                     </a>
                 </div>
             </div>
         </div>
-        </footer>
+    </section>
 
-        <!-- Footer with Official Somaxi Group Logo -->
-        <footer class="site-footer">
-            <div class="wrap footer-inner">
-                <div class="footer-brand">
-                    <img src="https://static.wixstatic.com/media/0083b8_128b03c1c9c84d1b96da0aad344fb388~mv2.png/v1/fill/w_215,h_55,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_SOMAXI_GROUP_BRANCAA.png"
-                        alt="SOMAXI GROUP" class="footer-logo">
-                    <div style="font-size:13px; color:#6c849e;">
-                        DPO Board • Uma iniciativa de inteligência SOMAXI GROUP.
-                        <div style="margin-top:2px; font-size:12px; color:#5c738c;">© 2026 SOMAXI. Todos os direitos
-                            reservados.</div>
-                    </div>
-                </div>
-
-                <div class="footer-legal">
-                    <a href="https://somaxi.com.br" target="_blank">Somaxi Institucional</a>
-                    <a href="#">Política de Privacidade</a>
-                    <a href="#">Termos de Uso</a>
+    <!-- Footer with Official Somaxi Group Logo -->
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <div class="footer-brand">
+                <img src="https://static.wixstatic.com/media/0083b8_128b03c1c9c84d1b96da0aad344fb388~mv2.png/v1/fill/w_215,h_55,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_SOMAXI_GROUP_BRANCAA.png"
+                    alt="SOMAXI GROUP" class="footer-logo">
+                <div style="font-size:13px; color:#6c849e;">
+                    DPO Board Brasil • Uma iniciativa SOMAXI GROUP.
+                    <div style="margin-top:2px; font-size:12px; color:#5c738c;">© 2026 SOMAXI. Todos os direitos
+                        reservados.</div>
                 </div>
             </div>
-        </footer>
 
-        <!-- Interactive Scripts -->
-        <script>
-            function trackCTA(eventName) {
-                if (typeof window.trackEvent === 'function') {
-                    window.trackEvent('click_cta', { cta_name: eventName });
-                } else {
-                    console.log('Tracking CTA:', eventName);
-                }
+            <div class="footer-legal">
+                <a href="https://somaxi.com.br" target="_blank">Somaxi Institucional</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function trackCTA(eventName) {
+            if (typeof window.trackEvent === 'function') {
+                window.trackEvent('click_cta', { cta_name: eventName });
+            } else {
+                console.log('Tracking CTA:', eventName);
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            var form = document.getElementById('dpoForm');
+            var formHeader = document.getElementById('formHeader');
+            var successState = document.getElementById('successState');
+
+            // Capture data
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var whatsapp = document.getElementById('whatsapp').value;
+            var cargo = document.getElementById('cargo').value;
+
+            // Custom event tracking
+            if (typeof window.trackEvent === 'function') {
+                window.trackEvent('lead_capture', {
+                    nome: nome,
+                    email: email,
+                    cargo: cargo
+                });
             }
 
-            function handleFormSubmit(e) {
-                e.preventDefault();
+            // Smooth transition to Success State with WhatsApp VIP redirect
+            form.style.display = 'none';
+            if (formHeader) formHeader.style.display = 'none';
+            successState.classList.add('is-active');
 
-                var form = document.getElementById('dpoForm');
-                var formHeader = document.getElementById('formHeader');
-                var successState = document.getElementById('successState');
-
-                // Capture data
-                var nome = document.getElementById('nome').value;
-                var email = document.getElementById('email').value;
-                var whatsapp = document.getElementById('whatsapp').value;
-                var cargo = document.getElementById('cargo').value;
-
-                // Custom event tracking
-                if (typeof window.trackEvent === 'function') {
-                    window.trackEvent('lead_capture', {
-                        nome: nome,
-                        email: email,
-                        cargo: cargo
-                    });
-                }
-
-                // Smooth transition to Success State with WhatsApp VIP redirect
-                form.style.display = 'none';
-                if (formHeader) formHeader.style.display = 'none';
-                successState.classList.add('is-active');
-
-                // Scroll to success card smoothly
-                successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-
-            function toggleFaq(element) {
-                var item = element.parentElement;
-                item.classList.toggle('is-open');
-            }
-        </script>
+            // Scroll to success card smoothly
+            successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
 </body>
 
 </html>
