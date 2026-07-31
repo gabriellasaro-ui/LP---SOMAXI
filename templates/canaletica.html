@@ -28,7 +28,7 @@
         rel="stylesheet">
 
     <!-- Tracking base obrigatório -->
-    <script src="/static/tracking.js" defer></script>
+    <script src="../static/tracking.js" defer></script>
 
     <style>
         :root {
@@ -793,6 +793,7 @@
             border: 1px solid var(--line);
             border-radius: var(--radius);
             background: #fff;
+            overflow: hidden;
         }
 
         .client-bar .label {
@@ -806,21 +807,102 @@
             margin-bottom: 22px;
         }
 
-        .client-names {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 14px 34px;
+        .logo-carousel {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
         }
 
-        .client-names span {
-            font-family: var(--font-title);
-            font-weight: 700;
-            font-size: 17px;
-            letter-spacing: .01em;
-            color: var(--ink-2);
-            opacity: .78;
+        .logo-carousel::before,
+        .logo-carousel::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .logo-carousel::before {
+            left: 0;
+            background: linear-gradient(90deg, #fff 0%, transparent 100%);
+        }
+
+        .logo-carousel::after {
+            right: 0;
+            background: linear-gradient(-90deg, #fff 0%, transparent 100%);
+        }
+
+        .logo-carousel-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: logoScroll 28s linear infinite;
+        }
+
+        .logo-carousel:hover .logo-carousel-track {
+            animation-play-state: paused;
+        }
+
+        .logo-carousel-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: 160px;
+            height: 70px;
+            padding: 10px 20px;
+            margin: 0 14px;
+        }
+
+        .logo-carousel-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(20%) opacity(.82);
+            transition: filter .3s ease, transform .3s ease;
+        }
+
+        .logo-carousel-item img:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.08);
+        }
+
+        .logo-carousel-item--lg {
+            width: 260px;
+            height: 95px;
+        }
+
+        @keyframes logoScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* Hero background image overlay */
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            background-image: url('../static/img/LGPD-2026/space-bg.webp');
+            background-size: cover;
+            background-position: center;
+            opacity: .12;
+            pointer-events: none;
+        }
+
+        /* Decorative graphic for dark sections */
+        .section--dark::after {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -80px;
+            width: 340px;
+            height: 340px;
+            background-image: url('../static/img/LGPD-2026/somaxi_graphic.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: .06;
+            pointer-events: none;
         }
 
         /* ===== FAQ ===== */
@@ -945,13 +1027,14 @@
             body { padding-bottom: 78px }
             .client-names { gap: 12px 20px }
             .client-names span { font-size: 14px }
+            .logo-carousel-item { width: 130px; height: 56px; margin: 0 10px; }
         }
 
         .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto }
-            .btn, .deliver, .marquee-track { transition: none; animation: none }
+            .btn, .deliver, .marquee-track, .logo-carousel-track { transition: none; animation: none }
         }
     </style>
 </head>
@@ -976,6 +1059,7 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="topo">
+        <div class="hero-bg-img" aria-hidden="true"></div>
         <div class="hero-grid">
             <div>
                 <div class="eyebrow">Canal de Ética para empresas</div>
@@ -1597,7 +1681,7 @@
                 </div>
 
                 <aside class="seal-panel">
-                    <img src="/static/img/ETICA/selo-compliance.webp"
+                    <img src="../static/img/ETICA/selo-compliance.webp"
                         alt="Selo Compliance Somaxi — Ética, Transparência e Integridade" loading="lazy">
                     <h3>Um padrão que você pode comprovar</h3>
                     <p>Ética, transparência e integridade aplicadas em cada etapa da implementação do seu Canal de
@@ -1607,13 +1691,26 @@
 
             <div class="client-bar">
                 <span class="label">Empresas que escolheram a Somaxi</span>
-                <div class="client-names">
-                    <span>SPARQ</span>
-                    <span>G&amp;P</span>
-                    <span>Jovem Pan Fortaleza</span>
-                    <span>Grupo Euro Américas Chevrolet</span>
-                    <span>Record Fortaleza</span>
-                    <span>MH Têxtil</span>
+                <div class="logo-carousel" aria-label="Logotipos de empresas parceiras">
+                    <div class="logo-carousel-track">
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/sparq.jpeg" alt="SPARQ" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/g&p.jpeg" alt="G&P" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan FM" loading="lazy"></div>
+                        <div class="logo-carousel-item logo-carousel-item--lg"><img src="../static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/tv-cidade.jpeg" alt="TV Cidade" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/mh.jpeg" alt="MH Têxtil" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/grupo-cidade.jpeg" alt="Grupo Cidade" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/q13.jpeg" alt="Q13" loading="lazy"></div>
+                        <!-- duplicate for seamless loop -->
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/sparq.jpeg" alt="SPARQ" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/g&p.jpeg" alt="G&P" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan FM" loading="lazy"></div>
+                        <div class="logo-carousel-item logo-carousel-item--lg"><img src="../static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/tv-cidade.jpeg" alt="TV Cidade" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/mh.jpeg" alt="MH Têxtil" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/grupo-cidade.jpeg" alt="Grupo Cidade" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/q13.jpeg" alt="Q13" loading="lazy"></div>
+                    </div>
                 </div>
             </div>
         </div>
