@@ -1373,6 +1373,14 @@
                         </select>
                     </div>
 
+                    <input type="hidden" name="utm_source" id="utmSource">
+                    <input type="hidden" name="utm_medium" id="utmMedium">
+                    <input type="hidden" name="utm_campaign" id="utmCampaign">
+                    <input type="hidden" name="utm_content" id="utmContent">
+                    <input type="hidden" name="utm_term" id="utmTerm">
+                    <input type="hidden" name="gclid" id="gclid">
+                    <input type="hidden" name="fbclid" id="fbclid">
+
                     <button type="submit" class="btn btn--amber btn--full" onclick="trackCTA('submit_form_live')">
                         Confirmar Minha Vaga na Live →
                     </button>
@@ -1385,39 +1393,6 @@
                         Seus dados estão protegidos nos termos da LGPD.
                     </div>
                 </form>
-
-                <!-- Success Confirmation Card -->
-                <div class="success-card" id="successState">
-                    <div class="success-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="m5 12 5 5L20 7" />
-                        </svg>
-                    </div>
-                    <h3>Inscrição Confirmada!</h3>
-                    <p>Sua vaga para a live <strong>Muito Além da Privacidade</strong> foi reservada com sucesso.
-                    </p>
-
-                    <div class="action-box">
-                        <strong>PRÓXIMO PASSO OBRIGATÓRIO:</strong>
-                        <p style="font-size:13px; color:#c7daec; margin-top:0;">Entre no Grupo VIP de WhatsApp para
-                            receber os avisos, conteúdos preparatórios e o link de acesso à transmissão.</p>
-
-                        <a href="https://chat.whatsapp.com/dpo-board-vip" target="_blank"
-                            class="btn btn--whatsapp btn--full" onclick="trackCTA('whatsapp_vip_click')">
-                            <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;">
-                                <path
-                                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.705 1.656zm6.208-3.824l.445.264c1.514.898 3.251 1.373 5.02 1.374 5.378 0 9.755-4.376 9.758-9.755.002-2.603-1.01-5.05-2.848-6.888-1.838-1.838-4.285-2.85-6.887-2.852-5.378 0-9.755 4.376-9.758 9.755-.001 1.846.516 3.642 1.493 5.207l.29.464-1.003 3.662 3.75-1.026z" />
-                            </svg>
-                            Entrar no Grupo VIP do WhatsApp
-                        </a>
-
-                        <a href="https://www.simpla.com.br" target="_blank" class="btn btn--ghost btn--full"
-                            style="font-size:13px;" onclick="trackCTA('simpla_link_click')">
-                            Ver detalhes no Simpla
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1570,35 +1545,72 @@
             }
         }
 
+        (function () {
+            var form = document.getElementById('dpoForm');
+            if (!form) return;
+
+            var params = new URLSearchParams(window.location.search);
+            ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'].forEach(function (key) {
+                var input = document.getElementById(key);
+                if (input) input.value = params.get(key) || '';
+            });
+        })();
+
         function handleFormSubmit(e) {
             e.preventDefault();
 
             var form = document.getElementById('dpoForm');
-            var formHeader = document.getElementById('formHeader');
-            var successState = document.getElementById('successState');
 
-            // Capture data
             var nome = document.getElementById('nome').value;
             var email = document.getElementById('email').value;
             var whatsapp = document.getElementById('whatsapp').value;
             var cargo = document.getElementById('cargo').value;
 
-            // Custom event tracking
+            // Monta o payload com TODOS os campos do formulário (inclui UTMs ocultas)
+            var payload = new URLSearchParams();
+            new FormData(form).forEach(function (value, key) {
+                payload.append(key, typeof value === 'string' ? value.trim() : value);
+            });
+            payload.set('whatsapp_numeros', whatsapp.replace(/\D/g, ''));
+            payload.set('origem', 'lp-dpo-board');
+            payload.set('pagina', window.location.href);
+            payload.set('enviado_em', new Date().toISOString());
+
+            var submitButton = form.querySelector('button[type="submit"]');
+            var originalButton = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+
+            // Evento personalizado de form_submit (GTM / dataLayer)
+            if (typeof window.dataLayer !== 'undefined' && window.dataLayer.push) {
+                window.dataLayer.push({
+                    event: 'form_submit',
+                    form: 'dpo-board',
+                    nome: nome,
+                    email: email,
+                    cargo: cargo
+                });
+            }
             if (typeof window.trackEvent === 'function') {
-                window.trackEvent('lead_capture', {
+                window.trackEvent('form_submit', {
+                    form: 'dpo-board',
                     nome: nome,
                     email: email,
                     cargo: cargo
                 });
             }
 
-            // Smooth transition to Success State with WhatsApp VIP redirect
-            form.style.display = 'none';
-            if (formHeader) formHeader.style.display = 'none';
-            successState.classList.add('is-active');
+            // Webhook POST com os dados (form-urlencoded = sem preflight CORS)
+            fetch('https://n8n.v4lisboatech.com.br/webhook-test/0b5dec42-e5db-4b4d-8d73-752147d6872e', {
+                method: 'POST',
+                body: payload,
+                keepalive: true
+            }).catch(function () {
+                // Falha de rede/CORS: os dados já foram despachados. Segue o fluxo.
+            });
 
-            // Scroll to success card smoothly
-            successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Redireciona o lead para a página de obrigado
+            window.location.href = '/dpo-board-obrigado';
         }
     </script>
 </body>
