@@ -118,8 +118,46 @@
             scroll-margin-top: 84px;
         }
 
-        .section--white { background: #fff }
-        .section--light { background: var(--paper-2) }
+        .section--white {
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section--white > .wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section--light {
+            background: var(--paper-2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section--light > .wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section--light::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -40px;
+            transform: translateY(-50%);
+            width: 420px;
+            height: 420px;
+            background-image: url('../static/img/LGPD-2026/somaxi_graphic.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: .07;
+            pointer-events: none;
+        }
+
+        #por-que-somaxi::after {
+            content: none;
+        }
 
         .section--dark {
             position: relative;
@@ -128,6 +166,23 @@
                 radial-gradient(60% 50% at 90% 100%, rgba(242, 184, 75, .10), transparent 60%),
                 linear-gradient(180deg, #07111f 0%, #0c1b2d 55%, #07111f 100%);
             color: #fff;
+            overflow: hidden;
+        }
+
+        .section--dark > .wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        #beneficios::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('../static/img/LGPD-2026/dpo-executive-meeting.png');
+            background-size: cover;
+            background-position: center;
+            opacity: .08;
+            pointer-events: none;
         }
 
 
@@ -178,6 +233,46 @@
         }
 
         .section--dark .section-head p { color: #bad0e5 }
+
+        .section-head--with-image {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 32px;
+            align-items: center;
+            max-width: 960px;
+            margin-bottom: 42px;
+        }
+
+        .section-head--with-image .section-head-text {
+            max-width: 700px;
+        }
+
+        .section-head-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--line);
+            box-shadow: 0 12px 32px rgba(9, 22, 42, .12);
+            flex-shrink: 0;
+        }
+
+        .section-head-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 720px) {
+            .section-head--with-image {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+            .section-head--with-image .section-head-text {
+                max-width: 100%;
+            }
+        }
 
         /* ===== Header ===== */
         header.site-header {
@@ -636,6 +731,8 @@
             border-radius: var(--radius);
             background: #fff;
             box-shadow: 0 12px 28px rgba(9, 22, 42, .05);
+            position: relative;
+            z-index: 1;
         }
 
         .legal-tag {
@@ -670,6 +767,7 @@
             display: grid;
             gap: 0;
             margin-top: 8px;
+            z-index: 1;
         }
 
         .steps::before {
@@ -890,23 +988,9 @@
             pointer-events: none;
         }
 
-        /* Decorative graphic for dark sections */
-        .section--dark::after {
-            content: "";
-            position: absolute;
-            top: -60px;
-            right: -80px;
-            width: 340px;
-            height: 340px;
-            background-image: url('../static/img/LGPD-2026/somaxi_graphic.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            opacity: .06;
-            pointer-events: none;
-        }
 
         /* ===== FAQ ===== */
-        .faq-list { display: grid; gap: 12px }
+        .faq-list { display: grid; gap: 12px; position: relative; z-index: 1; }
 
         .faq {
             border: 1px solid var(--line);
@@ -953,6 +1037,17 @@
             padding: 20px 0 0;
         }
 
+        .final-cta::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('../static/img/LGPD-2026/dpo-hero-tech.png');
+            background-size: cover;
+            background-position: center 30%;
+            opacity: .12;
+            pointer-events: none;
+        }
+
         .final-cta h2 {
             font-size: clamp(28px, 4vw, 42px);
             max-width: 780px;
@@ -969,6 +1064,11 @@
         }
 
         .final-cta .cta-row { justify-content: center }
+
+        .final-cta .wrap {
+            position: relative;
+            z-index: 1;
+        }
 
         /* ===== Footer ===== */
         footer.site-footer {
@@ -1027,7 +1127,9 @@
             body { padding-bottom: 78px }
             .client-names { gap: 12px 20px }
             .client-names span { font-size: 14px }
-            .logo-carousel-item { width: 130px; height: 56px; margin: 0 10px; }
+            .logo-carousel-item { width: 160px; height: 70px; margin: 0 10px; }
+            .logo-carousel-item--lg { width: 260px; height: 95px; }
+            .hero-bg-img { background-position: center 20%; }
         }
 
         .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
@@ -1330,13 +1432,19 @@
     <!-- ===================== SOLUÇÃO ===================== -->
     <section class="section section--white" id="solucao">
         <div class="wrap">
-            <div class="section-head">
-                <div class="section-kicker">A solução Somaxi</div>
-                <h2>Mais do que uma plataforma, uma estrutura completa para o seu Canal de Ética</h2>
-                <p>A Somaxi ajuda sua empresa a implementar um canal confiável, acessível e integrado ao Programa de
-                    Integridade. O projeto considera a realidade da organização, os riscos envolvidos, as áreas
-                    responsáveis e os procedimentos necessários para que cada relato seja tratado com organização,
-                    confidencialidade e imparcialidade.</p>
+            <div class="section-head--with-image">
+                <div class="section-head-text">
+                    <div class="section-kicker">A solução Somaxi</div>
+                    <h2>Mais do que uma plataforma, uma estrutura completa para o seu Canal de Ética</h2>
+                    <p>A Somaxi ajuda sua empresa a implementar um canal confiável, acessível e integrado ao Programa de
+                        Integridade. O projeto considera a realidade da organização, os riscos envolvidos, as áreas
+                        responsáveis e os procedimentos necessários para que cada relato seja tratado com organização,
+                        confidencialidade e imparcialidade.</p>
+                </div>
+                <div class="section-head-image">
+                    <img src="../static/img/LGPD-2026/dpo-executive-meeting.png"
+                        alt="Reunião executiva de compliance e governança" loading="lazy">
+                </div>
             </div>
 
             <p class="label"
