@@ -211,7 +211,7 @@
             display: block;
         }
 
-        .nav-inner > .btn {
+        .nav-inner>.btn {
             justify-self: end;
         }
 
@@ -1234,7 +1234,7 @@
             }
 
             .brand-logo,
-            .nav-inner > .btn {
+            .nav-inner>.btn {
                 justify-self: center;
             }
 
@@ -1279,8 +1279,7 @@
     <header class="site-nav">
         <div class="wrap nav-inner">
             <a href="#" class="brand-logo" aria-label="DPO Board Brasil">
-                <img src="../static/img/DPO/logo-dpo.jfif"
-                    alt="DPO Board Brasil" class="somaxi-logo-img">
+                <img src="../static/img/DPO/logo-dpo.jfif" alt="DPO Board Brasil" class="somaxi-logo-img">
             </a>
             <a href="#cadastro" class="btn btn--amber" onclick="trackCTA('header_nav_click')">
                 Garantir Vaga na Live
@@ -1365,7 +1364,8 @@
                         <select id="cargo" name="cargo" required>
                             <option value="" disabled selected>Selecione seu perfil</option>
                             <option value="DPO Interno">Encarregado de Dados / DPO interno</option>
-                            <option value="Consultor de Privacidade">Consultor de privacidade e proteção de dados</option>
+                            <option value="Consultor de Privacidade">Consultor de privacidade e proteção de dados
+                            </option>
                             <option value="Advogado / Jurídico">Advogado que atua ou deseja atuar com LGPD</option>
                             <option value="Segurança / Governança / Riscos">Segurança da informação, governança, riscos
                                 ou compliance</option>
@@ -1433,7 +1433,8 @@
                             <span class="agenda-tag">01</span>
                             <div>
                                 <strong>Se posicionar além do técnico</strong>
-                                <span>Comunicar valor, construir autoridade e influenciar decisões com mais clareza.</span>
+                                <span>Comunicar valor, construir autoridade e influenciar decisões com mais
+                                    clareza.</span>
                             </div>
                         </div>
 
@@ -1601,7 +1602,7 @@
             }
 
             // Webhook POST com os dados (form-urlencoded = sem preflight CORS)
-            fetch('https://n8n.v4lisboatech.com.br/webhook-test/0b5dec42-e5db-4b4d-8d73-752147d6872e', {
+            fetch('https://n8n.v4lisboatech.com.br/webhook/0b5dec42-e5db-4b4d-8d73-752147d6872e', {
                 method: 'POST',
                 body: payload,
                 keepalive: true
