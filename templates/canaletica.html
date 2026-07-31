@@ -102,7 +102,10 @@
             list-style: none
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: var(--font-title);
             letter-spacing: 0;
             line-height: 1.14;
@@ -124,7 +127,7 @@
             overflow: hidden;
         }
 
-        .section--white > .wrap {
+        .section--white>.wrap {
             position: relative;
             z-index: 1;
         }
@@ -135,7 +138,7 @@
             overflow: hidden;
         }
 
-        .section--light > .wrap {
+        .section--light>.wrap {
             position: relative;
             z-index: 1;
         }
@@ -169,7 +172,7 @@
             overflow: hidden;
         }
 
-        .section--dark > .wrap {
+        .section--dark>.wrap {
             position: relative;
             z-index: 1;
         }
@@ -211,8 +214,13 @@
             background: var(--cyan-dark);
         }
 
-        .section--dark .section-kicker { color: var(--cyan-soft) }
-        .section--dark .section-kicker::before { background: var(--cyan-soft) }
+        .section--dark .section-kicker {
+            color: var(--cyan-soft)
+        }
+
+        .section--dark .section-kicker::before {
+            background: var(--cyan-soft)
+        }
 
         .section-head {
             max-width: 760px;
@@ -236,7 +244,9 @@
             font-size: 18px;
         }
 
-        .section--dark .section-head p { color: #bad0e5 }
+        .section--dark .section-head p {
+            color: #bad0e5
+        }
 
         .section-head--with-image {
             display: grid;
@@ -273,6 +283,7 @@
                 justify-items: center;
                 text-align: center;
             }
+
             .section-head--with-image .section-head-text {
                 max-width: 100%;
             }
@@ -294,7 +305,10 @@
             border-bottom: 1px solid rgba(255, 255, 255, .08);
         }
 
-        header.site-header img { height: 30px; width: auto }
+        header.site-header img {
+            height: 30px;
+            width: auto
+        }
 
         .header-nav {
             display: flex;
@@ -309,7 +323,9 @@
             transition: color .2s ease;
         }
 
-        .header-nav a:hover { color: #fff }
+        .header-nav a:hover {
+            color: #fff
+        }
 
         /* ===== Buttons ===== */
         .btn {
@@ -333,9 +349,20 @@
             white-space: nowrap;
         }
 
-        .btn svg { width: 18px; height: 18px; flex: none }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0, 155, 206, .35) }
-        .btn:active { transform: translateY(0) }
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            flex: none
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 155, 206, .35)
+        }
+
+        .btn:active {
+            transform: translateY(0)
+        }
 
         .btn--ghost {
             background: rgba(255, 255, 255, .08);
@@ -343,7 +370,11 @@
             border-color: var(--line-dark);
             box-shadow: none;
         }
-        .btn--ghost:hover { background: rgba(255, 255, 255, .14); box-shadow: none }
+
+        .btn--ghost:hover {
+            background: rgba(255, 255, 255, .14);
+            box-shadow: none
+        }
 
         .btn--dark {
             background: #111827;
@@ -352,10 +383,23 @@
             box-shadow: none;
         }
 
-        .btn--full { width: 100% }
-        .btn--sm { min-height: 44px; padding: 10px 18px; font-size: 13px }
+        .btn--full {
+            width: 100%
+        }
 
-        .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; align-items: center }
+        .btn--sm {
+            min-height: 44px;
+            padding: 10px 18px;
+            font-size: 13px
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+            align-items: center
+        }
 
         .microcopy {
             margin-top: 14px;
@@ -364,7 +408,9 @@
             font-weight: 650;
         }
 
-        .section--dark .microcopy { color: #9eb5cc }
+        .section--dark .microcopy {
+            color: #9eb5cc
+        }
 
         /* ===== Hero ===== */
         .hero {
@@ -489,12 +535,26 @@
             background: linear-gradient(90deg, var(--cyan), var(--amber));
         }
 
-        .lead-card__body { padding: 28px }
+        .lead-card__body {
+            padding: 28px
+        }
 
-        .lead-card h3 { font-size: 23px; color: var(--ink) }
-        .lead-card p { margin-top: 8px; color: var(--muted); font-size: 14px }
+        .lead-card h3 {
+            font-size: 23px;
+            color: var(--ink)
+        }
 
-        .fields { display: grid; gap: 14px; margin-top: 22px }
+        .lead-card p {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .fields {
+            display: grid;
+            gap: 14px;
+            margin-top: 22px
+        }
 
         .field label {
             display: block;
@@ -524,7 +584,9 @@
             box-shadow: 0 0 0 3px rgba(0, 188, 231, .14);
         }
 
-        .field input::placeholder { color: #98a7b8 }
+        .field input::placeholder {
+            color: #98a7b8
+        }
 
         .field select {
             appearance: none;
@@ -545,7 +607,11 @@
             text-align: center;
         }
 
-        .form-note svg { width: 15px; height: 15px; flex: none }
+        .form-note svg {
+            width: 15px;
+            height: 15px;
+            flex: none
+        }
 
         .form-success {
             display: none;
@@ -553,7 +619,10 @@
             text-align: center;
         }
 
-        .form-success.is-visible { display: block }
+        .form-success.is-visible {
+            display: block
+        }
+
         .form-success .ok-icon {
             width: 52px;
             height: 52px;
@@ -564,8 +633,17 @@
             background: #e6f8f1;
             color: var(--green);
         }
-        .form-success h4 { font-size: 19px; color: var(--ink) }
-        .form-success p { margin-top: 8px; color: var(--muted); font-size: 14px }
+
+        .form-success h4 {
+            font-size: 19px;
+            color: var(--ink)
+        }
+
+        .form-success p {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px
+        }
 
         /* ===== Trust / marquee strip ===== */
         .marquee {
@@ -583,7 +661,9 @@
             animation: marquee 32s linear infinite;
         }
 
-        .marquee:hover .marquee-track { animation-play-state: paused }
+        .marquee:hover .marquee-track {
+            animation-play-state: paused
+        }
 
         .marquee-item {
             display: inline-flex;
@@ -596,18 +676,47 @@
             white-space: nowrap;
         }
 
-        .marquee-item svg { width: 16px; height: 16px; color: var(--cyan); flex: none }
+        .marquee-item svg {
+            width: 16px;
+            height: 16px;
+            color: var(--cyan);
+            flex: none
+        }
 
         @keyframes marquee {
-            from { transform: translateX(0) }
-            to { transform: translateX(-50%) }
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
         }
 
         /* ===== Grids ===== */
-        .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px }
-        .grid-6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px
+        }
+
+        .grid-6 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px
+        }
 
         /* ===== Risk / problem cards ===== */
         .risk-item {
@@ -632,9 +741,20 @@
             color: var(--cyan-dark);
         }
 
-        .risk-icon svg { width: 23px; height: 23px }
-        .risk-item h3 { font-size: 16.5px }
-        .risk-item p { margin-top: 4px; color: var(--muted); font-size: 14.5px }
+        .risk-icon svg {
+            width: 23px;
+            height: 23px
+        }
+
+        .risk-item h3 {
+            font-size: 16.5px
+        }
+
+        .risk-item p {
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 14.5px
+        }
 
         .impact-quote {
             margin-top: 32px;
@@ -679,9 +799,20 @@
             margin-bottom: 18px;
         }
 
-        .deliver .deliver-icon svg { width: 24px; height: 24px }
-        .deliver h3 { font-size: 18px }
-        .deliver p { margin-top: 10px; color: var(--muted); font-size: 14.5px }
+        .deliver .deliver-icon svg {
+            width: 24px;
+            height: 24px
+        }
+
+        .deliver h3 {
+            font-size: 18px
+        }
+
+        .deliver p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 14.5px
+        }
 
         /* ===== Benefit cards (dark) ===== */
         .benefit-card {
@@ -703,9 +834,21 @@
             margin-bottom: 16px;
         }
 
-        .benefit-card .benefit-icon svg { width: 23px; height: 23px }
-        .benefit-card h3 { font-size: 18px; color: #fff }
-        .benefit-card p { margin-top: 10px; color: #bad0e5; font-size: 14.5px }
+        .benefit-card .benefit-icon svg {
+            width: 23px;
+            height: 23px
+        }
+
+        .benefit-card h3 {
+            font-size: 18px;
+            color: #fff
+        }
+
+        .benefit-card p {
+            margin-top: 10px;
+            color: #bad0e5;
+            font-size: 14.5px
+        }
 
         .closing-quote {
             margin-top: 44px;
@@ -726,7 +869,12 @@
             margin: 0 auto;
         }
 
-        .closing-quote p:first-child { color: #bad0e5; font-weight: 500; font-size: 17px; margin-bottom: 6px }
+        .closing-quote p:first-child {
+            color: #bad0e5;
+            font-weight: 500;
+            font-size: 17px;
+            margin-bottom: 6px
+        }
 
         /* ===== Legal section ===== */
         .legal-card {
@@ -752,8 +900,16 @@
             letter-spacing: .02em;
         }
 
-        .legal-card h3 { margin-top: 14px; font-size: 18px }
-        .legal-card p { margin-top: 10px; color: var(--muted); font-size: 14.5px }
+        .legal-card h3 {
+            margin-top: 14px;
+            font-size: 18px
+        }
+
+        .legal-card p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 14.5px
+        }
 
         .legal-disclaimer {
             margin-top: 26px;
@@ -792,7 +948,9 @@
             padding: 0 0 22px;
         }
 
-        .step:last-child { padding-bottom: 0 }
+        .step:last-child {
+            padding-bottom: 0
+        }
 
         .step-num {
             width: 52px;
@@ -809,7 +967,7 @@
             z-index: 1;
         }
 
-        .step > div:last-child {
+        .step>div:last-child {
             padding: 20px 22px;
             border: 1px solid var(--line);
             border-radius: var(--radius);
@@ -817,8 +975,15 @@
             box-shadow: var(--soft-shadow);
         }
 
-        .step h3 { font-size: 18px }
-        .step p { margin-top: 6px; color: var(--muted); font-size: 14.5px }
+        .step h3 {
+            font-size: 18px
+        }
+
+        .step p {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 14.5px
+        }
 
         .support-phrase {
             margin-top: 36px;
@@ -836,7 +1001,14 @@
             line-height: 1.4;
         }
 
-        .support-phrase p:first-child { color: var(--cyan-soft); font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px }
+        .support-phrase p:first-child {
+            color: var(--cyan-soft);
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            margin-bottom: 10px
+        }
 
         /* ===== Why Somaxi ===== */
         .pillar-card {
@@ -857,9 +1029,20 @@
             margin-bottom: 14px;
         }
 
-        .pillar-card .pillar-icon svg { width: 22px; height: 22px }
-        .pillar-card h3 { font-size: 17px }
-        .pillar-card p { margin-top: 8px; color: var(--muted); font-size: 14px }
+        .pillar-card .pillar-icon svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .pillar-card h3 {
+            font-size: 17px
+        }
+
+        .pillar-card p {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px
+        }
 
         .why-grid {
             display: grid;
@@ -886,8 +1069,15 @@
             mix-blend-mode: multiply;
         }
 
-        .seal-panel h3 { font-size: 19px }
-        .seal-panel p { margin-top: 10px; color: var(--muted); font-size: 14.5px }
+        .seal-panel h3 {
+            font-size: 19px
+        }
+
+        .seal-panel p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 14.5px
+        }
 
         .client-bar {
             margin-top: 44px;
@@ -977,8 +1167,13 @@
         }
 
         @keyframes logoScroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
         /* Hero background image overlay */
@@ -994,7 +1189,12 @@
 
 
         /* ===== FAQ ===== */
-        .faq-list { display: grid; gap: 12px; position: relative; z-index: 1; }
+        .faq-list {
+            display: grid;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
 
         .faq {
             border: 1px solid var(--line);
@@ -1003,7 +1203,10 @@
             overflow: hidden;
         }
 
-        .faq[open] { border-color: #b9d8e6; box-shadow: 0 14px 32px rgba(9, 22, 42, .08) }
+        .faq[open] {
+            border-color: #b9d8e6;
+            box-shadow: 0 14px 32px rgba(9, 22, 42, .08)
+        }
 
         .faq summary {
             display: flex;
@@ -1019,8 +1222,13 @@
             color: var(--ink);
         }
 
-        .faq summary::-webkit-details-marker { display: none }
-        .faq summary:hover { color: var(--cyan-dark) }
+        .faq summary::-webkit-details-marker {
+            display: none
+        }
+
+        .faq summary:hover {
+            color: var(--cyan-dark)
+        }
 
         .faq-chevron {
             width: 22px;
@@ -1030,9 +1238,15 @@
             transition: transform .25s ease;
         }
 
-        .faq[open] .faq-chevron { transform: rotate(180deg) }
+        .faq[open] .faq-chevron {
+            transform: rotate(180deg)
+        }
 
-        .faq-answer { padding: 0 22px 20px; color: var(--muted); font-size: 15px }
+        .faq-answer {
+            padding: 0 22px 20px;
+            color: var(--muted);
+            font-size: 15px
+        }
 
         /* ===== Final CTA ===== */
         .final-cta {
@@ -1067,7 +1281,9 @@
             margin-right: auto;
         }
 
-        .final-cta .cta-row { justify-content: center }
+        .final-cta .cta-row {
+            justify-content: center
+        }
 
         .final-cta .wrap {
             position: relative;
@@ -1092,8 +1308,15 @@
             gap: 18px;
         }
 
-        footer.site-footer img { height: 24px; width: auto; opacity: .9 }
-        .footer-inner p { font-size: 12.5px }
+        footer.site-footer img {
+            height: 24px;
+            width: auto;
+            opacity: .9
+        }
+
+        .footer-inner p {
+            font-size: 12.5px
+        }
 
         /* ===== Sticky mobile CTA ===== */
         .sticky-cta {
@@ -1109,38 +1332,117 @@
             border-top: 1px solid rgba(255, 255, 255, .12);
         }
 
-        .sticky-cta .btn { width: 100% }
+        .sticky-cta .btn {
+            width: 100%
+        }
 
         /* ===== Responsive ===== */
         @media (max-width: 980px) {
-            .hero-grid { grid-template-columns: 1fr; }
-            .grid-2, .grid-3, .grid-4, .grid-6 { grid-template-columns: 1fr 1fr; }
-            .header-nav { display: none }
-            .why-grid { grid-template-columns: 1fr; }
-            .seal-panel { position: static; max-width: 420px; margin: 0 auto; }
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-2,
+            .grid-3,
+            .grid-4,
+            .grid-6 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .header-nav {
+                display: none
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .seal-panel {
+                position: static;
+                max-width: 420px;
+                margin: 0 auto;
+            }
         }
 
         @media (max-width: 720px) {
-            .grid-2, .grid-3, .grid-4, .grid-6 { grid-template-columns: 1fr; }
-            .section { padding: 56px 20px 60px }
-            .hero { padding: 40px 18px 40px }
-            .hero h1 { font-size: 30px }
-            .field-row { grid-template-columns: 1fr }
-            .cta-row .btn { width: 100% }
-            .sticky-cta { display: block }
-            body { padding-bottom: 78px }
-            .client-names { gap: 12px 20px }
-            .client-names span { font-size: 14px }
-            .logo-carousel-item { width: 160px; height: 70px; margin: 0 10px; }
-            .logo-carousel-item--lg { width: 260px; height: 95px; }
-            .hero-bg-img { background-position: center 20%; }
+
+            .grid-2,
+            .grid-3,
+            .grid-4,
+            .grid-6 {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 56px 20px 60px
+            }
+
+            .hero {
+                padding: 40px 18px 40px
+            }
+
+            .hero h1 {
+                font-size: 30px
+            }
+
+            .field-row {
+                grid-template-columns: 1fr
+            }
+
+            .cta-row .btn {
+                width: 100%
+            }
+
+            .sticky-cta {
+                display: block
+            }
+
+            body {
+                padding-bottom: 78px
+            }
+
+            .client-names {
+                gap: 12px 20px
+            }
+
+            .client-names span {
+                font-size: 14px
+            }
+
+            .logo-carousel-item {
+                width: 160px;
+                height: 70px;
+                margin: 0 10px;
+            }
+
+            .logo-carousel-item--lg {
+                width: 260px;
+                height: 95px;
+            }
+
+            .hero-bg-img {
+                background-position: center 20%;
+            }
         }
 
-        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
 
         @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto }
-            .btn, .deliver, .marquee-track, .logo-carousel-track { transition: none; animation: none }
+            html {
+                scroll-behavior: auto
+            }
+
+            .btn,
+            .deliver,
+            .marquee-track,
+            .logo-carousel-track {
+                transition: none;
+                animation: none
+            }
         }
     </style>
 </head>
@@ -1220,18 +1522,15 @@
                             </div>
                             <div class="field">
                                 <label for="fEmail">E-mail corporativo</label>
-                                <input id="fEmail" name="email" type="email" placeholder="nome@empresa.com.br"
-                                    required>
+                                <input id="fEmail" name="email" type="email" placeholder="nome@empresa.com.br" required>
                             </div>
                             <div class="field">
                                 <label for="fTelefone">Telefone com DDD</label>
-                                <input id="fTelefone" name="telefone" type="tel" placeholder="(00) 00000-0000"
-                                    required>
+                                <input id="fTelefone" name="telefone" type="tel" placeholder="(00) 00000-0000" required>
                             </div>
                             <div class="field">
                                 <label for="fEmpresa">Empresa</label>
-                                <input id="fEmpresa" name="empresa" type="text" placeholder="Nome da empresa"
-                                    required>
+                                <input id="fEmpresa" name="empresa" type="text" placeholder="Nome da empresa" required>
                             </div>
                             <div class="field">
                                 <label for="fColaboradores">Número de colaboradores</label>
@@ -1343,8 +1642,8 @@
 
             <div class="grid-3">
                 <article class="risk-item">
-                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6l-9-4Z" />
                             <path d="M12 8v5" />
                             <path d="M12 17h.01" />
@@ -1355,8 +1654,8 @@
                     </div>
                 </article>
                 <article class="risk-item">
-                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <rect x="5" y="10" width="14" height="10" rx="2" />
                             <path d="M8 10V7a4 4 0 0 1 8 0v3" />
                         </svg></div>
@@ -1366,8 +1665,8 @@
                     </div>
                 </article>
                 <article class="risk-item">
-                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="8" r="4" />
                             <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
                             <path d="m2 21 4-4" />
@@ -1379,8 +1678,8 @@
                     </div>
                 </article>
                 <article class="risk-item">
-                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 7h16" />
                             <path d="M4 12h16" />
                             <path d="M4 17h10" />
@@ -1391,8 +1690,8 @@
                     </div>
                 </article>
                 <article class="risk-item">
-                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 3h9l4 4v14H6z" />
                             <path d="M14 3v5h5" />
                             <path d="M9 13h6" />
@@ -1404,8 +1703,8 @@
                     </div>
                 </article>
                 <article class="risk-item">
-                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="m4.5 12.5 5 5 10-10" />
                         </svg></div>
                     <div>
@@ -1423,8 +1722,8 @@
             <div class="cta-row">
                 <a class="btn" href="#formulario" onclick="trackCTA('problema')">
                     Quero proteger minha empresa
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                        stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <path d="M5 12h14" />
                         <path d="m13 6 6 6-6 6" />
                     </svg>
@@ -1528,8 +1827,8 @@
             <div class="cta-row">
                 <a class="btn" href="#formulario" onclick="trackCTA('solucao')">
                     Falar com um especialista em Compliance
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                        stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <path d="M5 12h14" />
                         <path d="m13 6 6 6-6 6" />
                     </svg>
@@ -1639,8 +1938,8 @@
                 </article>
                 <article class="legal-card">
                     <span class="legal-tag">Lei 14.457/2022</span>
-                    <h3>Procedimentos para denúncias na CIPA</h3>
-                    <p>Para empresas obrigadas a constituir CIPA, a lei prevê procedimentos para recebimento e
+                    <h3>Procedimentos para denúncias na CIPAA</h3>
+                    <p>Para empresas obrigadas a constituir CIPAA, a lei prevê procedimentos para recebimento e
                         acompanhamento de denúncias, apuração dos fatos, aplicação de sanções quando cabível e
                         garantia de anonimato da pessoa denunciante — a conexão legal mais direta com o Canal de
                         Ética.</p>
@@ -1717,8 +2016,8 @@
             <div class="cta-row" style="justify-content:center">
                 <a class="btn" href="#formulario" onclick="trackCTA('como_funciona')">
                     Conhecer o processo de implementação
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                        stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <path d="M5 12h14" />
                         <path d="m13 6 6 6-6 6" />
                     </svg>
@@ -1805,23 +2104,41 @@
                 <span class="label">Empresas que escolheram a Somaxi</span>
                 <div class="logo-carousel" aria-label="Logotipos de empresas parceiras">
                     <div class="logo-carousel-track">
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/sparq.jpeg" alt="SPARQ" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/g&p.jpeg" alt="G&P" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan FM" loading="lazy"></div>
-                        <div class="logo-carousel-item logo-carousel-item--lg"><img src="../static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/tv-cidade.jpeg" alt="TV Cidade" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/mh.jpeg" alt="MH Têxtil" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/grupo-cidade.jpeg" alt="Grupo Cidade" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/q13.jpeg" alt="Q13" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/sparq.jpeg" alt="SPARQ"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/g&p.jpeg" alt="G&P"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan FM"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item logo-carousel-item--lg"><img
+                                src="../static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/tv-cidade.jpeg" alt="TV Cidade"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/mh.jpeg" alt="MH Têxtil"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/grupo-cidade.jpeg"
+                                alt="Grupo Cidade" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/q13.jpeg" alt="Q13"
+                                loading="lazy"></div>
                         <!-- duplicate for seamless loop -->
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/sparq.jpeg" alt="SPARQ" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/g&p.jpeg" alt="G&P" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan FM" loading="lazy"></div>
-                        <div class="logo-carousel-item logo-carousel-item--lg"><img src="../static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/tv-cidade.jpeg" alt="TV Cidade" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/mh.jpeg" alt="MH Têxtil" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/grupo-cidade.jpeg" alt="Grupo Cidade" loading="lazy"></div>
-                        <div class="logo-carousel-item"><img src="../static/img/ETICA/q13.jpeg" alt="Q13" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/sparq.jpeg" alt="SPARQ"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/g&p.jpeg" alt="G&P"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan FM"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item logo-carousel-item--lg"><img
+                                src="../static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/tv-cidade.jpeg" alt="TV Cidade"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/mh.jpeg" alt="MH Têxtil"
+                                loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/grupo-cidade.jpeg"
+                                alt="Grupo Cidade" loading="lazy"></div>
+                        <div class="logo-carousel-item"><img src="../static/img/ETICA/q13.jpeg" alt="Q13"
+                                loading="lazy"></div>
                     </div>
                 </div>
             </div>
@@ -1930,8 +2247,8 @@
             <div class="cta-row">
                 <a class="btn" href="#formulario" onclick="trackCTA('cta_final')">
                     Quero estruturar meu Canal de Ética
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                        stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <path d="M5 12h14" />
                         <path d="m13 6 6 6-6 6" />
                     </svg>
