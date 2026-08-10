@@ -16,16 +16,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Imersão DPO Board Brasil | Novembro de 2026</title>
+    <title>Imersão DPO Board Brasil | 26, 27 e 28 de Novembro/2026</title>
     <meta name="description"
-        content="Cadastre seu interesse para participar da Imersão DPO Board Brasil, encontro presencial em novembro de 2026 para profissionais de privacidade e proteção de dados.">
+        content="Cadastre seu interesse para participar da Imersão DPO Board Brasil, encontro presencial nos dias 26, 27 e 28 de novembro de 2026 para profissionais de privacidade e proteção de dados.">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#07111f">
     <link rel="canonical" href="https://somaxi.com.br/lp/imersao-dpo">
 
-    <meta property="og:title" content="Imersão DPO Board Brasil | Novembro de 2026">
+    <meta property="og:title" content="Imersão DPO Board Brasil | 26, 27 e 28 de Novembro/2026">
     <meta property="og:description"
-        content="Cadastre seu interesse para participar da imersão presencial do DPO Board Brasil em novembro de 2026.">
+        content="Cadastre seu interesse para participar da imersão presencial do DPO Board Brasil nos dias 26, 27 e 28 de novembro de 2026.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:image"
@@ -167,23 +167,14 @@
         }
 
         .nav-inner {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
+            display: flex;
             align-items: center;
-            gap: 20px;
-        }
-
-        .brand-logo {
-            justify-self: start;
+            justify-content: flex-start;
         }
 
         .somaxi-logo-img {
             height: 72px;
             width: auto;
-        }
-
-        .nav-inner>.btn {
-            justify-self: end;
         }
 
         .btn {
@@ -538,14 +529,7 @@
             }
 
             .nav-inner {
-                grid-template-columns: 1fr;
-                justify-items: center;
-                gap: 12px;
-            }
-
-            .brand-logo,
-            .nav-inner>.btn {
-                justify-self: center;
+                justify-content: center;
             }
 
             .somaxi-logo-img {
@@ -577,7 +561,7 @@
 <body>
 
     <div class="top-bar">
-        <span class="badge-live"><span class="pulse-dot"></span> Novembro de 2026</span>
+        <span class="badge-live"><span class="pulse-dot"></span> 26, 27 e 28 de Novembro/2026</span>
         <span>Lista de interesse para a imersão presencial DPO Board Brasil</span>
     </div>
 
@@ -585,9 +569,6 @@
         <div class="wrap nav-inner">
             <a href="/dpo-board" class="brand-logo" aria-label="DPO Board Brasil">
                 <img src="../static/img/DPO/logo-dpo.jfif" alt="DPO Board Brasil" class="somaxi-logo-img">
-            </a>
-            <a href="#cadastro" class="btn btn--amber" onclick="trackCTA('header_imersao_click')">
-                Quero Participar
             </a>
         </div>
     </header>
@@ -597,14 +578,15 @@
             <div class="wrap hero-grid">
                 <div class="hero-content">
                     <div class="hero-eyebrow">
-                        Encontro presencial para DPOs e profissionais de privacidade
+                        Seu próximo nível profissional começa pelas conexões certas
                     </div>
                     <h1 class="hero-title">
                         Imersão <span>DPO Board Brasil</span>
                     </h1>
                     <p class="hero-lead">
-                        Novembro de 2026. Uma experiência presencial para quem quer avançar em posicionamento,
-                        estratégia, networking e crescimento profissional no mercado de proteção de dados.
+                        Seu próximo nível profissional será definido pelas pessoas com quem você aprende e se conecta.
+                        Venha fazer parte do DPO Board Brasil e acelere sua evolução ao lado dos profissionais que
+                        estão liderando o mercado.
                     </p>
 
                     <div class="hero-highlights" aria-label="Destaques da imersão">
@@ -620,14 +602,14 @@
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m5 12 5 5L20 7" />
                             </svg>
-                            Turma em novembro
+                            26, 27 e 28 de novembro
                         </div>
                         <div class="hero-badge-item">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m5 12 5 5L20 7" />
                             </svg>
-                            Vagas limitadas
+                            DPO Board Brasil
                         </div>
                     </div>
                 </div>
@@ -635,8 +617,9 @@
                 <div class="lead-card" id="cadastro">
                     <div id="formArea">
                         <div class="lead-card__header" id="formHeader">
-                            <h3>Quero receber as informações</h3>
-                            <p>Preencha seus dados para registrar interesse na Imersão DPO Board Brasil.</p>
+                            <h3>Quero participar da imersão</h3>
+                            <p>Preencha seus dados para receber as próximas informações sobre a Imersão DPO Board
+                                Brasil.</p>
                         </div>
 
                         <form id="imersaoDpoForm" class="form-fields" onsubmit="handleFormSubmit(event)">
@@ -691,7 +674,7 @@
                         </div>
                         <h3>Interesse registrado!</h3>
                         <p>Recebemos seus dados. A equipe do DPO Board Brasil entrará em contato com as próximas
-                            informações sobre a imersão de novembro.</p>
+                            informações sobre a imersão dos dias 26, 27 e 28 de novembro de 2026.</p>
                     </div>
                 </div>
             </div>
@@ -778,7 +761,7 @@
                 });
             }
 
-            fetch('https://n8n.v4lisboatech.com.br/webhook-test/imersao-dpo', {
+            fetch('https://n8n.v4lisboatech.com.br/webhook/imersao-dpo', {
                 method: 'POST',
                 body: payload,
                 keepalive: true
