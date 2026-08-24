@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
 
     <!-- SEO OBRIGATÓRIO -->
-    <title>Canal de Ética para Empresas | Implementação Completa | Somaxi</title>
+    <title>Canal de Ética e Denúncias para Empresas | Somaxi</title>
     <meta name="description"
-        content="Implemente um Canal de Ética seguro e confidencial com a Somaxi: plataforma, políticas, treinamento e apoio especializado nas apurações. Fale com um especialista.">
+        content="Implemente um Canal de Ética e Denúncias seguro e confidencial. Apoio à Lei 14.457/2022, NR-1, políticas, treinamento e apurações.">
 
     <!-- Open Graph OBRIGATÓRIO -->
-    <meta property="og:title" content="Canal de Ética para Empresas | Implementação Completa | Somaxi">
+    <meta property="og:title" content="Canal de Ética para Empresas | Proteja Pessoas e Negócios | Somaxi">
     <meta property="og:description"
-        content="Receba, acompanhe e trate relatos com processos definidos. A Somaxi estrutura seu Canal de Ética do início à gestão dos relatos.">
+        content="Proteja quem precisa falar e prepare sua empresa para agir. A Somaxi estrutura seu Canal de Ética do recebimento à apuração dos relatos.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
 
@@ -446,7 +446,7 @@
             display: grid;
             grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
             gap: 48px;
-            align-items: start;
+            align-items: center;
             max-width: var(--max);
             margin: 0 auto;
         }
@@ -480,6 +480,10 @@
             max-width: 700px;
             font-size: clamp(34px, 4.6vw, 54px);
             font-weight: 700;
+        }
+
+        .hero-title-highlight {
+            color: #67e2ff;
         }
 
         .hero-lead {
@@ -520,10 +524,116 @@
             color: var(--cyan);
         }
 
+        .hero-visual {
+            position: relative;
+            min-height: 650px;
+            margin: 0;
+            isolation: isolate;
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 28px -16px 18px 44px;
+            border: 1px solid rgba(103, 226, 255, .5);
+            border-radius: 18px 4px 18px 4px;
+            background: linear-gradient(145deg, rgba(0, 188, 231, .26), rgba(242, 184, 75, .14));
+        }
+
+        .hero-visual::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: -46px;
+            right: -52px;
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            background: rgba(0, 188, 231, .18);
+            filter: blur(42px);
+        }
+
+        .hero-visual__frame {
+            position: absolute;
+            inset: 0 14px 42px 0;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .28);
+            border-radius: 18px 4px 18px 4px;
+            background: var(--navy-2);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, .34);
+        }
+
+        .hero-visual__frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 58%, rgba(7, 17, 31, .32) 100%);
+            pointer-events: none;
+        }
+
+        .hero-visual__frame img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 45%;
+        }
+
+        .hero-visual__message {
+            position: absolute;
+            z-index: 2;
+            left: -24px;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: min(340px, calc(100% - 16px));
+            padding: 16px 18px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 10px;
+            background: rgba(7, 17, 31, .94);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, .28);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-visual__icon {
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            flex: none;
+            border-radius: 50%;
+            background: rgba(0, 188, 231, .16);
+            color: var(--cyan-soft);
+        }
+
+        .hero-visual__icon svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .hero-visual__message strong,
+        .hero-visual__message span {
+            display: block;
+        }
+
+        .hero-visual__message strong {
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .hero-visual__message span {
+            margin-top: 2px;
+            color: #b9cee2;
+            font-size: 12.5px;
+        }
+
         /* ===== Lead card / form ===== */
         .lead-card {
             position: relative;
             width: 100%;
+            scroll-margin-top: 96px;
             border: 1px solid rgba(255, 255, 255, .18);
             border-radius: var(--radius);
             background: rgba(255, 255, 255, .98);
@@ -1255,7 +1365,11 @@
         /* ===== Final CTA ===== */
         .final-cta {
             position: relative;
-            text-align: center;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(390px, .82fr);
+            gap: 64px;
+            align-items: center;
+            text-align: left;
             padding: 20px 0 0;
         }
 
@@ -1270,28 +1384,33 @@
             pointer-events: none;
         }
 
-        .final-cta h2 {
-            font-size: clamp(28px, 4vw, 42px);
-            max-width: 780px;
-            margin: 0 auto;
+        .final-cta>* {
+            position: relative;
+            z-index: 1;
         }
 
-        .final-cta p {
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            max-width: 620px;
+            margin: 0;
+        }
+
+        .final-cta-copy>p {
             margin-top: 18px;
             color: #c6d9eb;
             font-size: 17px;
-            max-width: 680px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px;
         }
 
-        .final-cta .cta-row {
-            justify-content: center
+        .final-cta-copy .microcopy {
+            color: var(--cyan-soft);
+            font-size: 13px;
         }
 
-        .final-cta .wrap {
-            position: relative;
-            z-index: 1;
+        .final-cta .lead-card {
+            width: 100%;
+            max-width: 520px;
+            justify-self: end;
         }
 
         /* ===== Footer ===== */
@@ -1346,6 +1465,22 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero-visual {
+                width: min(680px, 100%);
+                min-height: 590px;
+                margin: 0 auto;
+            }
+
+            .final-cta {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .final-cta .lead-card {
+                max-width: 680px;
+                justify-self: stretch;
+            }
+
             .grid-2,
             .grid-3,
             .grid-4,
@@ -1383,6 +1518,24 @@
 
             .hero {
                 padding: 40px 18px 40px
+            }
+
+            .hero-visual {
+                min-height: 450px;
+            }
+
+            .hero-visual::before {
+                inset: 18px -8px 10px 24px;
+            }
+
+            .hero-visual__frame {
+                inset: 0 8px 34px 0;
+            }
+
+            .hero-visual__message {
+                right: 12px;
+                left: 12px;
+                width: auto;
             }
 
             .hero h1 {
@@ -1474,26 +1627,30 @@
         <div class="hero-bg-img" aria-hidden="true"></div>
         <div class="hero-grid">
             <div>
-                <div class="eyebrow">Canal de Ética para empresas</div>
-                <h1>Implemente um Canal de Ética seguro, confidencial e preparado para funcionar</h1>
-                <p class="hero-lead">Receba, acompanhe e trate relatos com processos definidos, mais segurança para
-                    as pessoas e apoio especializado para sua empresa.</p>
-                <p class="hero-lead2">A Somaxi reúne plataforma, políticas internas, treinamento e orientação em
-                    Compliance para estruturar seu canal do início à gestão dos relatos.</p>
+                <div class="eyebrow">Canal de Ética e Denúncias para empresas</div>
+                <h1>Implemente um Canal de Denúncias que <span class="hero-title-highlight">protege quem fala</span> e
+                    <span class="hero-title-highlight">prepara sua empresa</span> para agir
+                </h1>
+                <p class="hero-lead">Quando alguém encontra coragem para relatar assédio, discriminação, fraude ou
+                    outra irregularidade, sua empresa precisa estar pronta para ouvir com segurança, além de responder
+                    com responsabilidade.</p>
+                <p class="hero-lead2">A Somaxi reúne plataforma confidencial, políticas internas, treinamento e
+                    orientação em Compliance para apoiar as exigências aplicáveis da Lei 14.457/2022, fortalecer a
+                    gestão de riscos psicossociais da NR-1 e cuidar da confiança de quem constrói o seu negócio.</p>
 
                 <ul class="hero-checks">
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="m20 6-11 11-5-5" />
-                        </svg> Plataforma para recebimento de relatos</li>
+                        </svg> Canal de denúncias seguro e confidencial</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="m20 6-11 11-5-5" />
-                        </svg> Políticas e fluxos de tratamento</li>
+                        </svg> Políticas e fluxos para tratar cada relato</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="m20 6-11 11-5-5" />
-                        </svg> Treinamento e comunicação interna</li>
+                        </svg> Treinamento para líderes e equipes</li>
                     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="m20 6-11 11-5-5" />
@@ -1510,78 +1667,30 @@
                         </svg>
                     </a>
                 </div>
-                <p class="microcopy">Converse com um especialista e entenda qual modelo atende às necessidades da
-                    sua empresa.</p>
+                <p class="microcopy">Converse com um especialista, sem compromisso, e descubra o modelo mais adequado
+                    à realidade da sua empresa.</p>
             </div>
 
-            <aside class="lead-card" id="formulario" aria-label="Formulário de contato">
-                <div class="lead-card__body">
-                    <div id="leadFormWrap">
-                        <h3>Fale com um especialista em Compliance</h3>
-                        <p>Preencha seus dados para receber uma análise inicial da necessidade da sua empresa.</p>
-                        <form class="fields" id="leadForm">
-                            <div class="field">
-                                <label for="fNome">Nome</label>
-                                <input id="fNome" name="nome" type="text" placeholder="Seu nome completo" required>
-                            </div>
-                            <div class="field">
-                                <label for="fEmail">E-mail corporativo</label>
-                                <input id="fEmail" name="email" type="email" placeholder="nome@empresa.com.br" required>
-                            </div>
-                            <div class="field">
-                                <label for="fTelefone">Telefone com DDD</label>
-                                <input id="fTelefone" name="telefone" type="tel" placeholder="(00) 00000-0000" required>
-                            </div>
-                            <div class="field">
-                                <label for="fEmpresa">Empresa</label>
-                                <input id="fEmpresa" name="empresa" type="text" placeholder="Nome da empresa" required>
-                            </div>
-                            <div class="field">
-                                <label for="fColaboradores">Número de colaboradores</label>
-                                <select id="fColaboradores" name="colaboradores" required>
-                                    <option value="" selected disabled>Selecione</option>
-                                    <option>Até 50</option>
-                                    <option>51 a 200</option>
-                                    <option>201 a 500</option>
-                                    <option>Mais de 500</option>
-                                </select>
-                            </div>
-                            <input type="hidden" name="utm_source" id="utmSource">
-                            <input type="hidden" name="utm_medium" id="utmMedium">
-                            <input type="hidden" name="utm_campaign" id="utmCampaign">
-                            <input type="hidden" name="utm_term" id="utmTerm">
-                            <input type="hidden" name="utm_content" id="utmContent">
-
-                            <button type="submit" class="btn btn--full" onclick="trackCTA('form_submit')">
-                                Falar com especialista
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14" />
-                                    <path d="m13 6 6 6-6 6" />
-                                </svg>
-                            </button>
-                            <div class="form-note">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="5" y="11" width="14" height="10" rx="2" />
-                                    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
-                                </svg> Seus dados serão usados apenas para este atendimento.
-                            </div>
-                        </form>
-                    </div>
-                    <div class="form-success" id="formSuccess">
-                        <div class="ok-icon">
-                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor"
-                                stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="m20 6-11 11-5-5" />
-                            </svg>
-                        </div>
-                        <h4>Recebemos seus dados.</h4>
-                        <p>Um especialista da Somaxi entrará em contato para a análise inicial da necessidade da
-                            sua empresa.</p>
-                    </div>
+            <figure class="hero-visual">
+                <div class="hero-visual__frame">
+                    <img src="../static/img/ETICA/canal-etica-hero-humanizado.webp"
+                        alt="Profissionais reunidos em uma conversa atenta e colaborativa sobre o ambiente de trabalho"
+                        fetchpriority="high">
                 </div>
-            </aside>
+                <figcaption class="hero-visual__message">
+                    <span class="hero-visual__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                            <rect x="5" y="11" width="14" height="10" rx="2" />
+                            <path d="m9.5 16 1.7 1.7 3.6-4" />
+                        </svg>
+                    </span>
+                    <span><strong>Escuta segura. Resposta responsável.</strong>
+                        <span>Confiança para falar. Clareza para agir.</span>
+                    </span>
+                </figcaption>
+            </figure>
         </div>
     </section>
 
@@ -1633,16 +1742,16 @@
         <div class="wrap">
             <div class="section-head">
                 <div class="section-kicker">O problema</div>
-                <h2>Apenas receber denúncias não significa ter um Canal de Ética funcionando</h2>
-                <p>Sem um processo estruturado, relatos sensíveis podem ser ignorados, encaminhados para as pessoas
-                    erradas ou tratados sem os critérios necessários. Isso aumenta a exposição da empresa a
-                    conflitos internos, riscos trabalhistas, danos reputacionais e decisões tomadas sem informações
-                    suficientes.</p>
+                <h2>Um Canal de Ética que apenas recebe denúncias ainda deixa pessoas e a empresa desprotegidas</h2>
+                <p>Quem relata assédio, discriminação, fraude ou corrupção espera ser ouvido sem medo de exposição ou
+                    retaliação. Sem um processo estruturado, casos sensíveis podem parar nas mãos erradas, perder
+                    evidências ou permanecer sem resposta. A confiança se rompe, e crescem os riscos trabalhistas,
+                    reputacionais e financeiros.</p>
             </div>
 
             <p class="label"
                 style="font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:18px">
-                Um Canal de Ética estruturado ajuda sua organização a:</p>
+                Um Canal de Ética estruturado ajuda sua empresa a:</p>
 
             <div class="grid-3">
                 <article class="risk-item">
@@ -1654,7 +1763,7 @@
                         </svg></div>
                     <div>
                         <h3>Identificar antes da crise</h3>
-                        <p>Identificar irregularidades antes que se transformem em crises.</p>
+                        <p>Perceber assédio, fraude e outras irregularidades antes que se tornem crises.</p>
                     </div>
                 </article>
                 <article class="risk-item">
@@ -1665,7 +1774,7 @@
                         </svg></div>
                     <div>
                         <h3>Ambiente mais seguro</h3>
-                        <p>Criar um ambiente mais seguro para o registro de relatos.</p>
+                        <p>Dar segurança a quem precisa falar, inclusive quando existe medo de retaliação.</p>
                     </div>
                 </article>
                 <article class="risk-item">
@@ -1678,7 +1787,8 @@
                         </svg></div>
                     <div>
                         <h3>Menos conflito de interesse</h3>
-                        <p>Reduzir conflitos de interesse durante o tratamento dos casos.</p>
+                        <p>Evitar que relações hierárquicas ou interesses pessoais comprometam o tratamento do caso.
+                        </p>
                     </div>
                 </article>
                 <article class="risk-item">
@@ -1690,7 +1800,7 @@
                         </svg></div>
                     <div>
                         <h3>Triagem padronizada</h3>
-                        <p>Padronizar a triagem, o encaminhamento e a apuração.</p>
+                        <p>Tratar relatos semelhantes com critérios claros, consistentes e imparciais.</p>
                     </div>
                 </article>
                 <article class="risk-item">
@@ -1703,7 +1813,7 @@
                         </svg></div>
                     <div>
                         <h3>Registro das providências</h3>
-                        <p>Registrar as providências adotadas pela empresa.</p>
+                        <p>Preservar o histórico das decisões e demonstrar as providências adotadas.</p>
                     </div>
                 </article>
                 <article class="risk-item">
@@ -1713,19 +1823,19 @@
                         </svg></div>
                     <div>
                         <h3>Mais confiança</h3>
-                        <p>Fortalecer a confiança entre colaboradores e liderança.</p>
+                        <p>Mostrar às pessoas que vale a pena falar e que a liderança está preparada para agir.</p>
                     </div>
                 </article>
             </div>
 
             <div class="impact-quote">
-                <p>O risco não termina quando a denúncia é recebida. É nesse momento que começa a responsabilidade
-                    da empresa.</p>
+                <p>Por trás de cada relato existe uma pessoa esperando proteção. Há também uma empresa com a
+                    responsabilidade de agir.</p>
             </div>
 
             <div class="cta-row">
                 <a class="btn" href="#formulario" onclick="trackCTA('problema')">
-                    Quero proteger minha empresa
+                    Quero agir antes que o problema cresça
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M5 12h14" />
@@ -1742,11 +1852,11 @@
             <div class="section-head--with-image">
                 <div class="section-head-text">
                     <div class="section-kicker">A solução Somaxi</div>
-                    <h2>Mais do que uma plataforma, uma estrutura completa para o seu Canal de Ética</h2>
-                    <p>A Somaxi ajuda sua empresa a implementar um canal confiável, acessível e integrado ao Programa de
-                        Integridade. O projeto considera a realidade da organização, os riscos envolvidos, as áreas
-                        responsáveis e os procedimentos necessários para que cada relato seja tratado com organização,
-                        confidencialidade e imparcialidade.</p>
+                    <h2>Mais do que uma plataforma: uma estrutura completa para acolher relatos e orientar decisões</h2>
+                    <p>Cada denúncia envolve uma pessoa, uma situação sensível e uma decisão que não pode ser
+                        improvisada. A Somaxi ajuda sua empresa a implementar um Canal de Ética confiável, acessível e
+                        integrado ao Programa de Integridade, com responsabilidades e procedimentos definidos para
+                        que cada relato seja tratado com confidencialidade, respeito e imparcialidade.</p>
                 </div>
                 <div class="section-head-image">
                     <img src="../static/img/LGPD-2026/dpo-executive-meeting.png"
@@ -1768,7 +1878,8 @@
                             <path d="M8 17h5" />
                         </svg></div>
                     <h3>Plataforma para recebimento de relatos</h3>
-                    <p>Um ambiente centralizado para registrar, organizar e acompanhar as manifestações recebidas.
+                    <p>Um ambiente confidencial e centralizado para que nenhum relato se perca e cada caso possa ser
+                        acompanhado.
                     </p>
                 </article>
                 <article class="deliver">
@@ -1780,8 +1891,8 @@
                             <path d="M9 17h6" />
                         </svg></div>
                     <h3>Políticas e procedimentos internos</h3>
-                    <p>Criação ou revisão das regras que orientam o recebimento, a classificação, o encaminhamento e
-                        o tratamento dos relatos.</p>
+                    <p>Regras claras para transformar a escuta em uma resposta consistente, do recebimento ao
+                        encerramento do relato.</p>
                 </article>
                 <article class="deliver">
                     <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1792,8 +1903,8 @@
                             <path d="M15.8 14.2c2.3.3 4.2 2.1 4.7 4.6" />
                         </svg></div>
                     <h3>Definição de responsabilidades</h3>
-                    <p>Estruturação dos papéis de RH, Jurídico, Compliance, diretoria e demais profissionais
-                        envolvidos no processo.</p>
+                    <p>Papéis definidos para RH, Jurídico, Compliance e liderança, evitando dúvidas e conflitos de
+                        interesse nos momentos mais sensíveis.</p>
                 </article>
                 <article class="deliver">
                     <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1803,8 +1914,8 @@
                             <path d="M19 6a8 8 0 0 1 0 12" />
                         </svg></div>
                     <h3>Comunicação e lançamento</h3>
-                    <p>Orientação para apresentar o canal aos colaboradores, explicar sua finalidade e aumentar a
-                        confiança no uso da ferramenta.</p>
+                    <p>Comunicação clara para que todos saibam onde falar, como o canal funciona e por que podem
+                        confiar.</p>
                 </article>
                 <article class="deliver">
                     <div class="deliver-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1813,7 +1924,7 @@
                             <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
                         </svg></div>
                     <h3>Treinamento das equipes</h3>
-                    <p>Capacitação dos profissionais responsáveis pelo recebimento, análise e tratamento dos casos.
+                    <p>Capacitação para acolher relatos com respeito e conduzir cada etapa com segurança e critério.
                     </p>
                 </article>
                 <article class="deliver">
@@ -1823,8 +1934,8 @@
                             <path d="m21 21-4.3-4.3" />
                         </svg></div>
                     <h3>Apoio nas apurações</h3>
-                    <p>Modelos, playbooks e orientação especializada para conduzir processos mais seguros,
-                        consistentes e imparciais.</p>
+                    <p>Modelos, playbooks e orientação especializada para apurar os fatos sem perder o cuidado com as
+                        pessoas e com as evidências.</p>
                 </article>
             </div>
 
@@ -1846,7 +1957,7 @@
         <div class="wrap">
             <div class="section-head">
                 <div class="section-kicker">Benefícios</div>
-                <h2>Mais segurança para as pessoas. Mais controle para a empresa.</h2>
+                <h2>Mais segurança para quem fala. Mais clareza para quem precisa agir.</h2>
             </div>
 
             <div class="grid-3">
@@ -1857,8 +1968,8 @@
                             <path d="M8 10V7a4 4 0 0 1 8 0v3" />
                         </svg></div>
                     <h3>Confidencialidade</h3>
-                    <p>Ofereça um ambiente mais seguro para que colaboradores e terceiros possam comunicar condutas
-                        inadequadas.</p>
+                    <p>Ofereça um espaço protegido para que colaboradores e terceiros possam relatar condutas
+                        inadequadas sem medo.</p>
                 </article>
                 <article class="benefit-card">
                     <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1868,7 +1979,7 @@
                             <path d="M4 17h10" />
                         </svg></div>
                     <h3>Organização</h3>
-                    <p>Estabeleça critérios claros para receber, classificar, encaminhar e acompanhar cada relato.
+                    <p>Dê a cada relato um fluxo claro, responsáveis definidos e acompanhamento até a conclusão.
                     </p>
                 </article>
                 <article class="benefit-card">
@@ -1878,8 +1989,8 @@
                             <path d="m9 12 2 2 4-5" />
                         </svg></div>
                     <h3>Prevenção</h3>
-                    <p>Identifique sinais de assédio, discriminação, fraude, corrupção e conflitos de interesse
-                        antes que o problema aumente.</p>
+                    <p>Identifique sinais de assédio, discriminação, fraude, corrupção e conflitos de interesse antes
+                        que machuquem mais pessoas e o problema aumente.</p>
                 </article>
                 <article class="benefit-card">
                     <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1889,7 +2000,7 @@
                             <path d="M9 21v-6h6v6" />
                         </svg></div>
                     <h3>Governança</h3>
-                    <p>Demonstre que a empresa possui mecanismos reais para prevenir, identificar e tratar
+                    <p>Demonstre, com processos e registros, que a empresa previne, identifica e trata
                         irregularidades.</p>
                 </article>
                 <article class="benefit-card">
@@ -1899,7 +2010,7 @@
                             <path d="m7 15 4-5 3 3 5-7" />
                         </svg></div>
                     <h3>Tomada de decisão</h3>
-                    <p>Transforme relatos e indicadores em informações úteis para ações corretivas e preventivas.
+                    <p>Transforme relatos e indicadores em decisões que corrijam o presente e protejam o futuro.
                     </p>
                 </article>
                 <article class="benefit-card">
@@ -1909,8 +2020,8 @@
                                 d="M12 21s-7-4.35-9.5-8.4C1 9.5 2.3 6 5.6 6c1.9 0 3.3 1.1 4 2.2C10.3 7.1 11.7 6 13.6 6 16.9 6 18.2 9.5 21.5 12.6 19 16.65 12 21 12 21Z" />
                         </svg></div>
                     <h3>Cultura ética</h3>
-                    <p>Mostre, na prática, que os valores da empresa fazem parte das decisões e dos comportamentos
-                        esperados.</p>
+                    <p>Mostre, na prática, que respeito, ética e integridade orientam decisões, mesmo nas situações
+                        difíceis.</p>
                 </article>
             </div>
 
@@ -1925,35 +2036,35 @@
     <section class="section section--light" id="amparo-legal">
         <div class="wrap">
             <div class="section-head">
-                <div class="section-kicker">Amparo legal</div>
-                <h2>O que diz a legislação sobre denúncias e ambiente de trabalho</h2>
-                <p>O Canal de Ética se conecta a diferentes obrigações legais, cada uma com um alcance específico.
-                    Veja como cada norma se relaciona com o canal.</p>
+                <div class="section-kicker">Lei, proteção e prevenção</div>
+                <h2>Canal de Denúncias: proteger as pessoas também é uma responsabilidade legal</h2>
+                <p>Além de fortalecer a cultura da empresa, um Canal de Ética bem estruturado apoia obrigações de
+                    prevenção, escuta e tratamento de irregularidades. Entenda como cada norma se relaciona com o
+                    canal.</p>
             </div>
 
             <div class="grid-3">
                 <article class="legal-card">
                     <span class="legal-tag">NR-1</span>
                     <h3>Riscos psicossociais no trabalho</h3>
-                    <p>Vigente desde 26 de maio de 2026, a nova redação da NR-1 determina o gerenciamento dos
-                        riscos ocupacionais e inclui expressamente os fatores de riscos psicossociais relacionados
-                        ao trabalho. O Canal de Ética pode apoiar a identificação, a prevenção e o tratamento
-                        desses riscos, mas não é a única medida exigida pela norma.</p>
+                    <p>Em vigor desde 26 de maio de 2026, a nova redação da NR-1 inclui expressamente os fatores de
+                        riscos psicossociais relacionados ao trabalho no gerenciamento de riscos ocupacionais.
+                        Situações como assédio, sobrecarga e falta de suporte podem gerar esses riscos. O Canal de Ética
+                        ajuda a revelar sinais, mas não substitui as demais medidas exigidas pela norma.</p>
                 </article>
                 <article class="legal-card">
                     <span class="legal-tag">Lei 14.457/2022</span>
-                    <h3>Procedimentos para denúncias na CIPAA</h3>
-                    <p>Para empresas obrigadas a constituir CIPAA, a lei prevê procedimentos para recebimento e
-                        acompanhamento de denúncias, apuração dos fatos, aplicação de sanções quando cabível e
-                        garantia de anonimato da pessoa denunciante — a conexão legal mais direta com o Canal de
-                        Ética.</p>
+                    <h3>Denúncias, anonimato e prevenção ao assédio</h3>
+                    <p>Nas empresas obrigadas a constituir CIPA, o art. 23 prevê regras de conduta, procedimentos para
+                        receber e acompanhar denúncias, apurar fatos, aplicar sanções quando cabíveis, garantir o
+                        anonimato da pessoa denunciante e realizar ações anuais de capacitação.</p>
                 </article>
                 <article class="legal-card">
                     <span class="legal-tag">Lei 14.611/2023</span>
-                    <h3>Igualdade salarial</h3>
-                    <p>Trata principalmente de igualdade salarial e critérios remuneratórios entre mulheres e
-                        homens. O canal pode apoiar a identificação de discriminações relacionadas ao tema, mas a
-                        lei não institui diretamente a obrigação de contratar um Canal de Ética.</p>
+                    <h3>Denúncias de discriminação salarial</h3>
+                    <p>A lei inclui a disponibilização de canais específicos para denúncias de discriminação salarial
+                        entre mulheres e homens. Um Canal de Ética pode oferecer um caminho seguro para identificar o
+                        problema e agir, sem substituir as demais obrigações previstas na norma.</p>
                 </article>
             </div>
 
@@ -1968,7 +2079,7 @@
         <div class="wrap">
             <div class="section-head">
                 <div class="section-kicker">Como funciona</div>
-                <h2>Da implantação à gestão dos relatos</h2>
+                <h2>Da implantação do Canal de Ética à gestão segura de cada relato</h2>
             </div>
 
             <div class="steps">
@@ -1976,37 +2087,40 @@
                     <div class="step-num">1</div>
                     <div>
                         <h3>Diagnóstico</h3>
-                        <p>Analisamos a estrutura, o porte, os riscos e o nível de maturidade da sua empresa.</p>
+                        <p>Entendemos a estrutura, o porte, os riscos e os pontos que hoje deixam sua empresa mais
+                            vulnerável.</p>
                     </div>
                 </article>
                 <article class="step">
                     <div class="step-num">2</div>
                     <div>
                         <h3>Estruturação</h3>
-                        <p>Definimos os meios de acesso, as políticas, os responsáveis, os níveis de permissão e os
-                            fluxos de tratamento.</p>
+                        <p>Definimos acessos, políticas, responsáveis, permissões e fluxos para que cada pessoa saiba
+                            como agir.</p>
                     </div>
                 </article>
                 <article class="step">
                     <div class="step-num">3</div>
                     <div>
                         <h3>Implementação</h3>
-                        <p>Configuramos o canal e preparamos a comunicação necessária para o lançamento.</p>
+                        <p>Configuramos o canal e preparamos uma comunicação que estimula o uso consciente e a
+                            confiança.</p>
                     </div>
                 </article>
                 <article class="step">
                     <div class="step-num">4</div>
                     <div>
                         <h3>Treinamento</h3>
-                        <p>Capacitamos os profissionais responsáveis pela gestão e pelo encaminhamento dos
-                            relatos.</p>
+                        <p>Capacitamos os profissionais para acolher, analisar e encaminhar relatos com critério e
+                            respeito.</p>
                     </div>
                 </article>
                 <article class="step">
                     <div class="step-num">5</div>
                     <div>
                         <h3>Operação e acompanhamento</h3>
-                        <p>Apoiamos a organização dos casos, as apurações e o aprimoramento contínuo do processo.
+                        <p>Apoiamos a gestão dos casos, as apurações e a evolução contínua do processo para que o canal
+                            não se torne apenas mais uma ferramenta.
                         </p>
                     </div>
                 </article>
@@ -2014,7 +2128,7 @@
 
             <div class="support-phrase">
                 <p>Sua empresa não recebe apenas uma ferramenta.</p>
-                <p>Recebe um Canal de Ética preparado para funcionar no dia a dia.</p>
+                <p>Ganha um processo preparado para agir, e as pessoas ganham um lugar seguro para falar.</p>
             </div>
 
             <div class="cta-row" style="justify-content:center">
@@ -2037,12 +2151,11 @@
                 <div>
                     <div class="section-head">
                         <div class="section-kicker">Por que escolher a Somaxi</div>
-                        <h2>Experiência prática para transformar Compliance em proteção</h2>
-                        <p>A Somaxi combina conhecimento jurídico, tecnologia, processos e capacitação de pessoas
-                            para ajudar empresas a estruturar mecanismos reais de governança e integridade.
-                            Diferentemente de soluções que apenas disponibilizam uma plataforma, a Somaxi atua na
-                            estruturação do processo completo, desde a definição das políticas até o apoio no
-                            tratamento dos relatos.</p>
+                        <h2>Experiência prática para transformar Compliance em proteção de verdade</h2>
+                        <p>Nos momentos delicados, tecnologia sem processo não basta. A Somaxi combina conhecimento
+                            jurídico, plataforma, procedimentos e capacitação para estruturar mecanismos reais de
+                            governança e integridade. O trabalho vai da definição das políticas ao apoio no tratamento
+                            dos relatos, ajudando sua empresa a tomar decisões difíceis com mais segurança.</p>
                     </div>
 
                     <p class="label"
@@ -2058,7 +2171,8 @@
                                     <path d="M12 16v4" />
                                 </svg></div>
                             <h3>Tecnologia</h3>
-                            <p>Uma plataforma para centralizar e acompanhar as manifestações.</p>
+                            <p>Uma plataforma segura para que relatos sejam centralizados, acompanhados e não se
+                                percam.</p>
                         </article>
                         <article class="pillar-card">
                             <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2068,7 +2182,7 @@
                                     <path d="M4 17h10" />
                                 </svg></div>
                             <h3>Processos</h3>
-                            <p>Fluxos claros para organizar o recebimento, a análise e o encaminhamento dos casos.
+                            <p>Fluxos claros para que cada caso tenha o encaminhamento certo, no tempo certo.
                             </p>
                         </article>
                         <article class="pillar-card">
@@ -2080,7 +2194,7 @@
                                     <path d="M15.8 14.2c2.3.3 4.2 2.1 4.7 4.6" />
                                 </svg></div>
                             <h3>Pessoas</h3>
-                            <p>Treinamento para que gestores e equipes saibam utilizar o canal corretamente.</p>
+                            <p>Treinamento para que gestores e equipes saibam ouvir, acolher e agir corretamente.</p>
                         </article>
                         <article class="pillar-card">
                             <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2090,22 +2204,22 @@
                                     <path d="m9 8 2 2 3-3" />
                                 </svg></div>
                             <h3>Orientação especializada</h3>
-                            <p>Apoio multidisciplinar para lidar com situações sensíveis e decisões complexas.</p>
+                            <p>Apoio multidisciplinar para conduzir situações sensíveis sem improviso.</p>
                         </article>
                     </div>
                 </div>
 
                 <aside class="seal-panel">
                     <img src="../static/img/ETICA/selo-compliance.webp"
-                        alt="Selo Compliance Somaxi — Ética, Transparência e Integridade" loading="lazy">
-                    <h3>Um padrão que você pode comprovar</h3>
-                    <p>Ética, transparência e integridade aplicadas em cada etapa da implementação do seu Canal de
-                        Ética — do diagnóstico ao acompanhamento dos relatos.</p>
+                        alt="Selo Compliance Somaxi, Ética, Transparência e Integridade" loading="lazy">
+                    <h3>Confiança construída com método</h3>
+                    <p>Ética, transparência e integridade aplicadas em cada etapa do seu Canal de Ética, do primeiro
+                        diagnóstico ao acompanhamento dos relatos.</p>
                 </aside>
             </div>
 
             <div class="client-bar">
-                <span class="label">Empresas que escolheram a Somaxi</span>
+                <span class="label">Empresas que confiam na Somaxi</span>
                 <div class="logo-carousel" aria-label="Logotipos de empresas parceiras">
                     <div class="logo-carousel-track">
                         <div class="logo-carousel-item"><img src="../static/img/ETICA/sparq.jpeg" alt="SPARQ"
@@ -2165,10 +2279,10 @@
                             <path d="m6 9 6 6 6-6" />
                         </svg>
                     </summary>
-                    <div class="faq-answer">É um mecanismo utilizado para receber relatos sobre violações de leis,
-                        políticas internas, códigos de conduta e princípios éticos da organização. Para funcionar
-                        corretamente, ele deve estar acompanhado de procedimentos para triagem, encaminhamento,
-                        análise e resposta.</div>
+                    <div class="faq-answer">É um espaço seguro para colaboradores, fornecedores e terceiros relatarem
+                        violações de leis, políticas internas, códigos de conduta e princípios éticos. Para gerar
+                        confiança, precisa combinar confidencialidade com procedimentos claros de triagem, apuração,
+                        resposta e prevenção.</div>
                 </details>
                 <details class="faq">
                     <summary><span>Canal de Ética e canal de denúncias são a mesma coisa?</span>
@@ -2225,16 +2339,17 @@
                         Somaxi apresenta o plano de implantação.</div>
                 </details>
                 <details class="faq">
-                    <summary><span>O Canal de Ética atende às exigências legais?</span>
+                    <summary><span>A Lei 14.457/2022 torna o Canal de Denúncias obrigatório?</span>
                         <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m6 9 6 6 6-6" />
                         </svg>
                     </summary>
-                    <div class="faq-answer">O canal pode apoiar o cumprimento de obrigações relacionadas a
-                        integridade, ambiente de trabalho, prevenção e tratamento de irregularidades. A
-                        aplicabilidade das normas deve ser analisada conforme o porte, a estrutura, a atividade e
-                        as obrigações específicas da empresa.</div>
+                    <div class="faq-answer">Para empresas obrigadas a constituir CIPA, a Lei 14.457/2022 exige, entre
+                        outras medidas, procedimentos para recebimento e acompanhamento de denúncias, apuração dos
+                        fatos, sanções cabíveis e garantia de anonimato. Um Canal de Ética bem estruturado apoia essas
+                        exigências, mas a adequação deve considerar o porte, a atividade e as obrigações específicas
+                        da empresa.</div>
                 </details>
             </div>
         </div>
@@ -2243,22 +2358,83 @@
     <!-- ===================== CTA FINAL ===================== -->
     <section class="section section--dark" id="cta-final">
         <div class="wrap final-cta">
-            <div class="section-kicker" style="justify-content:center;display:flex">Última chamada</div>
-            <h2>Implemente um Canal de Ética preparado para funcionar de verdade</h2>
-            <p>Não espere um conflito, uma denúncia pública ou uma auditoria para descobrir que sua empresa não
-                possui os procedimentos necessários. Fale com um especialista da Somaxi e entenda como estruturar o
-                recebimento, o tratamento e a apuração de relatos com mais segurança.</p>
-            <div class="cta-row">
-                <a class="btn" href="#formulario" onclick="trackCTA('cta_final')">
-                    Quero estruturar meu Canal de Ética
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M5 12h14" />
-                        <path d="m13 6 6 6-6 6" />
-                    </svg>
-                </a>
+            <div class="final-cta-copy">
+                <div class="section-kicker">Proteja hoje</div>
+                <h2>Prepare seu Canal de Ética antes que o próximo relato se transforme em uma crise</h2>
+                <p>Quem decide falar não deveria encontrar silêncio, exposição ou despreparo. Estruture agora um Canal
+                    de Denúncias capaz de acolher pessoas, orientar decisões e proteger a reputação da sua empresa.</p>
+                <p class="microcopy">Receba uma análise inicial da necessidade da sua empresa, sem compromisso.</p>
             </div>
-            <p class="microcopy">Receba uma análise inicial da necessidade da sua empresa.</p>
+
+            <aside class="lead-card" id="formulario" aria-label="Formulário de contato">
+                <div class="lead-card__body">
+                    <div id="leadFormWrap">
+                        <h3>Fale com um especialista em Canal de Ética e Compliance</h3>
+                        <p>Conte um pouco sobre sua empresa e receba uma análise inicial para dar o próximo passo com
+                            segurança.</p>
+                        <form class="fields" id="leadForm">
+                            <div class="field">
+                                <label for="fNome">Nome</label>
+                                <input id="fNome" name="nome" type="text" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="field">
+                                <label for="fEmail">E-mail corporativo</label>
+                                <input id="fEmail" name="email" type="email" placeholder="nome@empresa.com.br" required>
+                            </div>
+                            <div class="field">
+                                <label for="fTelefone">Telefone com DDD</label>
+                                <input id="fTelefone" name="telefone" type="tel" placeholder="(00) 00000-0000" required>
+                            </div>
+                            <div class="field">
+                                <label for="fEmpresa">Empresa</label>
+                                <input id="fEmpresa" name="empresa" type="text" placeholder="Nome da empresa" required>
+                            </div>
+                            <div class="field">
+                                <label for="fColaboradores">Número de colaboradores</label>
+                                <select id="fColaboradores" name="colaboradores" required>
+                                    <option value="" selected disabled>Selecione</option>
+                                    <option>Até 50</option>
+                                    <option>51 a 200</option>
+                                    <option>201 a 500</option>
+                                    <option>Mais de 500</option>
+                                </select>
+                            </div>
+                            <input type="hidden" name="utm_source" id="utmSource">
+                            <input type="hidden" name="utm_medium" id="utmMedium">
+                            <input type="hidden" name="utm_campaign" id="utmCampaign">
+                            <input type="hidden" name="utm_term" id="utmTerm">
+                            <input type="hidden" name="utm_content" id="utmContent">
+
+                            <button type="submit" class="btn btn--full" onclick="trackCTA('form_submit')">
+                                Quero uma análise inicial
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14" />
+                                    <path d="m13 6 6 6-6 6" />
+                                </svg>
+                            </button>
+                            <div class="form-note">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="5" y="11" width="14" height="10" rx="2" />
+                                    <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                                </svg> Seus dados serão usados apenas para este atendimento.
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-success" id="formSuccess">
+                        <div class="ok-icon">
+                            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor"
+                                stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m20 6-11 11-5-5" />
+                            </svg>
+                        </div>
+                        <h4>Obrigado por dar o primeiro passo.</h4>
+                        <p>Um especialista da Somaxi entrará em contato para entender a realidade da sua empresa e
+                            orientar os próximos passos.</p>
+                    </div>
+                </div>
+            </aside>
         </div>
     </section>
 
@@ -2273,7 +2449,7 @@
 
     <!-- ===================== STICKY MOBILE CTA ===================== -->
     <div class="sticky-cta">
-        <a class="btn" href="#formulario" onclick="trackCTA('sticky_mobile')">Quero estruturar meu Canal de Ética
+        <a class="btn" href="#formulario" onclick="trackCTA('sticky_mobile')">Quero preparar minha empresa
         </a>
     </div>
 
@@ -2321,7 +2497,7 @@
                 });
             }
 
-            // Acordeão FAQ — apenas um item aberto por vez
+            // Acordeão FAQ, apenas um item aberto por vez
             var faqItems = document.querySelectorAll('.faq-list details.faq');
             faqItems.forEach(function (item) {
                 item.addEventListener('toggle', function () {
