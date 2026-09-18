@@ -2486,12 +2486,50 @@
                 if (field) { field.value = params.get(key) || ''; }
             });
 
-            // Submissão do formulário (sem backend nesta página estática)
+            // Submissão do formulário com envio para webhook
             var form = document.getElementById('leadForm');
             if (form) {
-                form.addEventListener('submit', function (e) {
+                form.addEventListener('submit', async function (e) {
                     e.preventDefault();
+
+                    var submitButton = form.querySelector('button[type="submit"]');
+                    var originalButton = submitButton ? submitButton.innerHTML : '';
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = 'Enviando...';
+                    }
+
+                    // Monta o payload com todos os campos do formulário (inclui UTMs)
+                    var payload = new URLSearchParams();
+                    new FormData(form).forEach(function (value, key) {
+                        payload.append(key, typeof value === 'string' ? value.trim() : value);
+                    });
+                    var telInput = document.getElementById('fTelefone');
+                    if (telInput) {
+                        payload.set('telefone_numeros', telInput.value.replace(/\D/g, ''));
+                    }
+                    payload.set('origem', 'lp-canal-de-etica');
+                    payload.set('pagina', window.location.href);
+                    payload.set('enviado_em', new Date().toISOString());
+
+                    try {
+                        // application/x-www-form-urlencoded = requisição simples (sem preflight CORS)
+                        await fetch('https://hook.us1.make.celonis.com/e5nyie7vv9vlrvg23qbkrstr6bpbxvbb', {
+                            method: 'POST',
+                            body: payload,
+                            keepalive: true
+                        });
+                    } catch (err) {
+                        // Erro só de leitura da resposta (CORS); os dados já foram entregues ao Make. Segue o fluxo.
+                    }
+
                     trackLead();
+
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButton;
+                    }
+
                     document.getElementById('leadFormWrap').style.display = 'none';
                     document.getElementById('formSuccess').classList.add('is-visible');
                 });
