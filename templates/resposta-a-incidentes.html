@@ -16,21 +16,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>Resposta a Incidentes e Vazamento de Dados | SOMAXI</title>
-  <meta name="description" content="Resposta urgente a vazamento de dados, ransomware e sistemas criptografados. Coordene contenção, evidências, impacto e comunicação com a SOMAXI.">
+  <title>Vazamento de Dados e Notificação à ANPD | SOMAXI</title>
+  <meta name="description" content="Sofreu um vazamento de dados? Acione a SOMAXI para conter o impacto, preservar evidências e avaliar a notificação à ANPD e aos titulares.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#07111f">
   <link rel="canonical" href="https://somaxi.com.br/resposta-a-incidentes">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Resposta a Incidentes e Vazamento de Dados | SOMAXI">
-  <meta property="og:description" content="Sofreu vazamento de dados, ransomware ou criptografia de sistemas? Acione uma resposta técnica, jurídica e regulatória coordenada.">
+  <meta property="og:title" content="Vazamento de Dados e Notificação à ANPD | SOMAXI">
+  <meta property="og:description" content="Sofreu um vazamento de dados? Acione uma resposta técnica, jurídica e regulatória para conter o impacto e avaliar a notificação à ANPD.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:image" content="/static/img/LGPD-2026/be17cd09d9601eaa_443609-2fe1b5e4f939eb67435d456.webp">
+  <meta property="og:image" content="/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/png" href="/static/img/LGPD-2026/1314beb9ffb78d18_443609-f9cb09e69d49bb84420a199.webp">
+  <link rel="preload" as="image" href="/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -284,7 +285,7 @@
       inset: 0;
       background:
         linear-gradient(90deg, rgba(7, 17, 31, .96) 0%, rgba(7, 17, 31, .76) 42%, rgba(7, 17, 31, .34) 68%, rgba(7, 17, 31, .08) 100%),
-        url("/static/img/LGPD-2026/banne.webp") right center/auto 96% no-repeat;
+        url("/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp") right center/cover no-repeat;
     }
 
     .hero::after {
@@ -361,20 +362,21 @@
 
     .marquee-track {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      width: max-content;
-      animation: marquee 34s linear infinite;
-    }
-
-    .marquee:hover .marquee-track {
-      animation-play-state: paused
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
     .marquee-item {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      padding: 0 28px;
+      padding: 4px 12px;
       color: #d8e9f8;
       font-size: 14px;
       font-weight: 700;
@@ -386,16 +388,6 @@
       height: 12px;
       color: var(--cyan);
       flex: none
-    }
-
-    @keyframes marquee {
-      from {
-        transform: translateX(0)
-      }
-
-      to {
-        transform: translateX(-50%)
-      }
     }
 
     .lead-card {
@@ -465,16 +457,6 @@
       box-shadow: 0 0 0 3px rgba(0, 188, 231, .14);
     }
 
-    .field input.is-valid {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(14, 159, 110, .12)
-    }
-
-    .field input.is-invalid {
-      border-color: var(--red);
-      box-shadow: 0 0 0 3px rgba(214, 69, 69, .12)
-    }
-
     .field input::placeholder {
       color: #98a7b8
     }
@@ -495,23 +477,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px
-    }
-
-    .field-help {
-      display: block;
-      min-height: 18px;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .field-help.is-valid {
-      color: var(--green)
-    }
-
-    .field-help.is-invalid {
-      color: var(--red)
     }
 
     .consent {
@@ -552,6 +517,22 @@
       width: 15px;
       height: 15px;
       flex: none
+    }
+
+    .form-error {
+      display: none;
+      margin-top: 12px;
+      padding: 11px 13px;
+      border: 1px solid rgba(214, 69, 69, .28);
+      border-radius: var(--radius);
+      background: #fff4f2;
+      color: #8f2f2f;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .form-error.is-visible {
+      display: block
     }
 
     .form-success {
@@ -597,11 +578,6 @@
       background: #f3f7fb
     }
 
-    .section--dark {
-      background: var(--navy);
-      color: #fff
-    }
-
     .section-head {
       max-width: 760px;
       margin: 0 auto 42px;
@@ -620,10 +596,6 @@
       margin-bottom: 10px;
     }
 
-    .section--dark .section-kicker {
-      color: #a7edff
-    }
-
     .section-head h2 {
       font-size: 38px;
       color: inherit;
@@ -633,10 +605,6 @@
       margin-top: 14px;
       color: var(--muted);
       font-size: 18px;
-    }
-
-    .section--dark .section-head p {
-      color: #bad0e5
     }
 
     .risk-grid {
@@ -900,183 +868,6 @@
       font-size: 15px
     }
 
-    #prova {
-      position: relative;
-      background:
-        radial-gradient(80% 60% at 50% 52%, rgba(0, 120, 200, .20), transparent 70%),
-        linear-gradient(180deg, rgba(4, 10, 20, .97) 0%, rgba(4, 10, 20, .90) 38%, rgba(4, 10, 20, .88) 62%, rgba(4, 10, 20, .97) 100%),
-        url("/static/img/LGPD-2026/space-bg.webp") center/cover no-repeat;
-      box-shadow: inset 0 0 160px rgba(0, 70, 140, .35);
-    }
-
-    .proof-wrap {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      gap: 24px;
-    }
-
-    .proof-head {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .section--dark .proof-head h2 {
-      color: #fff
-    }
-
-    .section--dark .proof-head p {
-      color: #b8cce0
-    }
-
-    .video {
-      position: relative;
-      aspect-ratio: 16/9;
-      width: 100%;
-      max-width: 940px;
-      margin: 0 auto;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #000;
-      box-shadow: 0 30px 70px rgba(0, 0, 0, .5), 0 0 60px rgba(0, 140, 220, .28);
-    }
-
-    .video iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-      opacity: 0;
-      transition: opacity .2s ease;
-    }
-
-    .video.is-playing iframe {
-      opacity: 1
-    }
-
-    .video-cover {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      display: grid;
-      place-items: center;
-      border: 0;
-      cursor: pointer;
-      background:
-        linear-gradient(90deg, rgba(7, 17, 31, .42), rgba(7, 17, 31, .08)),
-        url("https://i.ytimg.com/vi/sa63LdUJdMg/hqdefault.jpg") center/cover no-repeat;
-    }
-
-    .video-cover::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(34, 211, 238, .18), transparent 34%);
-    }
-
-    .video-play {
-      position: relative;
-      z-index: 1;
-      width: 74px;
-      height: 74px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 18px 46px rgba(34, 211, 238, .35);
-    }
-
-    .video-play::before {
-      content: "";
-      position: absolute;
-      left: 30px;
-      top: 23px;
-      border-left: 22px solid #07111f;
-      border-top: 14px solid transparent;
-      border-bottom: 14px solid transparent;
-    }
-
-    .video.is-playing .video-cover {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .proof-caption {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 18px;
-      width: 100%;
-      max-width: 940px;
-      margin: 0 auto;
-      padding: 18px 24px;
-      border: 1px solid rgba(255, 255, 255, .16);
-      border-radius: var(--radius);
-      background: rgba(11, 22, 38, .62);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-
-    .proof-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .proof-avatar {
-      width: 56px;
-      height: 56px;
-      flex: none;
-      border-radius: var(--radius);
-      object-fit: cover;
-      object-position: center 15%;
-      border: 1px solid rgba(255, 255, 255, .18);
-      background: #0b1626;
-    }
-
-    .proof-author strong {
-      display: block;
-      color: #fff;
-      font-family: var(--font-title);
-      font-size: 17px;
-      font-weight: 800;
-    }
-
-    .proof-author small {
-      display: block;
-      margin-top: 2px;
-      color: #9eb5cc;
-      font-size: 13px;
-      font-weight: 650;
-    }
-
-    .proof-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .stars {
-      color: var(--amber);
-      font-size: 19px;
-      line-height: 1;
-      flex: none
-    }
-
-    .proof-tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
-      padding: 6px 14px;
-      border: 1px solid rgba(255, 255, 255, .14);
-      border-radius: 999px;
-      color: #a7edff;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
     .sectors {
       display: grid;
       gap: 28px;
@@ -1327,11 +1118,7 @@
       }
 
       .marquee-track {
-        animation: none;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: auto;
-        gap: 8px
+        width: auto
       }
     }
 
@@ -1547,16 +1334,6 @@
         padding: 16px
       }
 
-      .proof-caption {
-        padding: 16px 18px;
-        gap: 14px
-      }
-
-      .proof-meta {
-        width: 100%;
-        justify-content: space-between
-      }
-
       .sector-hero {
         gap: 18px
       }
@@ -1648,7 +1425,7 @@
     .incident-page .hero::before {
       background:
         linear-gradient(90deg, rgba(7, 17, 31, .99) 0%, rgba(7, 17, 31, .91) 38%, rgba(7, 17, 31, .49) 67%, rgba(7, 17, 31, .18) 100%),
-        url("/static/img/LGPD-2026/be17cd09d9601eaa_443609-2fe1b5e4f939eb67435d456.webp") right 28% center/auto 108% no-repeat,
+        url("/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp") right center/cover no-repeat,
         #07111f;
     }
 
@@ -1678,7 +1455,7 @@
       .incident-page .hero::before {
         background:
           linear-gradient(180deg, rgba(7, 17, 31, .04) 0%, rgba(7, 17, 31, .12) 34%, rgba(7, 17, 31, .70) 60%, rgba(7, 17, 31, .97) 82%, #07111f 100%),
-          url("/static/img/LGPD-2026/be17cd09d9601eaa_443609-2fe1b5e4f939eb67435d456.webp") top center/100% auto no-repeat,
+          url("/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp") right top/auto 52% no-repeat,
           #07111f;
       }
       .mobile-emergency-cta {
@@ -1713,13 +1490,13 @@
     <div class="wrap nav">
       <a class="brand" href="#topo" aria-label="SOMAXI — voltar ao início"><img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="SOMAXI Group" width="126" height="32"></a>
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#crise">A crise</a>
+        <a href="#crise">Primeiras ações</a>
+        <a href="#cenarios">Cenários</a>
         <a href="#resposta">Atendimento</a>
         <a href="#metodo">Plano de ação</a>
-        <a href="#prova">Estrutura</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="#acionamento" class="btn" onclick="trackCTA('nav')">Solicitar resposta urgente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a href="#acionamento" class="btn" onclick="trackCTA('nav')">Solicitar triagem <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
     </div>
   </header>
 
@@ -1727,12 +1504,12 @@
     <section class="hero" id="topo">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <div class="hero-kicker hero-kicker--urgent"><span></span>Incidente ativo? Comece por aqui.</div>
-          <h1>Sua empresa sofreu um vazamento ou teve os sistemas criptografados?</h1>
-          <p class="hero-sub">Acione uma resposta coordenada para <b>conter o impacto, preservar evidências e tomar decisões com segurança</b> — incluindo a avaliação de comunicação à ANPD e aos titulares.</p>
+          <div class="hero-kicker hero-kicker--urgent"><span></span>Vazamento de dados ou suspeita? Comece por aqui.</div>
+          <h1>Sofreu um vazamento de dados? Avalie a notificação à ANPD</h1>
+          <p class="hero-sub">Acione uma resposta coordenada para <b>conter o impacto, preservar evidências e avaliar as comunicações à ANPD e aos titulares</b>, com apoio técnico e jurídico.</p>
           <div class="hero-actions">
-            <a href="#acionamento" class="btn" onclick="trackCTA('hero_primary')">Acionar equipe de resposta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-            <a href="#crise" class="btn btn--ghost" onclick="trackCTA('hero_secondary')">Entender as primeiras ações</a>
+            <a href="#acionamento" class="btn" onclick="trackCTA('hero_primary')">Solicitar triagem do vazamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="#crise" class="btn btn--ghost" onclick="trackCTA('hero_secondary')">Ver o que fazer agora</a>
           </div>
         </div>
       </div>
@@ -1746,26 +1523,20 @@
         <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Avaliação de impacto</span>
         <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> ANPD e titulares</span>
         <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Jurídico, privacidade e segurança</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Triagem e contenção</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Ransomware e sistemas criptografados</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Preservação de evidências</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Avaliação de impacto</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> ANPD e titulares</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Jurídico, privacidade e segurança</span>
       </div>
     </div>
 
     <section class="section section--white" id="crise">
       <div class="wrap risk-grid">
         <div class="section-head section-head--left reveal">
-          <div class="section-kicker">Cada decisão importa</div>
-          <h2>Sem coordenação, o incidente técnico vira uma crise maior.</h2>
-          <p>A pressa não pode gerar improviso. A resposta precisa conectar tecnologia, privacidade, jurídico e gestão para reduzir danos e registrar cada decisão relevante.</p>
+          <div class="section-kicker">As primeiras decisões importam</div>
+          <h2>Vazamento de dados: o que fazer primeiro?</h2>
+          <p>Mudanças precipitadas podem ampliar a interrupção ou eliminar evidências importantes. Comece organizando as decisões e preservando as informações disponíveis.</p>
         </div>
         <div class="risk-list">
-          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m8 22 4-4 4 4"/><path d="M8 9h8M9 13h6"/></svg></div><div><h3>Operação interrompida</h3><p>Sistemas indisponíveis ou criptografados afetam atendimento, receita e continuidade do negócio.</p></div></article>
-          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></div><div><h3>Evidências perdidas</h3><p>Ações sem registro podem apagar rastros importantes e dificultar a compreensão do que aconteceu.</p></div></article>
-          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 21h20L12 2Z"/><path d="M12 9v5"/><path d="M12 17.5h.01"/></svg></div><div><h3>Comunicação mal conduzida</h3><p>Informações incompletas ou contraditórias ampliam exposição regulatória, contratual e reputacional.</p></div></article>
+          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m8 22 4-4 4 4"/><path d="M8 9h8M9 13h6"/></svg></div><div><h3>Centralize as decisões</h3><p>Defina quem coordena as frentes de tecnologia, privacidade, jurídico e gestão.</p></div></article>
+          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></div><div><h3>Preserve registros e evidências</h3><p>Documente horários, mensagens, sistemas afetados e todas as ações já realizadas.</p></div></article>
+          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 21h20L12 2Z"/><path d="M12 9v5"/><path d="M12 17.5h.01"/></svg></div><div><h3>Evite alterações desnecessárias</h3><p>Não formate equipamentos, restaure ambientes ou apague arquivos sem avaliar o impacto.</p></div></article>
         </div>
         <div class="law-note incident-note reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-5"/></svg><span><strong>Primeiro objetivo: recuperar o controle.</strong> Conter, preservar, dimensionar o impacto e organizar as decisões antes de comunicar.</span></div>
       </div>
@@ -1775,8 +1546,8 @@
       <div class="wrap diagnostic-grid">
         <div class="diagnostic-copy reveal">
           <div class="section-kicker">Acionamento prioritário</div>
-          <h2>Envie o essencial para iniciarmos a triagem do incidente.</h2>
-          <p>Descreva o cenário em poucos campos. A equipe SOMAXI usa essas informações para entender a urgência, identificar as frentes necessárias e organizar o primeiro contato.</p>
+          <h2>Conte o que você já sabe sobre o vazamento.</h2>
+          <p>Não é necessário ter o diagnóstico completo. Selecione as informações disponíveis para iniciarmos a triagem e organizarmos o primeiro contato.</p>
           <ul class="diagnostic-points" aria-label="Frentes da triagem">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg> Situação atual dos sistemas e momento da descoberta.</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg> Possível exposição de dados pessoais e alcance inicial.</li>
@@ -1787,31 +1558,27 @@
 
         <aside class="lead-card reveal" aria-label="Formulário de acionamento para resposta a incidente">
           <div class="lead-card__body" id="formWrap">
-            <h2>Solicite resposta ao incidente.</h2>
-            <p>Informe um contato direto e o cenário atual para priorizarmos a triagem.</p>
+            <h2>Solicite a triagem do incidente.</h2>
+            <p>Mesmo com informações incompletas, sua empresa já pode iniciar a resposta.</p>
             <form id="leadForm" class="fields">
               <input type="hidden" name="servico_interesse" value="Resposta a Incidentes">
               <div class="field-row">
                 <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required></div>
                 <div class="field"><label for="whatsapp">WhatsApp direto</label><input id="whatsapp" name="whatsapp" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" required></div>
               </div>
-              <div class="field"><label for="email">E-mail para retorno</label><input id="email" name="email" type="email" placeholder="nome@empresa.com.br" autocomplete="email" required></div>
               <div class="field-row">
+                <div class="field"><label for="email">E-mail <span class="optional-label">(opcional)</span></label><input id="email" name="email" type="email" placeholder="nome@empresa.com.br" autocomplete="email"></div>
                 <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization" required></div>
-                <div class="field"><label for="cargo">Cargo / Função</label><select id="cargo" name="cargo" required><option value="">Selecione</option><option>CEO / Sócio / Fundador</option><option>Diretoria</option><option>Jurídico / Compliance</option><option>DPO / Privacidade</option><option>TI / Segurança da Informação</option><option>Operações</option><option>Outro</option></select></div>
               </div>
               <div class="field-row">
                 <div class="field"><label for="tipo_incidente">Tipo de incidente</label><select id="tipo_incidente" name="tipo_incidente" required><option value="">Selecione</option><option value="ransomware">Ransomware / criptografia</option><option value="vazamento">Vazamento de dados</option><option value="acesso-indevido">Acesso indevido</option><option value="credenciais">Credenciais comprometidas</option><option value="terceiro">Incidente em fornecedor</option><option value="outro">Outro / ainda não sei</option></select></div>
                 <div class="field"><label for="momento_incidente">Quando foi percebido?</label><select id="momento_incidente" name="momento_incidente" required><option value="">Selecione</option><option value="agora">Nas últimas horas</option><option value="hoje">Hoje</option><option value="ultimos-dias">Nos últimos dias</option><option value="mais-tempo">Há mais tempo</option></select></div>
               </div>
               <div class="field"><label for="situacao_incidente">Situação atual</label><select id="situacao_incidente" name="situacao_incidente" required><option value="">Selecione</option><option value="ativo">O incidente ainda está acontecendo</option><option value="indisponivel">Os sistemas estão indisponíveis ou criptografados</option><option value="contido">Parece contido, mas precisa ser avaliado</option><option value="suspeita">Há apenas uma suspeita em investigação</option><option value="nao-sei">Não sei informar</option></select></div>
-              <div class="field-row">
-                <div class="field"><label for="porte">Porte da empresa</label><select id="porte" name="porte" required><option value="">Selecione</option><option value="ate-20">Até 20 colaboradores</option><option value="21-100">21 a 100 colaboradores</option><option value="101-500">101 a 500 colaboradores</option><option value="500-plus">Mais de 500 colaboradores</option></select></div>
-                <div class="field"><label for="cnpj">CNPJ <span class="optional-label">(opcional)</span></label><input id="cnpj" name="cnpj" type="text" placeholder="00.000.000/0000-00" inputmode="numeric" autocomplete="off" maxlength="18" aria-describedby="cnpjStatus"><small class="field-help" id="cnpjStatus">Opcional nesta primeira triagem.</small></div>
-              </div>
               <label class="consent"><input type="checkbox" name="consentimento" required><span>Autorizo a SOMAXI a entrar em contato sobre este incidente e aceito o tratamento dos dados informados.</span></label>
-              <button type="submit" class="btn btn--full">Solicitar resposta urgente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              <button type="submit" class="btn btn--full">Enviar para triagem prioritária <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
               <div class="form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Seus dados serão usados apenas para este atendimento.</div>
+              <div class="form-error" id="formError" role="alert" aria-live="assertive">Não foi possível enviar agora. Verifique sua conexão e tente novamente.</div>
             </form>
           </div>
           <div class="form-success" id="formSuccess"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/><circle cx="12" cy="12" r="10"/></svg><h3>Acionamento recebido.</h3><p>A equipe SOMAXI recebeu as informações e fará a análise inicial para organizar o contato de resposta.</p></div>
@@ -1819,31 +1586,52 @@
       </div>
     </section>
 
-    <section class="section section--light" id="resposta">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker">Resposta integrada</div>
-          <h2>Uma frente coordenada para conter, entender e responder.</h2>
-          <p>A SOMAXI conecta as decisões técnicas, jurídicas e de privacidade para que a empresa avance com prioridades claras e registros consistentes.</p>
-          <span class="section-badge">Atuação multidisciplinar</span>
+    <section class="section section--light" id="cenarios">
+      <div class="wrap sectors">
+        <div class="sector-hero reveal">
+          <div class="section-head section-head--left">
+            <div class="section-kicker">Quando acionar</div>
+            <h2>Acione a equipe mesmo que o cenário ainda não esteja claro.</h2>
+            <p>Uma suspeita, um alerta de fornecedor ou uma indisponibilidade inesperada já podem justificar uma avaliação inicial.</p>
+          </div>
+          <div class="sector-metrics" aria-label="Indicadores de atuação"><div class="sector-metric"><strong>+300</strong><span>empresas atendidas em adequação à LGPD</span></div><div class="sector-metric"><strong>360°</strong><span>jurídico, processos e segurança</span></div></div>
         </div>
-        <div class="deliver-grid">
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg><h3>Comando do incidente</h3><p>Organização de responsáveis, prioridades, ritos de decisão e comunicação entre as frentes envolvidas.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v2.5"/></svg><h3>Contenção técnica</h3><p>Coordenação das ações para limitar propagação, proteger ativos e estabilizar a operação afetada.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg><h3>Preservação de evidências</h3><p>Orientação para registrar fatos, manter rastros e sustentar a investigação e as decisões posteriores.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M8 11h6M11 8v6"/></svg><h3>Escopo e impacto</h3><p>Levantamento dos sistemas, dados pessoais, titulares e terceiros potencialmente envolvidos.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6M8 11h8"/></svg><h3>Avaliação regulatória</h3><p>Análise documentada sobre medidas e comunicações aplicáveis à ANPD, titulares, clientes e parceiros.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg><h3>Recuperação e melhoria</h3><p>Plano de retomada, correções prioritárias e ações para reduzir a chance de recorrência.</p></article>
+        <div class="sector-cards reveal" aria-label="Tipos de incidente atendidos">
+          <article class="sector-card"><strong class="sector-name">Vazamento de dados</strong><p>Informações expostas, publicadas, enviadas ou acessadas fora do fluxo autorizado.</p></article>
+          <article class="sector-card"><strong class="sector-name">Dados pessoais sensíveis</strong><p>Suspeita de exposição de dados de saúde, biométricos ou outras informações protegidas pela LGPD.</p></article>
+          <article class="sector-card"><strong class="sector-name">Acesso indevido</strong><p>Suspeita ou confirmação de entrada não autorizada em contas, sistemas ou bases.</p></article>
+          <article class="sector-card"><strong class="sector-name">Ransomware</strong><p>Arquivos, servidores ou estações criptografados, com possível impacto em dados pessoais e na continuidade.</p></article>
+          <article class="sector-card"><strong class="sector-name">Perda de dispositivo</strong><p>Notebook, celular, mídia ou documento com possível exposição de dados pessoais.</p></article>
+          <article class="sector-card"><strong class="sector-name">Incidente em fornecedor</strong><p>Um parceiro comunica uma falha que pode afetar dados pessoais ou operações da sua empresa.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section section--white" id="metodo">
+    <section class="section section--white" id="resposta">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div class="section-kicker">Resposta integrada</div>
+          <h2>O que a SOMAXI coordena durante a resposta.</h2>
+          <p>Tecnologia, privacidade, jurídico e gestão trabalham sobre o mesmo cenário, com prioridades claras e decisões registradas.</p>
+          <span class="section-badge">Atuação multidisciplinar</span>
+        </div>
+        <div class="deliver-grid">
+          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg><h3>Coordenação do incidente</h3><p>Organização de responsáveis, prioridades, ritos de decisão e comunicação entre as frentes envolvidas.</p></article>
+          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v2.5"/></svg><h3>Contenção e estabilização</h3><p>Coordenação das ações para limitar propagação, proteger ativos e estabilizar a operação afetada.</p></article>
+          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg><h3>Preservação de evidências</h3><p>Orientação para registrar fatos, manter rastros e sustentar a investigação e as decisões posteriores.</p></article>
+          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M8 11h6M11 8v6"/></svg><h3>Avaliação de alcance e impacto</h3><p>Levantamento dos sistemas, dados pessoais, titulares e terceiros potencialmente envolvidos.</p></article>
+          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6M8 11h8"/></svg><h3>Obrigações e comunicações</h3><p>Análise documentada sobre medidas e comunicações aplicáveis à ANPD, titulares, clientes e parceiros.</p></article>
+          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg><h3>Recuperação e redução de recorrência</h3><p>Plano de retomada, correções prioritárias e ações para reduzir a chance de novos incidentes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light" id="metodo">
       <div class="wrap method">
         <div class="section-head reveal">
           <div class="section-kicker">Plano de ação</div>
-          <h2>Da primeira triagem à retomada, com decisões registradas.</h2>
-          <p>O plano se adapta ao incidente. A sequência abaixo organiza as frentes críticas sem criar promessas genéricas sobre prazo ou recuperação.</p>
+          <h2>Da triagem à retomada, em quatro frentes coordenadas.</h2>
+          <p>Cada resposta é adaptada ao tipo de incidente, aos ambientes afetados e às evidências disponíveis.</p>
         </div>
         <div class="steps">
           <article class="step reveal"><div class="step-num">1</div><div><h3>Ativar e estabilizar</h3><p>Confirmamos o cenário, reunimos responsáveis e priorizamos ações para limitar o impacto imediato.</p></div></article>
@@ -1854,50 +1642,12 @@
       </div>
     </section>
 
-    <section class="section section--dark" id="prova">
-      <div class="wrap proof-wrap">
-        <div class="proof-head reveal">
-          <div class="section-kicker">Estrutura para decisões críticas</div>
-          <h2>Experiência em privacidade, processos e segurança trabalhando em conjunto.</h2>
-          <p>Conheça a forma de atuação da SOMAXI em projetos que exigem método, governança e proximidade com a gestão.</p>
-        </div>
-        <div class="video reveal" data-video-id="sa63LdUJdMg">
-          <button class="video-cover" type="button" aria-label="Assistir depoimento da Hyperion Franquias" title="Assistir depoimento"><span class="video-play" aria-hidden="true"></span></button>
-          <iframe data-src="https://www.youtube.com/embed/sa63LdUJdMg?feature=oembed&autoplay=1&rel=0" title="Depoimento da Hyperion Franquias sobre a SOMAXI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="proof-caption reveal">
-          <div class="proof-author"><img class="proof-avatar" src="/static/img/LGPD-2026/hyperion-franquias.webp" alt="Dr. Cláudio Rodrigues, CEO da Hyperion Franquias" loading="lazy" width="56" height="56"><div><strong>Dr. Cláudio Rodrigues</strong><small>CEO · Hyperion Franquias</small></div></div>
-          <div class="proof-meta"><span class="stars" aria-label="Avaliação 5 estrelas">★★★★★</span><span class="proof-tag">Implementação LGPD</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--light" id="cenarios">
-      <div class="wrap sectors">
-        <div class="sector-hero reveal">
-          <div class="section-head section-head--left">
-            <div class="section-kicker">Cenários atendidos</div>
-            <h2>Sinais de que sua empresa precisa acionar resposta agora.</h2>
-            <p>Mesmo sem todas as respostas, o registro e a coordenação inicial ajudam a reduzir incerteza e orientar as próximas decisões.</p>
-          </div>
-          <div class="sector-metrics" aria-label="Indicadores de atuação"><div class="sector-metric"><strong>+300</strong><span>empresas adequadas</span></div><div class="sector-metric"><strong>360°</strong><span>jurídico, processos e segurança</span></div></div>
-        </div>
-        <div class="sector-cards reveal" aria-label="Tipos de incidente atendidos">
-          <article class="sector-card"><strong class="sector-name">Ransomware</strong><p>Arquivos, servidores ou estações criptografados, com impacto na continuidade.</p></article>
-          <article class="sector-card"><strong class="sector-name">Vazamento de dados</strong><p>Informações expostas, publicadas, enviadas ou acessadas fora do fluxo autorizado.</p></article>
-          <article class="sector-card"><strong class="sector-name">Acesso indevido</strong><p>Suspeita ou confirmação de entrada não autorizada em contas, sistemas ou bases.</p></article>
-          <article class="sector-card"><strong class="sector-name">Credenciais comprometidas</strong><p>Senhas, contas de e-mail ou acessos privilegiados utilizados por terceiros.</p></article>
-          <article class="sector-card"><strong class="sector-name">Perda de dispositivo</strong><p>Notebook, celular, mídia ou documento com possível exposição de dados pessoais.</p></article>
-          <article class="sector-card"><strong class="sector-name">Incidente em fornecedor</strong><p>Um parceiro comunica uma falha que pode afetar dados ou operações da sua empresa.</p></article>
-        </div>
-      </div>
-    </section>
-
     <section class="section section--white" id="faq">
       <div class="wrap">
         <div class="section-head reveal"><div class="section-kicker">Dúvidas frequentes</div><h2>Respostas diretas para um momento crítico.</h2></div>
         <div class="faq-list reveal">
           <details class="faq" open><summary><span>O que fazer primeiro ao identificar um incidente?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Centralize as decisões, preserve registros e envolva os responsáveis por tecnologia, privacidade, jurídico e gestão. A prioridade inicial é conter o impacto sem destruir evidências importantes.</div></details>
+          <details class="faq"><summary><span>Qual é o prazo para notificar um vazamento de dados à ANPD?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Quando a comunicação for aplicável, o controlador deve realizá-la à ANPD e aos titulares em até três dias úteis, contados do conhecimento de que o incidente afetou dados pessoais, salvo prazo específico previsto em outra legislação. Antes de comunicar, é necessário avaliar se o caso pode ocasionar risco ou dano relevante e documentar a decisão.</div></details>
           <details class="faq"><summary><span>Todo incidente precisa ser comunicado à ANPD?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">A necessidade de comunicação depende das circunstâncias, dos dados envolvidos e da avaliação de risco aplicável. A SOMAXI apoia essa análise, a documentação da decisão e a preparação das comunicações necessárias.</div></details>
           <details class="faq"><summary><span>A SOMAXI atende casos de ransomware?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Sim. A atuação coordena contenção, preservação de evidências, avaliação de dados pessoais, decisões jurídicas e planejamento da recuperação com as equipes envolvidas.</div></details>
           <details class="faq"><summary><span>Posso acionar a equipe mesmo sem adequação LGPD prévia?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Sim. A resposta parte do cenário real da empresa. Depois da estabilização, as lacunas identificadas podem orientar um plano de melhoria e governança.</div></details>
@@ -1909,8 +1659,8 @@
 
     <section class="final" aria-label="Chamada final">
       <div class="wrap final-grid">
-        <div class="reveal"><h2>Incidente em andamento? Recupere o controle da resposta.</h2><p>Envie o cenário essencial para a SOMAXI organizar a triagem e orientar as próximas decisões.</p></div>
-        <a href="#acionamento" class="btn reveal" onclick="trackCTA('final')">Solicitar resposta urgente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <div class="reveal"><h2>Suspeita de vazamento? Você não precisa ter todas as respostas.</h2><p>Compartilhe o que já sabe. A SOMAXI organiza a triagem e ajuda sua empresa a definir as próximas decisões.</p></div>
+        <a href="#acionamento" class="btn reveal" onclick="trackCTA('final')">Solicitar triagem do vazamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </div>
     </section>
   </main>
@@ -1922,22 +1672,80 @@
     </div>
   </footer>
 
-  <div class="mobile-emergency-cta" aria-label="Acionamento rápido"><a href="#acionamento" class="btn" onclick="trackCTA('mobile_sticky')">Solicitar resposta urgente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+  <div class="mobile-emergency-cta" aria-label="Acionamento rápido"><a href="#acionamento" class="btn" onclick="trackCTA('mobile_sticky')">Solicitar triagem <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function trackEvent(name, params) {
-      try {
-        window.dataLayer.push(Object.assign({ event: name }, params || {}));
-        if (typeof gtag === 'function') { gtag('event', name, params || {}); }
-        console.log('[track]', name, params || {});
-      } catch (e) { }
-    }
-    function trackCTA(origem) {
-      trackEvent('click_cta', { cta_origem: origem || 'default' });
+
+    // GTM: usar um acionador de Evento personalizado com o nome "lead_resposta_incidentes".
+    // O mesmo event_id segue para o dataLayer, Make e n8n para correlação e deduplicação.
+    var TRACKING_CONFIG = {
+      pageId: 'lp-somaxi-resposta-a-incidentes',
+      formId: 'acionamento-resposta-incidentes',
+      conversionEvent: 'lead_resposta_incidentes',
+      attributionKeys: ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'msclkid'],
+      webhooks: [
+        { id: 'make', url: 'https://hook.us1.make.celonis.com/e5nyie7vv9vlrvg23qbkrstr6bpbxvbb' },
+        { id: 'n8n', url: 'https://n8n.v4lisboatech.com.br/webhook/somaxi-lgpd' }
+      ]
+    };
+
+    function createEventId() {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+        return window.crypto.randomUUID();
+      }
+      return 'evt-' + Date.now() + '-' + Math.random().toString(16).slice(2);
     }
 
+    function trackEvent(name, params) {
+      try {
+        var eventData = Object.assign({
+          event: name,
+          page_id: TRACKING_CONFIG.pageId,
+          page_path: window.location.pathname
+        }, params || {});
+        window.dataLayer.push(eventData);
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.log('[dataLayer]', eventData);
+        }
+        return eventData;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function trackCTA(origem) {
+      trackEvent('lp_cta_click', {
+        cta_origem: origem || 'default',
+        cta_destino: 'acionamento'
+      });
+    }
+
+    window.trackEvent = trackEvent;
+    window.trackCTA = trackCTA;
+
     document.addEventListener('DOMContentLoaded', function () {
-      trackEvent('page_view', { page: 'lp-somaxi-resposta-a-incidentes' });
+      var queryParams = new URLSearchParams(window.location.search);
+      var attribution = {};
+
+      TRACKING_CONFIG.attributionKeys.forEach(function (key) {
+        var currentValue = queryParams.get(key) || '';
+        var storageKey = 'somaxi_' + key;
+        if (currentValue) {
+          try { window.sessionStorage.setItem(storageKey, currentValue); } catch (e) { }
+        }
+        if (!currentValue) {
+          try { currentValue = window.sessionStorage.getItem(storageKey) || ''; } catch (e) { }
+        }
+        attribution[key] = currentValue;
+      });
+
+      trackEvent('lp_page_view', {
+        page_title: document.title,
+        referrer: document.referrer || '',
+        utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
+        utm_campaign: attribution.utm_campaign
+      });
 
       var siteHeader = document.getElementById('siteHeader');
       function updateHeader() {
@@ -1959,32 +1767,35 @@
       });
 
       var form = document.getElementById('leadForm');
+      if (!form) { return; }
+
       var submitButton = form.querySelector('button[type="submit"]');
-      var params = new URLSearchParams(window.location.search);
-      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid'].forEach(function (key) {
+      var formError = document.getElementById('formError');
+      var isSubmitting = false;
+      var formStarted = false;
+
+      TRACKING_CONFIG.attributionKeys.forEach(function (key) {
         var input = document.createElement('input');
         input.type = 'hidden';
         input.name = key;
-        input.value = params.get(key) || '';
+        input.value = attribution[key] || '';
         form.appendChild(input);
       });
 
-      var phone = document.getElementById('whatsapp');
-      var cnpj = document.getElementById('cnpj');
-      var cnpjStatus = document.getElementById('cnpjStatus');
-      var cnpjValidation = { value: '', valid: false, pending: false };
-
-      document.querySelectorAll('.video').forEach(function (video) {
-        var trigger = video.querySelector('.video-cover');
-        var iframe = video.querySelector('iframe[data-src]');
-        if (!trigger || !iframe) { return; }
-        trigger.addEventListener('click', function () {
-          if (!iframe.src) {
-            iframe.src = iframe.getAttribute('data-src');
-          }
-          video.classList.add('is-playing');
+      function trackFormStart() {
+        if (formStarted) { return; }
+        formStarted = true;
+        trackEvent('lp_form_start', {
+          form_id: TRACKING_CONFIG.formId,
+          utm_source: attribution.utm_source,
+          utm_campaign: attribution.utm_campaign
         });
-      });
+      }
+
+      form.addEventListener('input', trackFormStart, { passive: true });
+      form.addEventListener('change', trackFormStart, { passive: true });
+
+      var phone = document.getElementById('whatsapp');
 
       function onlyDigits(value) {
         return (value || '').replace(/\D/g, '');
@@ -2007,130 +1818,6 @@
         phone.value = digits;
       });
 
-      function formatCnpj(value) {
-        var digits = onlyDigits(value).slice(0, 14);
-        if (digits.length > 12) {
-          return digits.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2}).*/, '$1.$2.$3/$4-$5');
-        }
-        if (digits.length > 8) {
-          return digits.replace(/^(\d{2})(\d{3})(\d{3})(\d{0,4}).*/, '$1.$2.$3/$4');
-        }
-        if (digits.length > 5) {
-          return digits.replace(/^(\d{2})(\d{3})(\d{0,3}).*/, '$1.$2.$3');
-        }
-        if (digits.length > 2) {
-          return digits.replace(/^(\d{2})(\d{0,3}).*/, '$1.$2');
-        }
-        return digits;
-      }
-
-      function isValidCnpjDigits(value) {
-        var digits = onlyDigits(value);
-        if (digits.length !== 14 || /^(\d)\1{13}$/.test(digits)) {
-          return false;
-        }
-
-        function calculateVerifier(length) {
-          var sum = 0;
-          var pos = length - 7;
-          for (var i = length; i >= 1; i--) {
-            sum += Number(digits.charAt(length - i)) * pos--;
-            if (pos < 2) { pos = 9; }
-          }
-          var result = sum % 11 < 2 ? 0 : 11 - (sum % 11);
-          return result;
-        }
-
-        return calculateVerifier(12) === Number(digits.charAt(12)) &&
-          calculateVerifier(13) === Number(digits.charAt(13));
-      }
-
-      function setCnpjState(type, message) {
-        cnpj.classList.remove('is-valid', 'is-invalid');
-        cnpjStatus.classList.remove('is-valid', 'is-invalid');
-        if (type) {
-          cnpj.classList.add(type === 'valid' ? 'is-valid' : 'is-invalid');
-          cnpjStatus.classList.add(type === 'valid' ? 'is-valid' : 'is-invalid');
-        }
-        cnpjStatus.textContent = message;
-      }
-
-      async function validateCnpj() {
-        var digits = onlyDigits(cnpj.value);
-        if (digits.length === 0) {
-          cnpjValidation = { value: '', valid: true, pending: false };
-          cnpj.setCustomValidity('');
-          setCnpjState('', 'Opcional nesta primeira triagem.');
-          return true;
-        }
-        if (digits.length !== 14) {
-          cnpjValidation = { value: digits, valid: false, pending: false };
-          cnpj.setCustomValidity('Informe um CNPJ com 14 dígitos.');
-          setCnpjState('invalid', 'CNPJ incompleto.');
-          return false;
-        }
-
-        if (cnpjValidation.value === digits && cnpjValidation.valid) {
-          return true;
-        }
-
-        if (!isValidCnpjDigits(digits)) {
-          cnpjValidation = { value: digits, valid: false, pending: false };
-          cnpj.setCustomValidity('CNPJ inválido.');
-          setCnpjState('invalid', 'CNPJ inválido.');
-          return false;
-        }
-
-        cnpjValidation = { value: digits, valid: false, pending: true };
-        cnpj.setCustomValidity('Validando CNPJ...');
-        setCnpjState('', 'Validando CNPJ...');
-        submitButton.disabled = true;
-
-        try {
-          var response = await fetch('https://api.insomnium.com.br/validar_cnpj/' + encodeURIComponent(digits), {
-            headers: { 'Accept': 'application/json' }
-          });
-          var data = {};
-          try { data = await response.json(); } catch (e) { }
-          var isValid = response.ok && data.status === 'success';
-          cnpjValidation = { value: digits, valid: isValid, pending: false };
-          if (isValid) {
-            cnpj.setCustomValidity('');
-            setCnpjState('valid', 'CNPJ validado.');
-            return true;
-          }
-          cnpj.setCustomValidity(data.motivo || 'CNPJ inválido.');
-          setCnpjState('invalid', data.motivo || 'CNPJ inválido.');
-          return false;
-        } catch (e) {
-          try {
-            fetch('https://api.insomnium.com.br/validar_cnpj/' + encodeURIComponent(digits), {
-              mode: 'no-cors',
-              keepalive: true
-            });
-          } catch (ignore) { }
-          cnpjValidation = { value: digits, valid: true, pending: false };
-          cnpj.setCustomValidity('');
-          setCnpjState('valid', 'CNPJ liberado.');
-          return true;
-        } finally {
-          submitButton.disabled = false;
-        }
-      }
-
-      cnpj.addEventListener('input', function () {
-        cnpj.value = formatCnpj(cnpj.value);
-        cnpjValidation = { value: onlyDigits(cnpj.value), valid: false, pending: false };
-        cnpj.setCustomValidity('');
-        setCnpjState('', 'Opcional nesta primeira triagem.');
-      });
-
-      cnpj.addEventListener('blur', function () {
-        if (onlyDigits(cnpj.value).length === 14) {
-          validateCnpj();
-        }
-      });
-
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -2141,13 +1828,52 @@
       }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
+      function buildWebhookPayload(eventId) {
+        var payload = new URLSearchParams();
+        new FormData(form).forEach(function (value, key) {
+          payload.append(key, typeof value === 'string' ? value.trim() : value);
+        });
+
+        payload.set('consentimento', form.consentimento.checked ? 'sim' : 'nao');
+        payload.set('cargo', '');
+        payload.set('porte', '');
+        payload.set('cnpj', '');
+        payload.set('cnpj_numeros', '');
+        payload.set('whatsapp_numeros', onlyDigits(phone.value));
+        payload.set('origem', TRACKING_CONFIG.pageId);
+        payload.set('form_id', TRACKING_CONFIG.formId);
+        payload.set('evento', TRACKING_CONFIG.conversionEvent);
+        payload.set('event_id', eventId);
+        payload.set('lead_id', eventId);
+        payload.set('pagina', window.location.href);
+        payload.set('page_path', window.location.pathname);
+        payload.set('page_title', document.title);
+        payload.set('referrer', document.referrer || '');
+        payload.set('idioma', navigator.language || '');
+        payload.set('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone || '');
+        payload.set('user_agent', navigator.userAgent || '');
+        payload.set('enviado_em', new Date().toISOString());
+        return payload;
+      }
+
+      function sendWebhook(destination, payload) {
+        var webhookPayload = new URLSearchParams(payload.toString());
+        webhookPayload.set('webhook_destino', destination.id);
+        return fetch(destination.url, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: webhookPayload,
+          keepalive: true
+        }).then(function () {
+          return destination.id;
+        });
+      }
+
       form.addEventListener('submit', async function (ev) {
         ev.preventDefault();
 
-        if (!(await validateCnpj())) {
-          cnpj.reportValidity();
-          return;
-        }
+        if (isSubmitting) { return; }
 
         if (!form.checkValidity()) {
           form.reportValidity();
@@ -2158,67 +1884,75 @@
           nome: form.nome.value.trim(),
           whatsapp: form.whatsapp.value.trim(),
           email: form.email.value.trim(),
-          cnpj: cnpj.value.trim(),
           empresa: form.empresa.value.trim(),
-          cargo: form.cargo.value,
-          porte: form.porte.value,
           tipo_incidente: form.tipo_incidente.value,
           momento_incidente: form.momento_incidente.value,
           situacao_incidente: form.situacao_incidente.value
         };
 
-        // Monta o payload com TODOS os campos do formulário (inclui UTMs ocultos e consentimento)
-        var payload = new URLSearchParams();
-        new FormData(form).forEach(function (value, key) {
-          payload.append(key, typeof value === 'string' ? value.trim() : value);
-        });
-        payload.set('consentimento', form.consentimento.checked ? 'sim' : 'nao');
-        payload.set('cnpj_numeros', onlyDigits(cnpj.value));
-        payload.set('whatsapp_numeros', onlyDigits(phone.value));
-        payload.set('origem', 'lp-somaxi-resposta-a-incidentes');
-        payload.set('pagina', window.location.href);
-        payload.set('enviado_em', new Date().toISOString());
-
+        var eventId = createEventId();
+        var payload = buildWebhookPayload(eventId);
         var originalButton = submitButton.innerHTML;
+        isSubmitting = true;
         submitButton.disabled = true;
         submitButton.textContent = 'Enviando...';
+        formError.classList.remove('is-visible');
 
-        try {
-          // application/x-www-form-urlencoded = requisição simples (sem preflight CORS): a entrega acontece mesmo sem headers CORS na resposta
-          await fetch('https://hook.us1.make.celonis.com/e5nyie7vv9vlrvg23qbkrstr6bpbxvbb', {
-            method: 'POST',
-            body: payload,
-            keepalive: true
-          });
-        } catch (e) {
-          // Erro só de leitura da resposta (CORS); os dados já foram entregues ao Make. Segue o fluxo.
-        }
-
-        try {
-          await fetch('https://n8n.v4lisboatech.com.br/webhook/somaxi-lgpd', {
-            method: 'POST',
-            body: payload,
-            keepalive: true
-          });
-        } catch (e) {
-          console.log('Envio por webhook não confirmado pelo navegador.');
-        }
-
-        trackEvent('generate_lead', {
-          form: 'acionamento-resposta-incidentes',
-          cargo: lead.cargo,
-          porte: lead.porte,
+        trackEvent('lp_form_submit', {
+          event_id: eventId,
+          form_id: TRACKING_CONFIG.formId,
           tipo_incidente: lead.tipo_incidente,
           momento_incidente: lead.momento_incidente,
           situacao_incidente: lead.situacao_incidente
         });
 
-        submitButton.disabled = false;
-        submitButton.innerHTML = originalButton;
-        form.style.display = 'none';
-        document.getElementById('formWrap').style.display = 'none';
-        document.getElementById('formSuccess').classList.add('is-visible');
-        document.getElementById('acionamento').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        try {
+          var webhookResults = await Promise.allSettled(TRACKING_CONFIG.webhooks.map(function (destination) {
+            return sendWebhook(destination, payload);
+          }));
+          var deliveredTo = webhookResults.filter(function (result) {
+            return result.status === 'fulfilled';
+          }).map(function (result) {
+            return result.value;
+          });
+
+          if (!deliveredTo.length) {
+            throw new Error('Nenhum webhook recebeu a requisição.');
+          }
+
+          trackEvent('lp_webhook_dispatch', {
+            event_id: eventId,
+            form_id: TRACKING_CONFIG.formId,
+            webhook_destinos: deliveredTo.join(','),
+            webhook_total: deliveredTo.length
+          });
+
+          trackEvent(TRACKING_CONFIG.conversionEvent, {
+            event_id: eventId,
+            form_id: TRACKING_CONFIG.formId,
+            tipo_incidente: lead.tipo_incidente,
+            momento_incidente: lead.momento_incidente,
+            situacao_incidente: lead.situacao_incidente,
+            lead_source: attribution.utm_source || 'direct',
+            lead_medium: attribution.utm_medium || '',
+            lead_campaign: attribution.utm_campaign || ''
+          });
+
+          form.style.display = 'none';
+          document.getElementById('formWrap').style.display = 'none';
+          document.getElementById('formSuccess').classList.add('is-visible');
+          document.getElementById('acionamento').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (error) {
+          isSubmitting = false;
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButton;
+          formError.classList.add('is-visible');
+          trackEvent('lp_form_error', {
+            event_id: eventId,
+            form_id: TRACKING_CONFIG.formId,
+            error_type: 'webhook_unavailable'
+          });
+        }
       });
     });
   </script>
