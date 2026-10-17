@@ -31,7 +31,6 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/png" href="/static/img/LGPD-2026/1314beb9ffb78d18_443609-f9cb09e69d49bb84420a199.webp">
-  <link rel="preload" as="image" href="/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -44,1442 +43,382 @@
   <style>
     :root {
       --navy: #07111f;
-      --navy-2: #0c1b2d;
-      --ink: #101828;
-      --ink-2: #26364c;
-      --muted: #62748b;
-      --muted-2: #8a9aae;
-      --paper: #f7f9fc;
+      --navy-2: #0d1b2e;
+      --ink: #0f1a2a;
+      --ink-2: #2a3a50;
+      --muted: #5d6e84;
+      --paper: #f4f6f9;
       --white: #ffffff;
-      --line: #dbe4ee;
-      --line-dark: rgba(255, 255, 255, .18);
+      --line: #dde4ec;
+      --line-dark: rgba(255, 255, 255, .14);
       --cyan: #00bce7;
-      --cyan-dark: #008ec0;
+      --cyan-dark: #0089b5;
       --amber: #f2b84b;
-      --red: #d64545;
       --green: #0e9f6e;
       --radius: 8px;
-      --shadow: 0 20px 55px rgba(9, 22, 42, .16);
-      --max: 1180px;
-      --font-title: 'IBM Plex Sans', 'Inter', system-ui, sans-serif;
-      --font-body: 'IBM Plex Sans', 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+      --max: 1160px;
+      --font: 'IBM Plex Sans', 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    html {
-      scroll-behavior: smooth
-    }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none
-    }
-
-    button,
-    input,
-    select {
-      font: inherit
-    }
-
-    ul {
-      list-style: none
-    }
-
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px
-    }
-
-    .title-font {
-      font-family: var(--font-title)
-    }
-
-    .accent {
-      color: var(--cyan)
-    }
-
-    .accent-amber {
-      color: var(--amber)
-    }
-
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
+    body { font-family: var(--font); color: var(--ink); background: var(--paper); line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden }
+    img { max-width: 100%; display: block }
+    a { color: inherit; text-decoration: none }
+    button, input, select { font: inherit }
+    ul, ol { list-style: none }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -.01em }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      padding: 14px 22px;
-      border: 1px solid transparent;
-      border-radius: var(--radius);
-      background: linear-gradient(135deg, var(--cyan), #67e2ff);
-      color: #00131c;
-      font-family: var(--font-title);
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.15;
-      text-align: center;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-      box-shadow: 0 16px 34px rgba(0, 155, 206, .28);
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 50px; padding: 13px 22px; border: 1px solid transparent; border-radius: var(--radius);
+      background: var(--cyan); color: #00131c; font-size: 15px; font-weight: 700; line-height: 1.15;
+      text-align: center; cursor: pointer; transition: background .15s ease;
     }
+    .btn:hover { background: #33cdf0 }
+    .btn svg { width: 18px; height: 18px; flex: none }
+    .btn:disabled { opacity: .6; cursor: not-allowed }
+    .btn--full { width: 100% }
+    .btn--line { background: transparent; color: #fff; border-color: var(--line-dark) }
+    .btn--line:hover { background: rgba(255, 255, 255, .06) }
 
-    .btn svg {
-      width: 18px;
-      height: 18px;
-      flex: none
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 50; background: var(--navy); border-bottom: 1px solid var(--line-dark) }
+    .nav { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px }
+    .brand img { height: 30px; width: auto }
+    .nav-actions { display: flex; align-items: center; gap: 10px }
+    .nav .btn { min-height: 40px; padding: 9px 16px; font-size: 14px }
+
+    /* Hero */
+    .hero { background: var(--navy); color: #fff; padding: 56px 0 64px }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 440px); gap: 56px; align-items: start }
+    .hero h1 { font-size: 50px; font-weight: 700; max-width: 620px }
+    .hero-sub { margin-top: 18px; max-width: 560px; color: #c9d7e6; font-size: 18px }
+    .hero-sub b { color: #fff; font-weight: 600 }
+    .hero-points { display: grid; gap: 12px; margin-top: 28px; max-width: 560px }
+    .hero-points li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; color: #dfe9f3; font-size: 16px }
+    .hero-points span {
+      width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--line-dark);
+      border-radius: 6px; color: var(--cyan); font-size: 13px; font-weight: 700;
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(0, 155, 206, .35)
+    .deadline {
+      display: flex; gap: 14px; align-items: flex-start; margin-top: 32px; max-width: 560px; padding: 16px 18px;
+      border: 1px solid rgba(242, 184, 75, .35); border-radius: var(--radius); background: rgba(242, 184, 75, .07);
+      color: #f3e3c0; font-size: 14px;
     }
+    .deadline strong { display: block; color: #fff; font-size: 22px; line-height: 1.1; margin-bottom: 2px }
+    .deadline-num { flex: none; color: var(--amber); font-size: 40px; font-weight: 700; line-height: 1 }
 
-    .btn:active {
-      transform: translateY(0)
+    /* Form card */
+    .lead-card { background: #fff; color: var(--ink); border-radius: var(--radius); border: 1px solid #e3e9f0; scroll-margin-top: 84px }
+    .lead-card__body { padding: 26px }
+    .lead-card h2 { font-size: 22px }
+    .lead-card p { margin-top: 6px; color: var(--muted); font-size: 14px }
+    .fields { display: grid; gap: 12px; margin-top: 18px }
+    .field label { display: block; margin-bottom: 5px; color: var(--ink-2); font-size: 12px; font-weight: 700 }
+    .field input, .field select {
+      width: 100%; height: 44px; border: 1px solid #ccd6e2; border-radius: var(--radius); background: #fff; color: var(--ink);
+      padding: 0 12px; font-size: 15px; outline: none; transition: border-color .15s ease, box-shadow .15s ease;
     }
-
-    .btn:disabled {
-      opacity: .65;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none
-    }
-
-    .btn--dark {
-      background: #111827;
-      color: #fff;
-      box-shadow: none;
-      border-color: #111827
-    }
-
-    .btn--ghost {
-      background: rgba(255, 255, 255, .08);
-      color: #fff;
-      border-color: var(--line-dark);
-      box-shadow: none
-    }
-
-    .btn--ghost:hover {
-      background: rgba(255, 255, 255, .14);
-      box-shadow: none
-    }
-
-    .btn--full {
-      width: 100%
-    }
-
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 50;
-      background: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background .3s ease, border-color .3s ease, box-shadow .3s ease;
-    }
-
-    .site-header .wrap {
-      max-width: none;
-      padding-left: clamp(42px, 8vw, 128px);
-      padding-right: clamp(24px, 5vw, 64px);
-    }
-
-    .site-header.scrolled {
-      background: rgba(7, 17, 31, .82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom-color: rgba(255, 255, 255, .1);
-      box-shadow: 0 10px 34px rgba(3, 10, 20, .4);
-    }
-
-    .nav {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      transition: min-height .3s ease;
-    }
-
-    .site-header.scrolled .nav {
-      min-height: 64px
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px
-    }
-
-    .brand img {
-      height: 32px;
-      width: auto
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px
-    }
-
-    .nav-links a {
-      color: rgba(255, 255, 255, .76);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover {
-      color: #fff
-    }
-
-    .nav .btn {
-      min-height: 42px;
-      padding: 10px 16px;
-      font-size: 13px
-    }
-
-    .hero {
-      position: relative;
-      color: #fff;
-      background: #07111f;
-      overflow: hidden;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 0 88px;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(7, 17, 31, .96) 0%, rgba(7, 17, 31, .76) 42%, rgba(7, 17, 31, .34) 68%, rgba(7, 17, 31, .08) 100%),
-        url("/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp") right center/cover no-repeat;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7, 17, 31, 0) 70%, rgba(7, 17, 31, .96) 100%);
-      pointer-events: none;
-    }
-
-    .hero>.wrap {
-      width: 100%;
-      max-width: none;
-      padding-left: clamp(42px, 8vw, 128px);
-      padding-right: 24px;
-    }
-
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      display: block;
-      min-width: 0;
-    }
-
-    .hero-grid>* {
-      min-width: 0
-    }
-
-    .hero-copy {
-      max-width: 690px
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: var(--font-title);
-      letter-spacing: 0;
-      line-height: 1.12
-    }
-
-    .hero h1 {
-      max-width: 680px;
-      font-size: 58px;
-      font-weight: 700;
-    }
-
-    .hero-sub {
-      max-width: 650px;
-      margin-top: 22px;
-      color: #d5e4f4;
-      font-size: 19px;
-    }
-
-    .hero-sub b {
-      color: #fff
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .marquee {
-      overflow: hidden;
-      background: #07111f;
-      border-top: 1px solid rgba(255, 255, 255, .08);
-      border-bottom: 1px solid rgba(255, 255, 255, .08);
-      padding: 18px 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 4px 12px;
-      color: #d8e9f8;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .marquee-item svg {
-      width: 12px;
-      height: 12px;
-      color: var(--cyan);
-      flex: none
-    }
-
-    .lead-card {
-      position: relative;
-      width: 100%;
-      border: 1px solid rgba(255, 255, 255, .2);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, .96);
-      color: var(--ink);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .lead-card::before {
-      content: "";
-      display: block;
-      height: 6px;
-      background: linear-gradient(90deg, var(--cyan), var(--amber));
-    }
-
-    .lead-card__body {
-      padding: 26px
-    }
-
-    .lead-card h2 {
-      font-size: 25px;
-      color: var(--ink);
-    }
-
-    .lead-card p {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .fields {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .field label {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--ink-2);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .field input,
+    .field input:focus, .field select:focus { border-color: var(--cyan-dark); box-shadow: 0 0 0 3px rgba(0, 188, 231, .15) }
+    .field input::placeholder { color: #98a7b8 }
     .field select {
-      width: 100%;
-      height: 46px;
-      border: 1px solid #cfd9e6;
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--ink);
-      padding: 0 12px;
-      font-size: 15px;
-      outline: none;
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .field input:focus,
-    .field select:focus {
-      border-color: var(--cyan-dark);
-      box-shadow: 0 0 0 3px rgba(0, 188, 231, .14);
-    }
-
-    .field input::placeholder {
-      color: #98a7b8
-    }
-
-    .field select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath fill='%2362748b' d='M7 9 0 0h14z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 34px
-    }
-
-    .field select option {
-      color: #111827
-    }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px
-    }
-
-    .consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin: 4px 0 2px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .consent input {
-      width: 16px;
-      height: 16px;
-      margin-top: 3px;
-      accent-color: var(--cyan-dark);
-      flex: none
-    }
-
-    .consent a {
-      color: var(--cyan-dark);
-      font-weight: 700;
-      text-decoration: underline
-    }
-
-    .form-note {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 12px;
-      text-align: center;
-    }
-
-    .form-note svg {
-      width: 15px;
-      height: 15px;
-      flex: none
-    }
-
-    .form-error {
-      display: none;
-      margin-top: 12px;
-      padding: 11px 13px;
-      border: 1px solid rgba(214, 69, 69, .28);
-      border-radius: var(--radius);
-      background: #fff4f2;
-      color: #8f2f2f;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    .form-error.is-visible {
-      display: block
-    }
-
-    .form-success {
-      display: none;
-      padding: 34px 26px;
-      text-align: center;
-    }
-
-    .form-success.is-visible {
-      display: block
-    }
-
-    .form-success svg {
-      width: 58px;
-      height: 58px;
-      margin: 0 auto 16px;
-      color: var(--green);
-    }
-
-    .form-success h3 {
-      font-size: 23px
-    }
-
-    .form-success p {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 15px
-    }
-
-    section[id] {
-      scroll-margin-top: 88px
-    }
-
-    .section {
-      padding: 88px 0
-    }
-
-    .section--white {
-      background: #fff
-    }
-
-    .section--light {
-      background: #f3f7fb
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin: 0 auto 42px;
-      text-align: center;
-    }
-
-    .section-head--left {
-      text-align: left;
-      margin-left: 0
-    }
-
-    .section-kicker {
-      color: var(--cyan-dark);
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .section-head h2 {
-      font-size: 38px;
-      color: inherit;
-    }
-
-    .section-head p {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .risk-grid {
-      display: block
-    }
-
-    .risk-list {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .risk-item {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 12px 28px rgba(9, 22, 42, .06);
-    }
-
-    .risk-icon {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius);
-      background: #fff3f2;
-      color: var(--red);
-    }
-
-    .risk-icon svg {
-      width: 24px;
-      height: 24px
-    }
-
-    .risk-item h3 {
-      font-size: 18px
-    }
-
-    .risk-item p {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 15px
-    }
-
-    .law-note {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 18px;
-      padding: 16px 20px;
-      border-left: 4px solid var(--amber);
-      background: #fff8eb;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      color: #5c3a08;
-      font-size: 15px;
-    }
-
-    .law-note svg {
-      width: 24px;
-      height: 24px;
-      flex: none;
-      color: #c98a1a
-    }
-
-    .law-note strong {
-      color: #7a4d08;
-      font-weight: 800
-    }
-
-    .diagnostic-section {
-      background: #eef5fb;
-      padding: 88px 0;
-    }
-
-    .diagnostic-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(380px, .82fr);
-      gap: 40px;
-      align-items: start;
-    }
-
-    .diagnostic-copy {
-      padding-top: 6px;
-    }
-
-    .diagnostic-copy h2 {
-      font-size: 31px;
-      max-width: 520px;
-    }
-
-    .diagnostic-copy p {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 540px;
-    }
-
-    .diagnostic-points {
-      display: grid;
-      gap: 10px;
-      margin-top: 22px;
-      max-width: 540px;
-    }
-
-    .diagnostic-points li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      padding: 13px 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--ink-2);
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .diagnostic-points svg {
-      width: 18px;
-      height: 18px;
-      flex: none;
-      color: var(--cyan-dark);
-      margin-top: 3px;
-    }
-
-    .section-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 18px;
-      padding: 8px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fff;
-      color: var(--cyan-dark);
-      font-family: var(--font-title);
-      font-size: 13px;
-      font-weight: 800;
-      box-shadow: 0 6px 18px rgba(9, 22, 42, .05);
-    }
-
-    .section-badge::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cyan);
-    }
-
-    .deliver-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .deliver {
-      min-height: 220px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-
-    .deliver:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 38px rgba(11, 30, 54, .1);
-      border-color: #b9d8e6
-    }
-
-    .deliver svg {
-      width: 30px;
-      height: 30px;
-      color: var(--cyan-dark);
-      margin-bottom: 18px
-    }
-
-    .deliver h3 {
-      font-size: 19px
-    }
-
-    .deliver p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 15px
-    }
-
-    .method {
-      display: block
-    }
-
-    .steps {
-      position: relative;
-      display: grid;
-      gap: 0;
-      margin-top: 34px;
-      max-width: 920px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .steps::before {
-      content: "";
-      position: absolute;
-      left: 25px;
-      top: 12px;
-      bottom: 12px;
-      width: 2px;
-      background: #d4e0ec;
-    }
-
-    .step {
-      position: relative;
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 18px;
-      padding: 0 0 24px;
-      border: 0;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .step:last-child {
-      padding-bottom: 0
-    }
-
-    .step-num {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius);
-      background: var(--navy);
-      color: #fff;
-      font-family: var(--font-title);
-      font-weight: 700;
-      position: relative;
-      z-index: 1;
-    }
-
-    .step>div:last-child {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 14px 34px rgba(9, 22, 42, .07);
-    }
-
-    .step h3 {
-      font-size: 19px
-    }
-
-    .step p {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 15px
-    }
-
-    .sectors {
-      display: grid;
-      gap: 28px;
-    }
-
-    .sector-hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-      gap: 28px;
-      align-items: end;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .sector-metrics {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .sector-metric {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-
-    .sector-metric strong {
-      display: block;
-      font-family: var(--font-title);
-      font-size: 40px;
-      line-height: 1;
-      color: #07111f;
-    }
-
-    .sector-metric span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 750;
-    }
-
-    .sector-cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .sector-card {
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 12px 28px rgba(9, 22, 42, .05);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
-
-    .sector-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 38px rgba(11, 30, 54, .1);
-      border-color: #b9d8e6
-    }
-
-    .sector-name {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--ink);
-      font-family: var(--font-title);
-      font-size: 19px;
-      font-weight: 800;
-    }
-
-    .sector-name::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--cyan-dark);
-      box-shadow: 0 0 0 4px rgba(0, 142, 192, .12);
-      flex: none;
-    }
-
-    .sector-card p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .faq-list {
-      display: grid;
-      gap: 12px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .faq {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      overflow: hidden;
-      transition: border-color .2s ease, box-shadow .2s ease;
-    }
-
-    .faq[open] {
-      border-color: #b9d8e6;
-      box-shadow: 0 14px 32px rgba(9, 22, 42, .08);
-    }
-
-    .faq summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 20px 22px;
-      cursor: pointer;
-      list-style: none;
-      font-family: var(--font-title);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-
-    .faq summary::-webkit-details-marker {
-      display: none
-    }
-
-    .faq summary:hover {
-      color: var(--cyan-dark)
-    }
-
-    .faq-chevron {
-      width: 22px;
-      height: 22px;
-      flex: none;
-      color: var(--cyan-dark);
-      transition: transform .25s ease;
-    }
-
-    .faq[open] .faq-chevron {
-      transform: rotate(180deg)
-    }
-
-    .faq-answer {
-      padding: 0 22px 20px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.55;
-    }
-
-    .final {
-      background:
-        linear-gradient(90deg, rgba(7, 17, 31, .96), rgba(7, 17, 31, .86)),
-        url("/static/img/LGPD-2026/be17cd09d9601eaa_443609-2fe1b5e4f939eb67435d456.webp") center/cover no-repeat;
-      color: #fff;
-      padding: 86px 0;
-    }
-
-    .final-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 26px;
-      align-items: center;
-    }
-
-    .final h2 {
-      font-size: 40px;
-      max-width: 760px
-    }
-
-    .final p {
-      margin-top: 14px;
-      color: #c6d9eb;
-      font-size: 18px;
-      max-width: 720px
-    }
-
-    .final .btn {
-      white-space: nowrap
-    }
-
-    footer {
-      background: #06101e;
-      color: #a9bed4;
-      padding: 38px 0;
-      border-top: 1px solid rgba(255, 255, 255, .08);
-    }
-
-    .footer-grid {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .footer-brand img {
-      height: 34px;
-      width: auto;
-      margin-bottom: 12px
-    }
-
-    .footer-brand p {
-      max-width: 430px;
-      font-size: 14px
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      font-size: 14px;
-      font-weight: 700
-    }
-
-    .footer-links a:hover {
-      color: #fff
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity .65s ease, transform .65s ease
-    }
-
-    .reveal.in {
-      opacity: 1;
-      transform: none
-    }
+      appearance: none; padding-right: 34px;
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235d6e84' d='M6 8 0 0h12z'/%3E%3C/svg%3E") no-repeat right 12px center;
+    }
+    .field { min-width: 0 }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+    .optional-label { color: var(--muted); font-size: 11px; font-weight: 500 }
+    .consent { display: flex; align-items: flex-start; gap: 10px; color: var(--muted); font-size: 12px }
+    .consent input { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--cyan-dark); flex: none }
+    .form-note { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; color: var(--muted); font-size: 12px; text-align: center }
+    .form-note svg { width: 14px; height: 14px; flex: none }
+    .form-error { display: none; margin-top: 10px; padding: 10px 12px; border: 1px solid rgba(200, 55, 45, .3); border-radius: var(--radius); background: #fff4f2; color: #8f2f2f; font-size: 13px; text-align: center }
+    .form-error.is-visible { display: block }
+    .form-success { display: none; padding: 34px 26px; text-align: center }
+    .form-success.is-visible { display: block }
+    .form-success svg { width: 52px; height: 52px; margin: 0 auto 14px; color: var(--green) }
+    .form-success h3 { font-size: 22px }
+    .form-success p { margin-top: 8px; color: var(--muted); font-size: 15px }
+
+    /* Sections */
+    section[id] { scroll-margin-top: 72px }
+    .section { padding: 72px 0 }
+    .section--white { background: #fff }
+    .kicker { color: var(--cyan-dark); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; margin-bottom: 12px }
+    .section h2 { font-size: 36px; font-weight: 400; max-width: 800px }
+    .section h2 strong { font-weight: 700 }
+    .section--navy h2 strong { color: var(--cyan) }
+    .section-lead { margin-top: 12px; max-width: 680px; color: var(--muted); font-size: 17px }
+
+    /* Em jogo: recortes */
+    .clips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 34px; border-top: 2px solid var(--ink) }
+    .clip { padding: 22px 24px 4px 0; border-right: 1px solid var(--line) }
+    .clip + .clip { padding-left: 24px }
+    .clip:last-child { border-right: 0 }
+    .clip-meta { color: var(--muted); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em }
+    .clip-num { margin-top: 12px; font-size: 38px; font-weight: 700; line-height: 1; color: var(--ink) }
+    .clip h3 { margin-top: 10px; font-size: 18px; font-weight: 600; line-height: 1.3 }
+    .clip p { margin-top: 8px; color: var(--muted); font-size: 14px }
+
+
+    /* Como a Somaxi atua */
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 34px }
+    .step { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff }
+    .step-num { color: var(--cyan-dark); font-size: 13px; font-weight: 700 }
+    .step h3 { margin-top: 8px; font-size: 18px }
+    .step p { margin-top: 6px; color: var(--muted); font-size: 15px }
+
+    /* Prova */
+    .logos { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: flex-start }
+    .logos img { height: 40px; width: auto; filter: grayscale(1); opacity: .75; mix-blend-mode: multiply }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 0; max-width: 820px; margin-top: 28px; border-top: 1px solid var(--line) }
+    .faq { border-bottom: 1px solid var(--line) }
+    .faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; cursor: pointer; list-style: none; font-size: 17px; font-weight: 600 }
+    .faq summary::-webkit-details-marker { display: none }
+    .faq-chevron { width: 20px; height: 20px; flex: none; color: var(--cyan-dark); transition: transform .2s ease }
+    .faq[open] .faq-chevron { transform: rotate(180deg) }
+    .faq-answer { padding: 0 0 18px; color: var(--muted); font-size: 15px; max-width: 720px }
+
+    /* Final */
+    .final { background: var(--navy); color: #fff; padding: 64px 0 }
+    .final-grid { display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap }
+    .final h2 { font-size: 34px; font-weight: 400; max-width: 560px }
+    .final h2 strong { font-weight: 700; color: var(--cyan) }
+    .final p { margin-top: 10px; color: #c6d6e6; font-size: 17px; max-width: 620px }
+    .final-actions { display: flex; gap: 10px; flex-wrap: wrap }
+
+    footer { background: #050d18; color: #9fb3c8; padding: 32px 0; font-size: 14px }
+    .footer-grid { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap }
+    .footer-grid img { height: 28px; width: auto }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; font-weight: 600 }
+    .footer-links a:hover { color: #fff }
+
+    .reveal { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease }
+    .reveal.in { opacity: 1; transform: none }
+    .mobile-emergency-cta { display: none }
 
     @media(prefers-reduced-motion:reduce) {
-      html {
-        scroll-behavior: auto
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-        transition: none
-      }
-
-      .btn,
-      .deliver,
-      .risk-item {
-        transition: none
-      }
-
-      .marquee-track {
-        width: auto
-      }
+      html { scroll-behavior: auto }
+      .reveal { opacity: 1; transform: none; transition: none }
     }
 
-    @media(max-width:1020px) {
-      .nav-links {
-        display: none
-      }
-
-      .hero h1 {
-        font-size: 46px
-      }
-
-      .lead-card {
-        max-width: 620px
-      }
-
-      .diagnostic-grid,
-      .sector-hero,
-      .final-grid {
-        grid-template-columns: 1fr
-      }
-
-      .risk-list {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .deliver-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-
-      .sector-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr))
-      }
-
-      .final .btn {
-        width: max-content
-      }
+    @media(max-width:980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px }
+      .hero h1 { font-size: 40px }
+      .lead-card { max-width: 560px }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+      .clips { grid-template-columns: 1fr }
+      .clip, .clip + .clip { padding: 20px 0; border-right: 0; border-bottom: 1px solid var(--line) }
     }
 
-    @media(max-width:720px) {
-      .wrap {
-        padding: 0 28px
-      }
-
-      .site-header .wrap {
-        padding-left: 28px;
-        padding-right: 28px
-      }
-
-      .nav {
-        min-height: 60px
-      }
-
-      .site-header.scrolled .nav {
-        min-height: 56px
-      }
-
-      .brand img {
-        height: 26px
-      }
-
-      .nav .btn {
-        display: none
-      }
-
-      .hero {
-        min-height: 100vh;
-        padding: 0 0 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: stretch;
-      }
-
-      .hero>.wrap {
-        width: 100%;
-        padding: 0 28px
-      }
-
-      .hero::before {
-        background:
-          linear-gradient(180deg, rgba(7, 17, 31, 0) 0%, rgba(7, 17, 31, 0) 44%, rgba(7, 17, 31, .5) 62%, rgba(7, 17, 31, .9) 82%, rgba(7, 17, 31, 1) 100%),
-          url("/static/img/LGPD-2026/banner%20cel.webp") top center/100% auto no-repeat,
-          #07111f;
-      }
-
-      .hero::after {
-        display: none
-      }
-
-      .hero-copy {
-        min-width: 0;
-        width: 100%;
-        max-width: none;
-        overflow: visible
-      }
-
-      .hero h1 {
-        font-size: 28px;
-        max-width: 100%;
-        overflow-wrap: break-word
-      }
-
-      .hero-sub {
-        font-size: 15px;
-        margin-top: 16px
-      }
-
-      .hero-actions {
-        margin-top: 22px
-      }
-
-      .hero-actions .btn {
-        width: 100%
-      }
-
-      .marquee {
-        padding: 14px 0
-      }
-
-      .marquee-item {
-        font-size: 13px;
-        padding: 0 20px
-      }
-
-      .diagnostic-section {
-        padding: 64px 0
-      }
-
-      .diagnostic-copy h2 {
-        font-size: 29px
-      }
-
-      .diagnostic-copy p {
-        font-size: 16px
-      }
-
-      .diagnostic-points li {
-        padding: 13px 14px
-      }
-
-      .lead-card {
-        max-width: none
-      }
-
-      .lead-card__body {
-        padding: 20px
-      }
-
-      .lead-card h2 {
-        font-size: 22px
-      }
-
-      .field-row {
-        grid-template-columns: 1fr
-      }
-
-      .section {
-        padding: 64px 0
-      }
-
-      .section-head {
-        margin-bottom: 30px;
-        text-align: left
-      }
-
-      .section-head h2 {
-        font-size: 29px
-      }
-
-      .section-head p {
-        font-size: 16px
-      }
-
-      .risk-list {
-        grid-template-columns: 1fr
-      }
-
-      .risk-item {
-        grid-template-columns: 42px 1fr;
-        padding: 16px
-      }
-
-      .risk-icon {
-        width: 42px;
-        height: 42px
-      }
-
-      .deliver-grid {
-        grid-template-columns: 1fr
-      }
-
-      .deliver {
-        min-height: auto
-      }
-
-      .steps {
-        margin-top: 24px
-      }
-
-      .step {
-        grid-template-columns: 42px 1fr;
-        gap: 14px;
-        padding-bottom: 18px
-      }
-
-      .step-num {
-        width: 42px;
-        height: 42px
-      }
-
-      .step>div:last-child {
-        padding: 16px
-      }
-
-      .sector-hero {
-        gap: 18px
-      }
-
-      .sector-metrics {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .sector-metric {
-        padding: 14px
-      }
-
-      .sector-metric strong {
-        font-size: 32px
-      }
-
-      .sector-cards {
-        grid-template-columns: 1fr
-      }
-
-      .faq summary {
-        font-size: 16px;
-        padding: 16px 18px
-      }
-
-      .faq-answer {
-        padding: 0 18px 18px
-      }
-
-      .final {
-        padding: 64px 0
-      }
-
-      .final h2 {
-        font-size: 30px
-      }
-
-      .final p {
-        font-size: 16px
-      }
-
-      .final .btn {
-        width: 100%;
-        white-space: normal
-      }
-    }
-
-    @media(max-width:420px) {
-      .hero h1 {
-        font-size: 27px
-      }
-    }
-
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 18px;
-      padding: 7px 12px;
-      border: 1px solid rgba(167, 237, 255, .28);
-      border-radius: 999px;
-      background: rgba(0, 188, 231, .09);
-      color: #a7edff;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .hero-kicker span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 0 4px rgba(0, 188, 231, .12);
-    }
-
-    .hero-kicker--urgent {
-      border-color: rgba(242, 184, 75, .34);
-      background: rgba(242, 184, 75, .10);
-      color: #ffd98c;
-    }
-
-    .hero-kicker--urgent span {
-      background: var(--amber);
-      box-shadow: 0 0 0 4px rgba(242, 184, 75, .14);
-    }
-
-    .incident-page .hero::before {
-      background:
-        linear-gradient(90deg, rgba(7, 17, 31, .99) 0%, rgba(7, 17, 31, .91) 38%, rgba(7, 17, 31, .49) 67%, rgba(7, 17, 31, .18) 100%),
-        url("/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp") right center/cover no-repeat,
-        #07111f;
-    }
-
-    .incident-page .hero h1 { max-width: 760px; }
-    .incident-page .field { min-width: 0; }
-    .incident-page .form-note svg { width: 15px; height: 15px; margin: 0; }
-    .incident-note { border-left-color: var(--red); background: #fff4f2; color: #713531; }
-    .incident-note svg { color: var(--red); }
-    .incident-note strong { color: #8f2f2f; }
-    .optional-label { color: var(--muted); font-size: 11px; font-weight: 600; }
-    .response-guidance {
-      margin-top: 18px;
-      padding: 15px 17px;
-      border-left: 4px solid var(--amber);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      background: #fff8eb;
-      color: #5c3a08;
-      font-size: 14px;
-    }
-    .response-guidance strong { color: #7a4d08; }
-    .mobile-emergency-cta { display: none; }
-
-    @media(max-width:720px) {
-      body.incident-page { padding-bottom: 76px; }
-      .incident-page .hero { padding-bottom: 110px; }
-      .incident-page .hero h1 { width: 100%; overflow-wrap: anywhere; }
-      .incident-page .hero::before {
-        background:
-          linear-gradient(180deg, rgba(7, 17, 31, .04) 0%, rgba(7, 17, 31, .12) 34%, rgba(7, 17, 31, .70) 60%, rgba(7, 17, 31, .97) 82%, #07111f 100%),
-          url("/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp") right top/auto 52% no-repeat,
-          #07111f;
-      }
+    @media(max-width:640px) {
+      .wrap { padding: 0 16px }
+      body { padding-bottom: 76px }
+      .nav { min-height: 56px }
+      .brand img { height: 24px }
+      .nav .btn { display: none }
+      .hero { padding: 32px 0 40px }
+      .hero h1 { font-size: 30px }
+      .hero-sub { font-size: 16px }
+      .hero-points { display: none }
+      .deadline { margin-top: 20px }
+      .deadline-num { font-size: 32px }
+      .deadline strong { font-size: 18px }
+      .lead-card__body { padding: 20px }
+      .field-row { grid-template-columns: 1fr }
+      .section { padding: 52px 0 }
+      .section h2 { font-size: 26px }
+      .section-lead { font-size: 16px }
+      .steps { grid-template-columns: 1fr }
+      .logos { gap: 18px }
+      .logos img { height: 32px }
+      .final h2 { font-size: 26px }
+      .final-actions, .final-actions .btn { width: 100% }
       .mobile-emergency-cta {
-        position: fixed;
-        z-index: 100;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        display: block;
-        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
-        border-top: 1px solid rgba(255, 255, 255, .14);
-        background: rgba(6, 16, 30, .96);
-        box-shadow: 0 -12px 30px rgba(0, 0, 0, .24);
-        backdrop-filter: blur(12px);
+        position: fixed; z-index: 100; left: 0; right: 0; bottom: 0; display: flex; gap: 8px;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(5, 13, 24, .97);
+        border-top: 1px solid var(--line-dark);
       }
-      .mobile-emergency-cta .btn { width: 100%; justify-content: center; min-height: 48px; }
+      .mobile-emergency-cta .btn { flex: 1; min-height: 46px }
     }
+
+    .form-step[hidden], .tab-panel[hidden] { display: none !important }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
+
+    /* Formulário em 2 etapas */
+    .form-progress { display: flex; align-items: center; gap: 10px; margin-top: 16px; font-size: 12px; font-weight: 600; color: var(--muted) }
+    .fp-item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; transition: color .2s ease }
+    .fp-item b { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; border: 1px solid #c5d0dc; font-size: 11px; transition: background .2s ease, border-color .2s ease, color .2s ease }
+    .fp-item.is-active { color: var(--ink) }
+    .fp-item.is-active b { background: var(--ink); border-color: var(--ink); color: #fff }
+    .fp-item.is-done b { background: var(--green); border-color: var(--green); color: #fff }
+    .fp-bar { flex: 1; height: 2px; background: #e1e7ee; border-radius: 2px; overflow: hidden }
+    .fp-bar i { display: block; height: 100%; width: 0; background: var(--green); transition: width .35s ease }
+    .form-progress.is-step-2 .fp-bar i { width: 100% }
+    .form-step { border: 0; padding: 0; margin: 0; min-width: 0; display: grid; gap: 12px }
+    .form-step.is-entering, .tab-panel.is-entering { animation: stepIn .3s ease }
+    @keyframes stepIn { from { opacity: 0; transform: translateX(14px) } to { opacity: 1; transform: none } }
+    .step-back { justify-self: center; background: none; border: 0; color: var(--muted); font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px }
+    .step-back:hover { color: var(--ink) }
+
+    /* Linha do tempo dos 3 dias */
+    .section--navy { background: var(--navy); color: #fff }
+    .kicker--light { color: var(--cyan) }
+    .section-lead--light { color: #c6d6e6 }
+    .timeline { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin-top: 44px; padding-top: 34px }
+    .timeline::before, .timeline::after { content: ""; position: absolute; top: 9px; left: 0; height: 2px; border-radius: 2px }
+    .timeline::before { right: 0; background: rgba(255, 255, 255, .14) }
+    .timeline::after { width: 0; background: linear-gradient(90deg, var(--cyan), var(--amber)); transition: width 1.8s cubic-bezier(.4, 0, .2, 1) }
+    .timeline.is-live::after { width: 100% }
+    .tl-item { position: relative }
+    .tl-dot { position: absolute; top: -34px; left: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); border: 2px solid rgba(255, 255, 255, .3); transition: border-color .3s ease, background .3s ease, box-shadow .3s ease }
+    .timeline.is-live .tl-dot { border-color: var(--cyan); background: var(--cyan); box-shadow: 0 0 0 5px rgba(0, 188, 231, .16) }
+    .timeline.is-live .tl-item--end .tl-dot { border-color: var(--amber); background: var(--amber); box-shadow: 0 0 0 5px rgba(242, 184, 75, .18) }
+    .timeline.is-live .tl-item:nth-child(2) .tl-dot { transition-delay: .45s }
+    .timeline.is-live .tl-item:nth-child(3) .tl-dot { transition-delay: .9s }
+    .timeline.is-live .tl-item:nth-child(4) .tl-dot { transition-delay: 1.5s }
+    .tl-when { display: block; color: var(--cyan); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em }
+    .tl-item--end .tl-when { color: var(--amber) }
+    .tl-item h3 { margin-top: 6px; font-size: 19px }
+    .tl-item p { margin-top: 6px; color: #b9c9da; font-size: 15px }
+    .tl-item { opacity: .45; transition: opacity .5s ease }
+    .timeline.is-live .tl-item { opacity: 1 }
+    .timeline.is-live .tl-item:nth-child(2) { transition-delay: .45s }
+    .timeline.is-live .tl-item:nth-child(3) { transition-delay: .9s }
+    .timeline.is-live .tl-item:nth-child(4) { transition-delay: 1.5s }
+
+    /* Abas por tipo de incidente */
+    .tabs { margin-top: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow: hidden }
+    .tab-list { display: flex; flex-wrap: wrap; gap: 0; overflow-x: auto; border-bottom: 1px solid var(--line); background: #f8fafc; scrollbar-width: none }
+    .tab-list::-webkit-scrollbar { display: none }
+    .tab-list button {
+      flex: none; padding: 15px 18px; border: 0; border-bottom: 2px solid transparent; background: none; cursor: pointer;
+      color: var(--muted); font-size: 15px; font-weight: 600; white-space: nowrap; transition: color .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .tab-list button:hover { color: var(--ink) }
+    .tab-list button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--cyan); background: #fff }
+    .tab-list button:focus-visible { outline: 2px solid var(--cyan-dark); outline-offset: -2px }
+    .tab-panel { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px 40px; padding: 28px }
+    .tab-panel h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 12px }
+    .do-list, .avoid-list { display: grid; gap: 12px }
+    .do-list li, .avoid-list li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 16px; line-height: 1.45 }
+    .do-list svg, .avoid-list svg { width: 20px; height: 20px; margin-top: 1px }
+    .do-list svg { color: var(--green) }
+    .avoid-list svg { color: #c8372d }
+    .tp-col--avoid { padding-left: 28px; border-left: 1px solid var(--line) }
+    .tp-cta { grid-column: 1 / -1; justify-self: start }
+
+    /* Números */
+    .proof { display: grid; gap: 30px; padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line) }
+    .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px }
+    .stat strong { display: block; font-size: 52px; line-height: 1; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink) }
+    .stat > span { display: block; margin-top: 8px; color: var(--muted); font-size: 15px; max-width: 240px }
+
+    @media(prefers-reduced-motion:reduce) {
+      .timeline::after, .tl-dot, .tl-item, .fp-bar i { transition: none !important }
+      .form-step.is-entering, .tab-panel.is-entering { animation: none }
+    }
+    @media(max-width:980px) {
+      .timeline { grid-template-columns: 1fr; gap: 26px; padding-top: 0; padding-left: 36px; margin-top: 32px }
+      .timeline::before, .timeline::after { top: 0; left: 9px; width: 2px; height: auto; bottom: 0 }
+      .timeline::before { right: auto }
+      .timeline::after { height: 0; bottom: auto; transition: height 1.8s cubic-bezier(.4, 0, .2, 1) }
+      .timeline.is-live::after { width: 2px; height: 100% }
+      .tl-dot { top: 2px; left: -36px }
+      .tab-panel { grid-template-columns: 1fr; padding: 22px 18px }
+      .tp-col--avoid { padding-left: 0; border-left: 0; padding-top: 20px; border-top: 1px solid var(--line) }
+    }
+    @media(max-width:640px) {
+      .stats { grid-template-columns: 1fr; gap: 18px }
+      .stat strong { font-size: 40px }
+      .tp-cta { justify-self: stretch }
+      .tab-list { flex-wrap: nowrap }
+      .tab-list button { padding: 13px 14px; font-size: 14px }
+    }
+
+    /* Destaque no título e foto de fundo do hero */
+    .hero h1 .hl { color: var(--cyan) }
+    .hero.has-photo {
+      background:
+        linear-gradient(90deg, rgba(7, 17, 31, .95) 0%, rgba(7, 17, 31, .82) 38%, rgba(7, 17, 31, .4) 68%, rgba(7, 17, 31, .25) 100%),
+        url("/static/img/INCIDENTE/hero-sala-operacao.webp") center 35% / cover no-repeat, var(--navy);
+    }
+
+    /* Barra de números */
+    .statbar { background: #0b1828; color: #fff; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark) }
+    .statbar-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 }
+    .sb-item { display: flex; align-items: center; gap: 14px; padding: 22px 18px; border-left: 1px solid var(--line-dark) }
+    .sb-item:first-child { border-left: 0; padding-left: 0 }
+    .sb-item svg { width: 34px; height: 34px; flex: none; color: var(--cyan) }
+    .sb-item strong { display: block; font-size: 26px; line-height: 1.05; font-weight: 700; font-variant-numeric: tabular-nums }
+    .sb-item span { display: block; margin-top: 2px; color: #a9bdd2; font-size: 13px }
+    .sb-item strong span { display: inline; margin: 0; color: inherit; font-size: inherit }
+    .proof-label { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em }
+
+    /* Vídeo na chamada final */
+    .final-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 480px); gap: 48px; align-items: center }
+    .final-actions { margin-top: 22px }
+    .video-lite { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 1px solid rgba(0, 188, 231, .45); border-radius: var(--radius); overflow: hidden; background: #000; cursor: pointer }
+    .video-lite img, .video-lite iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0 }
+    .video-lite::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 17, 31, .05), rgba(7, 17, 31, .55)); transition: background .2s ease }
+    .video-lite:hover::after { background: linear-gradient(180deg, rgba(7, 17, 31, 0), rgba(7, 17, 31, .4)) }
+    .vl-play { position: absolute; z-index: 1; top: 50%; left: 50%; width: 68px; height: 68px; margin: -34px 0 0 -34px; display: grid; place-items: center; border-radius: 50%; background: var(--cyan); color: #00131c; transition: transform .2s ease }
+    .vl-play svg { width: 28px; height: 28px; margin-left: 4px }
+    .video-lite:hover .vl-play { transform: scale(1.06) }
+    .vl-label { position: absolute; z-index: 1; left: 16px; bottom: 14px; color: #fff; font-size: 14px; font-weight: 600 }
+    .video-lite.is-playing::after, .video-lite.is-playing .vl-play, .video-lite.is-playing .vl-label { display: none }
+
+    @media(max-width:980px) {
+      .statbar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+      .sb-item:nth-child(3) { border-left: 0; padding-left: 0 }
+      .sb-item:nth-child(n+3) { border-top: 1px solid var(--line-dark) }
+      .final-grid { grid-template-columns: 1fr; gap: 32px }
+    }
+    @media(max-width:640px) {
+      .sb-item { padding: 16px 10px; gap: 10px }
+      .sb-item svg { width: 26px; height: 26px }
+      .sb-item strong { font-size: 21px }
+      .sb-item span { font-size: 12px }
+      .section h2 { font-size: 27px }
+      .final h2 { font-size: 26px }
+    }
+
+    /* Faixa do time */
+    .team-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 48px; align-items: center }
+    .team-points { display: grid; gap: 10px; margin-top: 22px }
+    .team-points li { padding-left: 16px; border-left: 2px solid var(--cyan); color: var(--ink-2); font-size: 15px }
+    .team-points b { color: var(--ink) }
+    .team-photos { display: grid; grid-template-columns: 1.25fr 1fr; grid-template-rows: 1fr 1fr; gap: 12px; min-height: 420px }
+    .tp { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius); border: 1px solid rgba(0, 188, 231, .55); background: var(--navy) }
+    .tp--main { grid-row: 1 / span 2 }
+    .tp img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease }
+    .tp:hover img { transform: scale(1.04) }
+    .tp figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 14px 12px; background: linear-gradient(180deg, rgba(7, 17, 31, 0), rgba(7, 17, 31, .85)); color: #fff; font-size: 13px; font-weight: 600 }
+    @media(max-width:980px) {
+      .team-grid { grid-template-columns: 1fr; gap: 30px }
+      .team-photos { min-height: 360px }
+    }
+    @media(max-width:640px) {
+      .hero.has-photo {
+        background:
+          linear-gradient(180deg, rgba(7, 17, 31, .82) 0%, rgba(7, 17, 31, .9) 55%, rgba(7, 17, 31, .97) 100%),
+          url("/static/img/INCIDENTE/hero-sala-operacao-mobile.webp") center top / cover no-repeat, var(--navy);
+      }
+      .team-photos { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 150px; min-height: 0 }
+      .tp--main { grid-column: 1 / span 2; grid-row: auto }
+    }
+    @media(prefers-reduced-motion:reduce) { .tp img { transition: none } }
   </style>
+
 
   <!-- Cookie Consent (Privamaxi) -->
   <script src="https://api.privamaxi.com.br/public/cookies/widget.js" data-site="dc2cdef8da304eb6b86dc2f8c86b4f29"
     async></script>
 </head>
-
 <body class="incident-page">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWBQBCPC" height="0" width="0"
@@ -1488,95 +427,62 @@
 
   <header class="site-header" id="siteHeader">
     <div class="wrap nav">
-      <a class="brand" href="#topo" aria-label="SOMAXI — voltar ao início"><img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="SOMAXI Group" width="126" height="32"></a>
-      <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#crise">Primeiras ações</a>
-        <a href="#cenarios">Cenários</a>
-        <a href="#resposta">Atendimento</a>
-        <a href="#metodo">Plano de ação</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a href="#acionamento" class="btn" onclick="trackCTA('nav')">Solicitar triagem <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <a class="brand" href="#topo" aria-label="SOMAXI — voltar ao início"><img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="SOMAXI Group" width="118" height="30"></a>
+      <div class="nav-actions">
+        <a href="#acionamento" class="btn" onclick="trackCTA('nav')">Solicitar triagem</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero" id="topo">
+    <section class="hero has-photo" id="topo">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <div class="hero-kicker hero-kicker--urgent"><span></span>Vazamento de dados ou suspeita? Comece por aqui.</div>
-          <h1>Sofreu um vazamento de dados? Avalie a notificação à ANPD</h1>
-          <p class="hero-sub">Acione uma resposta coordenada para <b>conter o impacto, preservar evidências e avaliar as comunicações à ANPD e aos titulares</b>, com apoio técnico e jurídico.</p>
-          <div class="hero-actions">
-            <a href="#acionamento" class="btn" onclick="trackCTA('hero_primary')">Solicitar triagem do vazamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-            <a href="#crise" class="btn btn--ghost" onclick="trackCTA('hero_secondary')">Ver o que fazer agora</a>
+          <h1>Sofreu um vazamento de dados? <span class="hl">Avalie a notificação à ANPD.</span></h1>
+          <p class="hero-sub">Uma resposta coordenada para <b>conter o impacto, preservar evidências e avaliar as comunicações à ANPD e aos titulares</b>, com apoio técnico e jurídico.</p>
+          <ul class="hero-points" aria-label="O que a triagem cobre">
+            <li><span>1</span>Contenção: limitar a propagação sem apagar o que prova o que aconteceu.</li>
+            <li><span>2</span>Dimensionamento: quais dados, quais titulares, quais sistemas.</li>
+            <li><span>3</span>Decisão documentada sobre ANPD, titulares, clientes e parceiros.</li>
+          </ul>
+          <div class="deadline" role="note">
+            <div class="deadline-num">3</div>
+            <div><strong>dias úteis</strong>é o prazo para comunicar a ANPD e os titulares quando o incidente pode gerar risco ou dano relevante (Resolução CD/ANPD nº 15/2024).</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <div class="marquee" aria-label="Frentes da resposta a incidentes SOMAXI">
-      <div class="marquee-track">
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Triagem e contenção</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Ransomware e sistemas criptografados</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Preservação de evidências</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Avaliação de impacto</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> ANPD e titulares</span>
-        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/></svg> Jurídico, privacidade e segurança</span>
-      </div>
-    </div>
-
-    <section class="section section--white" id="crise">
-      <div class="wrap risk-grid">
-        <div class="section-head section-head--left reveal">
-          <div class="section-kicker">As primeiras decisões importam</div>
-          <h2>Vazamento de dados: o que fazer primeiro?</h2>
-          <p>Mudanças precipitadas podem ampliar a interrupção ou eliminar evidências importantes. Comece organizando as decisões e preservando as informações disponíveis.</p>
-        </div>
-        <div class="risk-list">
-          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m8 22 4-4 4 4"/><path d="M8 9h8M9 13h6"/></svg></div><div><h3>Centralize as decisões</h3><p>Defina quem coordena as frentes de tecnologia, privacidade, jurídico e gestão.</p></div></article>
-          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></div><div><h3>Preserve registros e evidências</h3><p>Documente horários, mensagens, sistemas afetados e todas as ações já realizadas.</p></div></article>
-          <article class="risk-item reveal"><div class="risk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 21h20L12 2Z"/><path d="M12 9v5"/><path d="M12 17.5h.01"/></svg></div><div><h3>Evite alterações desnecessárias</h3><p>Não formate equipamentos, restaure ambientes ou apague arquivos sem avaliar o impacto.</p></div></article>
-        </div>
-        <div class="law-note incident-note reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 3 6v6c0 5 3.8 8.3 9 10 5.2-1.7 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-5"/></svg><span><strong>Primeiro objetivo: recuperar o controle.</strong> Conter, preservar, dimensionar o impacto e organizar as decisões antes de comunicar.</span></div>
-      </div>
-    </section>
-
-    <section class="diagnostic-section" id="acionamento">
-      <div class="wrap diagnostic-grid">
-        <div class="diagnostic-copy reveal">
-          <div class="section-kicker">Acionamento prioritário</div>
-          <h2>Conte o que você já sabe sobre o vazamento.</h2>
-          <p>Não é necessário ter o diagnóstico completo. Selecione as informações disponíveis para iniciarmos a triagem e organizarmos o primeiro contato.</p>
-          <ul class="diagnostic-points" aria-label="Frentes da triagem">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg> Situação atual dos sistemas e momento da descoberta.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg> Possível exposição de dados pessoais e alcance inicial.</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg> Ações já realizadas, evidências disponíveis e responsáveis envolvidos.</li>
-          </ul>
-          <div class="response-guidance"><strong>Enquanto aguarda o contato:</strong> centralize as decisões, preserve registros e evite alterações desnecessárias nos ambientes afetados.</div>
-        </div>
-
-        <aside class="lead-card reveal" aria-label="Formulário de acionamento para resposta a incidente">
+        <aside class="lead-card" id="acionamento" aria-label="Formulário de acionamento para resposta a incidente">
           <div class="lead-card__body" id="formWrap">
-            <h2>Solicite a triagem do incidente.</h2>
-            <p>Mesmo com informações incompletas, sua empresa já pode iniciar a resposta.</p>
-            <form id="leadForm" class="fields">
+            <h2>Solicite a triagem do incidente</h2>
+            <p>Duas etapas rápidas. Mesmo com informações incompletas, sua empresa já pode iniciar a resposta.</p>
+            <div class="form-progress" aria-hidden="true">
+              <span class="fp-item is-active" data-step-ind="1"><b>1</b>O que aconteceu</span>
+              <span class="fp-bar"><i></i></span>
+              <span class="fp-item" data-step-ind="2"><b>2</b>Seu contato</span>
+            </div>
+            <form id="leadForm" class="fields" novalidate>
               <input type="hidden" name="servico_interesse" value="Resposta a Incidentes">
-              <div class="field-row">
-                <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required></div>
-                <div class="field"><label for="whatsapp">WhatsApp direto</label><input id="whatsapp" name="whatsapp" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" required></div>
-              </div>
-              <div class="field-row">
-                <div class="field"><label for="email">E-mail <span class="optional-label">(opcional)</span></label><input id="email" name="email" type="email" placeholder="nome@empresa.com.br" autocomplete="email"></div>
-                <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization" required></div>
-              </div>
-              <div class="field-row">
+              <fieldset class="form-step is-active" data-step="1">
+                <legend class="visually-hidden">Etapa 1 de 2: o que aconteceu</legend>
                 <div class="field"><label for="tipo_incidente">Tipo de incidente</label><select id="tipo_incidente" name="tipo_incidente" required><option value="">Selecione</option><option value="ransomware">Ransomware / criptografia</option><option value="vazamento">Vazamento de dados</option><option value="acesso-indevido">Acesso indevido</option><option value="credenciais">Credenciais comprometidas</option><option value="terceiro">Incidente em fornecedor</option><option value="outro">Outro / ainda não sei</option></select></div>
                 <div class="field"><label for="momento_incidente">Quando foi percebido?</label><select id="momento_incidente" name="momento_incidente" required><option value="">Selecione</option><option value="agora">Nas últimas horas</option><option value="hoje">Hoje</option><option value="ultimos-dias">Nos últimos dias</option><option value="mais-tempo">Há mais tempo</option></select></div>
-              </div>
-              <div class="field"><label for="situacao_incidente">Situação atual</label><select id="situacao_incidente" name="situacao_incidente" required><option value="">Selecione</option><option value="ativo">O incidente ainda está acontecendo</option><option value="indisponivel">Os sistemas estão indisponíveis ou criptografados</option><option value="contido">Parece contido, mas precisa ser avaliado</option><option value="suspeita">Há apenas uma suspeita em investigação</option><option value="nao-sei">Não sei informar</option></select></div>
-              <label class="consent"><input type="checkbox" name="consentimento" required><span>Autorizo a SOMAXI a entrar em contato sobre este incidente e aceito o tratamento dos dados informados.</span></label>
-              <button type="submit" class="btn btn--full">Enviar para triagem prioritária <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+                <div class="field"><label for="situacao_incidente">Situação atual</label><select id="situacao_incidente" name="situacao_incidente" required><option value="">Selecione</option><option value="ativo">O incidente ainda está acontecendo</option><option value="indisponivel">Os sistemas estão indisponíveis ou criptografados</option><option value="contido">Parece contido, mas precisa ser avaliado</option><option value="suspeita">Há apenas uma suspeita em investigação</option><option value="nao-sei">Não sei informar</option></select></div>
+                <button type="button" class="btn btn--full" id="stepNext">Continuar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </fieldset>
+              <fieldset class="form-step" data-step="2" hidden>
+                <legend class="visually-hidden">Etapa 2 de 2: seu contato</legend>
+                <div class="field-row">
+                  <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required></div>
+                  <div class="field"><label for="whatsapp">WhatsApp direto</label><input id="whatsapp" name="whatsapp" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" required></div>
+                </div>
+                <div class="field-row">
+                  <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization" required></div>
+                  <div class="field"><label for="email">E-mail <span class="optional-label">(opcional)</span></label><input id="email" name="email" type="email" placeholder="nome@empresa.com.br" autocomplete="email"></div>
+                </div>
+                <label class="consent"><input type="checkbox" name="consentimento" required><span>Autorizo a SOMAXI a entrar em contato sobre este incidente e aceito o tratamento dos dados informados.</span></label>
+                <button type="submit" class="btn btn--full">Enviar para triagem prioritária <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+                <button type="button" class="step-back" id="stepBack">← Voltar e revisar</button>
+              </fieldset>
               <div class="form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Seus dados serão usados apenas para este atendimento.</div>
               <div class="form-error" id="formError" role="alert" aria-live="assertive">Não foi possível enviar agora. Verifique sua conexão e tente novamente.</div>
             </form>
@@ -1586,93 +492,365 @@
       </div>
     </section>
 
-    <section class="section section--light" id="cenarios">
-      <div class="wrap sectors">
-        <div class="sector-hero reveal">
-          <div class="section-head section-head--left">
-            <div class="section-kicker">Quando acionar</div>
-            <h2>Acione a equipe mesmo que o cenário ainda não esteja claro.</h2>
-            <p>Uma suspeita, um alerta de fornecedor ou uma indisponibilidade inesperada já podem justificar uma avaliação inicial.</p>
-          </div>
-          <div class="sector-metrics" aria-label="Indicadores de atuação"><div class="sector-metric"><strong>+300</strong><span>empresas atendidas em adequação à LGPD</span></div><div class="sector-metric"><strong>360°</strong><span>jurídico, processos e segurança</span></div></div>
-        </div>
-        <div class="sector-cards reveal" aria-label="Tipos de incidente atendidos">
-          <article class="sector-card"><strong class="sector-name">Vazamento de dados</strong><p>Informações expostas, publicadas, enviadas ou acessadas fora do fluxo autorizado.</p></article>
-          <article class="sector-card"><strong class="sector-name">Dados pessoais sensíveis</strong><p>Suspeita de exposição de dados de saúde, biométricos ou outras informações protegidas pela LGPD.</p></article>
-          <article class="sector-card"><strong class="sector-name">Acesso indevido</strong><p>Suspeita ou confirmação de entrada não autorizada em contas, sistemas ou bases.</p></article>
-          <article class="sector-card"><strong class="sector-name">Ransomware</strong><p>Arquivos, servidores ou estações criptografados, com possível impacto em dados pessoais e na continuidade.</p></article>
-          <article class="sector-card"><strong class="sector-name">Perda de dispositivo</strong><p>Notebook, celular, mídia ou documento com possível exposição de dados pessoais.</p></article>
-          <article class="sector-card"><strong class="sector-name">Incidente em fornecedor</strong><p>Um parceiro comunica uma falha que pode afetar dados pessoais ou operações da sua empresa.</p></article>
-        </div>
+    <div class="statbar" aria-label="SOMAXI em números">
+      <div class="wrap statbar-grid">
+        <div class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg><div><strong>+<span class="count" data-count="300">300</span></strong><span>empresas adequadas à LGPD</span></div></div>
+        <div class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.9z"/></svg><div><strong>4,9/5</strong><span>avaliação média dos clientes</span></div></div>
+        <div class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><div><strong>+<span class="count" data-count="12">12</span></strong><span>setores de atuação</span></div></div>
+        <div class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong><span class="count" data-count="17">17</span></strong><span>unidades da federação com projetos</span></div></div>
       </div>
-    </section>
+    </div>
 
-    <section class="section section--white" id="resposta">
+    <section class="section section--white" id="em-jogo">
       <div class="wrap">
-        <div class="section-head reveal">
-          <div class="section-kicker">Resposta integrada</div>
-          <h2>O que a SOMAXI coordena durante a resposta.</h2>
-          <p>Tecnologia, privacidade, jurídico e gestão trabalham sobre o mesmo cenário, com prioridades claras e decisões registradas.</p>
-          <span class="section-badge">Atuação multidisciplinar</span>
-        </div>
-        <div class="deliver-grid">
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg><h3>Coordenação do incidente</h3><p>Organização de responsáveis, prioridades, ritos de decisão e comunicação entre as frentes envolvidas.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v2.5"/></svg><h3>Contenção e estabilização</h3><p>Coordenação das ações para limitar propagação, proteger ativos e estabilizar a operação afetada.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg><h3>Preservação de evidências</h3><p>Orientação para registrar fatos, manter rastros e sustentar a investigação e as decisões posteriores.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M8 11h6M11 8v6"/></svg><h3>Avaliação de alcance e impacto</h3><p>Levantamento dos sistemas, dados pessoais, titulares e terceiros potencialmente envolvidos.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z"/><path d="M8 7h6M8 11h8"/></svg><h3>Obrigações e comunicações</h3><p>Análise documentada sobre medidas e comunicações aplicáveis à ANPD, titulares, clientes e parceiros.</p></article>
-          <article class="deliver reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg><h3>Recuperação e redução de recorrência</h3><p>Plano de retomada, correções prioritárias e ações para reduzir a chance de novos incidentes.</p></article>
+        <div class="kicker">O que está em jogo</div>
+        <h2>Incidente mal conduzido vira <strong>multa, processo e perda de confiança.</strong></h2>
+        <div class="clips">
+          <article class="clip reveal">
+            <div class="clip-meta">ANPD · 2026</div>
+            <div class="clip-num">R$ 153,7 mi</div>
+            <h3>Multa aplicada pela ANPD ao TikTok no Brasil</h3>
+            <p>Tratamento irregular de dados de crianças e adolescentes, sem base legal válida.</p>
+          </article>
+          <article class="clip reveal">
+            <div class="clip-meta">LGPD · art. 52</div>
+            <div class="clip-num">2%</div>
+            <h3>do faturamento, até R$ 50 milhões por infração</h3>
+            <p>Teto da multa simples, além de advertência, publicização da infração e bloqueio de dados.</p>
+          </article>
+          <article class="clip reveal">
+            <div class="clip-meta">Resolução CD/ANPD nº 15/2024</div>
+            <div class="clip-num">3 dias úteis</div>
+            <h3>para comunicar ANPD e titulares, quando aplicável</h3>
+            <p>Contados do conhecimento de que o incidente afetou dados pessoais. A decisão precisa ser documentada.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--light" id="metodo">
-      <div class="wrap method">
-        <div class="section-head reveal">
-          <div class="section-kicker">Plano de ação</div>
-          <h2>Da triagem à retomada, em quatro frentes coordenadas.</h2>
-          <p>Cada resposta é adaptada ao tipo de incidente, aos ambientes afetados e às evidências disponíveis.</p>
+    <section class="section section--navy" id="prazo">
+      <div class="wrap">
+        <div class="kicker kicker--light">Os 3 dias úteis, na prática</div>
+        <h2>O relógio começa <strong>quando a empresa toma conhecimento do incidente.</strong></h2>
+        <p class="section-lead section-lead--light">Quando a comunicação é obrigatória, a ANPD e os titulares precisam ser comunicados em até 3 dias úteis. Cada etapa até lá exige decisão técnica e jurídica.</p>
+        <ol class="timeline" id="timeline">
+          <li class="tl-item"><span class="tl-dot"></span><span class="tl-when">Hora 0</span><h3>Descoberta e contenção</h3><p>Centralizar as decisões, conter o impacto e preservar registros e evidências.</p></li>
+          <li class="tl-item"><span class="tl-dot"></span><span class="tl-when">Dia 1</span><h3>Dimensionamento</h3><p>Quais sistemas, quais dados pessoais e quais titulares foram afetados, e desde quando.</p></li>
+          <li class="tl-item"><span class="tl-dot"></span><span class="tl-when">Dia 2</span><h3>Avaliação de risco</h3><p>O incidente pode gerar risco ou dano relevante aos titulares? Decisão documentada.</p></li>
+          <li class="tl-item tl-item--end"><span class="tl-dot"></span><span class="tl-when">Dia 3</span><h3>Comunicação</h3><p>Quando aplicável, comunicação à ANPD e aos titulares com as informações exigidas, que podem ser complementadas depois.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="crise">
+      <div class="wrap">
+        <div class="kicker">Primeiras horas</div>
+        <h2>O que fazer agora, <strong>conforme o tipo de incidente.</strong></h2>
+        <p class="section-lead">Mudanças precipitadas podem ampliar a interrupção ou apagar evidências. Escolha o cenário mais parecido com o seu.</p>
+        <div class="tabs reveal">
+          <div class="tab-list" role="tablist" aria-label="Tipos de incidente">
+            <button type="button" role="tab" id="tab-vazamento" aria-controls="panel-vazamento" aria-selected="true" tabindex="0">Vazamento de dados</button>
+            <button type="button" role="tab" id="tab-ransomware" aria-controls="panel-ransomware" aria-selected="false" tabindex="-1">Ransomware</button>
+            <button type="button" role="tab" id="tab-acesso" aria-controls="panel-acesso" aria-selected="false" tabindex="-1">Acesso indevido</button>
+            <button type="button" role="tab" id="tab-credenciais" aria-controls="panel-credenciais" aria-selected="false" tabindex="-1">Credenciais comprometidas</button>
+            <button type="button" role="tab" id="tab-fornecedor" aria-controls="panel-fornecedor" aria-selected="false" tabindex="-1">Incidente em fornecedor</button>
+            <button type="button" role="tab" id="tab-dispositivo" aria-controls="panel-dispositivo" aria-selected="false" tabindex="-1">Perda de dispositivo</button>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="panel-vazamento" aria-labelledby="tab-vazamento">
+            <div class="tp-col">
+              <h3>Faça agora</h3>
+              <ul class="do-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Identifique onde os dados estão expostos (site, nuvem, e-mail, fórum) e peça a remoção.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Preserve logs, prints e mensagens, com data e hora.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Liste quais dados e de quais titulares podem ter sido expostos.</span></li></ul>
+            </div>
+            <div class="tp-col tp-col--avoid">
+              <h3>Evite</h3>
+              <ul class="avoid-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Apagar registros ou "limpar" o ambiente antes de documentar.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Comunicar publicamente sem avaliação jurídica.</span></li></ul>
+            </div>
+            <a href="#acionamento" class="btn tp-cta" data-preselect="vazamento" onclick="trackCTA('tab_vazamento')">Solicitar triagem para este caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="panel-ransomware" aria-labelledby="tab-ransomware" hidden>
+            <div class="tp-col">
+              <h3>Faça agora</h3>
+              <ul class="do-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Isole da rede as máquinas e servidores afetados (cabo e Wi-Fi), sem desligá-los.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Verifique se os backups estão íntegros e desconectados do ambiente.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Registre a nota de resgate e os horários em que tudo foi percebido.</span></li></ul>
+            </div>
+            <div class="tp-col tp-col--avoid">
+              <h3>Evite</h3>
+              <ul class="avoid-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Pagar ou negociar o resgate sem avaliação técnica e jurídica.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Restaurar backups antes de entender por onde o ataque entrou.</span></li></ul>
+            </div>
+            <a href="#acionamento" class="btn tp-cta" data-preselect="ransomware" onclick="trackCTA('tab_ransomware')">Solicitar triagem para este caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="panel-acesso" aria-labelledby="tab-acesso" hidden>
+            <div class="tp-col">
+              <h3>Faça agora</h3>
+              <ul class="do-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Encerre as sessões ativas e bloqueie as contas envolvidas.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Preserve os logs de acesso do período.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Mapeie quais sistemas e dados aquela conta alcançava.</span></li></ul>
+            </div>
+            <div class="tp-col tp-col--avoid">
+              <h3>Evite</h3>
+              <ul class="avoid-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Excluir a conta comprometida: isso apaga a trilha.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Alertar um possível autor interno antes de preservar as evidências.</span></li></ul>
+            </div>
+            <a href="#acionamento" class="btn tp-cta" data-preselect="acesso-indevido" onclick="trackCTA('tab_acesso')">Solicitar triagem para este caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="panel-credenciais" aria-labelledby="tab-credenciais" hidden>
+            <div class="tp-col">
+              <h3>Faça agora</h3>
+              <ul class="do-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Troque as senhas afetadas e ative a autenticação em dois fatores.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Revise os acessos feitos recentemente com essas credenciais.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Verifique se a mesma senha é usada em outros sistemas.</span></li></ul>
+            </div>
+            <div class="tp-col tp-col--avoid">
+              <h3>Evite</h3>
+              <ul class="avoid-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Tratar como "só uma senha" sem checar o que foi acessado.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Reaproveitar a senha antiga com pequenas variações.</span></li></ul>
+            </div>
+            <a href="#acionamento" class="btn tp-cta" data-preselect="credenciais" onclick="trackCTA('tab_credenciais')">Solicitar triagem para este caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="panel-fornecedor" aria-labelledby="tab-fornecedor" hidden>
+            <div class="tp-col">
+              <h3>Faça agora</h3>
+              <ul class="do-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Peça ao fornecedor um relato formal: o que aconteceu, quando e quais dados.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Levante quais dados pessoais você compartilha com ele e em qual contrato.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Registre a data de cada comunicação recebida.</span></li></ul>
+            </div>
+            <div class="tp-col tp-col--avoid">
+              <h3>Evite</h3>
+              <ul class="avoid-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Presumir que a responsabilidade é só do fornecedor.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Esperar o fornecedor concluir a investigação para começar a sua avaliação.</span></li></ul>
+            </div>
+            <a href="#acionamento" class="btn tp-cta" data-preselect="terceiro" onclick="trackCTA('tab_fornecedor')">Solicitar triagem para este caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <div class="tab-panel" role="tabpanel" id="panel-dispositivo" aria-labelledby="tab-dispositivo" hidden>
+            <div class="tp-col">
+              <h3>Faça agora</h3>
+              <ul class="do-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Bloqueie ou apague o aparelho remotamente, se houver gestão de dispositivos.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Verifique se o disco estava criptografado.</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"/></svg><span>Troque senhas, encerre sessões abertas no aparelho e, em caso de furto, registre boletim de ocorrência.</span></li></ul>
+            </div>
+            <div class="tp-col tp-col--avoid">
+              <h3>Evite</h3>
+              <ul class="avoid-list"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Esperar o aparelho "aparecer" para começar a agir.</span></li></ul>
+            </div>
+            <a href="#acionamento" class="btn tp-cta" data-preselect="outro" onclick="trackCTA('tab_dispositivo')">Solicitar triagem para este caso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="metodo">
+      <div class="wrap">
+        <div class="kicker">Como a SOMAXI conduz a resposta</div>
+        <h2>Da triagem à retomada, <strong>com tecnologia, privacidade e jurídico no mesmo cenário.</strong></h2>
         <div class="steps">
-          <article class="step reveal"><div class="step-num">1</div><div><h3>Ativar e estabilizar</h3><p>Confirmamos o cenário, reunimos responsáveis e priorizamos ações para limitar o impacto imediato.</p></div></article>
-          <article class="step reveal"><div class="step-num">2</div><div><h3>Preservar e investigar</h3><p>Organizamos fatos, evidências, linha do tempo e hipóteses para compreender origem e alcance.</p></div></article>
-          <article class="step reveal"><div class="step-num">3</div><div><h3>Avaliar dados e obrigações</h3><p>Dimensionamos os dados e titulares envolvidos e apoiamos a decisão sobre medidas e comunicações.</p></div></article>
-          <article class="step reveal"><div class="step-num">4</div><div><h3>Recuperar e fortalecer</h3><p>Coordenamos a retomada e transformamos o aprendizado em controles, registros e prioridades de segurança.</p></div></article>
+          <article class="step reveal"><div class="step-num">01</div><h3>Ativar e estabilizar</h3><p>Confirmamos o cenário, reunimos responsáveis e limitamos o impacto imediato.</p></article>
+          <article class="step reveal"><div class="step-num">02</div><h3>Preservar e investigar</h3><p>Fatos, evidências e linha do tempo para entender origem e alcance.</p></article>
+          <article class="step reveal"><div class="step-num">03</div><h3>Avaliar dados e obrigações</h3><p>Dados e titulares envolvidos, e a decisão sobre comunicações à ANPD.</p></article>
+          <article class="step reveal"><div class="step-num">04</div><h3>Recuperar e fortalecer</h3><p>Retomada e controles para reduzir a chance de um novo incidente.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="time">
+      <div class="wrap">
+        <div class="team-grid">
+          <div class="team-copy reveal">
+            <div class="kicker">Quem cuida do seu caso</div>
+            <h2>Time próprio, <strong>sem terceirizar a resposta.</strong></h2>
+            <p class="section-lead">Jurídico, privacidade e tecnologia da própria SOMAXI trabalham no mesmo caso, da triagem à retomada.</p>
+            <ul class="team-points">
+              <li><b>Jurídico</b> avalia obrigações, ANPD e comunicação aos titulares.</li>
+              <li><b>Tecnologia</b> apoia contenção, evidências e recuperação.</li>
+              <li><b>Privacidade</b> dimensiona dados, titulares e risco.</li>
+            </ul>
+          </div>
+          <div class="team-photos reveal">
+            <figure class="tp tp--main"><img src="/static/img/INCIDENTE/atendimento.webp" alt="Equipe SOMAXI em atendimento nas estações de trabalho" loading="lazy" width="1100" height="619"><figcaption>Atendimento</figcaption></figure>
+            <figure class="tp"><img src="/static/img/INCIDENTE/equipe.webp" alt="Equipe SOMAXI" loading="lazy" width="1100" height="733"><figcaption>Equipe</figcaption></figure>
+            <figure class="tp"><img src="/static/img/INCIDENTE/espaco-privacidade.webp" alt="Espaço SOMAXI com o letreiro Proteção e Privacidade" loading="lazy" width="1100" height="825"><figcaption>Estrutura própria</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prova">
+      <div class="wrap">
+        <div class="proof reveal">
+          <div class="proof-label">Empresas que confiam na SOMAXI</div>
+          <div class="logos" aria-label="Clientes SOMAXI">
+            <img src="/static/img/ETICA/sparq.jpeg" alt="SPARQ" loading="lazy">
+            <img src="/static/img/ETICA/g&amp;p.jpeg" alt="G&amp;P" loading="lazy">
+            <img src="/static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan Fortaleza" loading="lazy">
+            <img src="/static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet" loading="lazy">
+            <img src="/static/img/ETICA/mh.jpeg" alt="MH Têxtil" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section section--white" id="faq">
       <div class="wrap">
-        <div class="section-head reveal"><div class="section-kicker">Dúvidas frequentes</div><h2>Respostas diretas para um momento crítico.</h2></div>
+        <div class="kicker">Dúvidas frequentes</div>
+        <h2>Respostas diretas para <strong>um momento crítico.</strong></h2>
         <div class="faq-list reveal">
-          <details class="faq" open><summary><span>O que fazer primeiro ao identificar um incidente?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Centralize as decisões, preserve registros e envolva os responsáveis por tecnologia, privacidade, jurídico e gestão. A prioridade inicial é conter o impacto sem destruir evidências importantes.</div></details>
-          <details class="faq"><summary><span>Qual é o prazo para notificar um vazamento de dados à ANPD?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Quando a comunicação for aplicável, o controlador deve realizá-la à ANPD e aos titulares em até três dias úteis, contados do conhecimento de que o incidente afetou dados pessoais, salvo prazo específico previsto em outra legislação. Antes de comunicar, é necessário avaliar se o caso pode ocasionar risco ou dano relevante e documentar a decisão.</div></details>
+          <details class="faq" open><summary><span>Qual é o prazo para notificar um vazamento de dados à ANPD?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Quando a comunicação for aplicável, o controlador deve realizá-la à ANPD e aos titulares em até três dias úteis, contados do conhecimento de que o incidente afetou dados pessoais, salvo prazo específico previsto em outra legislação. Antes de comunicar, é necessário avaliar se o caso pode ocasionar risco ou dano relevante e documentar a decisão.</div></details>
           <details class="faq"><summary><span>Todo incidente precisa ser comunicado à ANPD?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">A necessidade de comunicação depende das circunstâncias, dos dados envolvidos e da avaliação de risco aplicável. A SOMAXI apoia essa análise, a documentação da decisão e a preparação das comunicações necessárias.</div></details>
           <details class="faq"><summary><span>A SOMAXI atende casos de ransomware?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Sim. A atuação coordena contenção, preservação de evidências, avaliação de dados pessoais, decisões jurídicas e planejamento da recuperação com as equipes envolvidas.</div></details>
           <details class="faq"><summary><span>Posso acionar a equipe mesmo sem adequação LGPD prévia?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Sim. A resposta parte do cenário real da empresa. Depois da estabilização, as lacunas identificadas podem orientar um plano de melhoria e governança.</div></details>
           <details class="faq"><summary><span>É possível garantir a recuperação dos dados?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Não existe garantia genérica de recuperação. O resultado depende do tipo de ataque, integridade dos backups, estado dos ambientes e outras variáveis técnicas. A equipe trabalha para apoiar decisões responsáveis em cada cenário.</div></details>
-          <details class="faq"><summary><span>Quais informações ajudam na primeira triagem?</span><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="faq-answer">Quando o incidente foi percebido, quais sistemas foram afetados, quais ações já ocorreram, quem tem acesso ao ambiente e se há indício de dados pessoais envolvidos.</div></details>
         </div>
       </div>
     </section>
 
     <section class="final" aria-label="Chamada final">
       <div class="wrap final-grid">
-        <div class="reveal"><h2>Suspeita de vazamento? Você não precisa ter todas as respostas.</h2><p>Compartilhe o que já sabe. A SOMAXI organiza a triagem e ajuda sua empresa a definir as próximas decisões.</p></div>
-        <a href="#acionamento" class="btn reveal" onclick="trackCTA('final')">Solicitar triagem do vazamento <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <div class="final-copy">
+          <h2>Suspeita de vazamento? <strong>Você não precisa ter todas as respostas.</strong></h2>
+          <p>Compartilhe o que já sabe. A SOMAXI organiza a triagem e ajuda sua empresa a definir as próximas decisões.</p>
+          <div class="final-actions">
+            <a href="#acionamento" class="btn" onclick="trackCTA('final')">Solicitar triagem</a>
+          </div>
+        </div>
+        <button type="button" class="video-lite" data-yt="kCyVlIHSaTU" aria-label="Assistir ao vídeo institucional da SOMAXI">
+          <img src="https://i.ytimg.com/vi/kCyVlIHSaTU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+          <span class="vl-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vl-label">Conheça a SOMAXI</span>
+        </button>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap footer-grid">
-      <div class="footer-brand"><img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="SOMAXI Group" width="134" height="34"><p>Resposta a incidentes, privacidade, jurídico, governança e cibersegurança. Chegamos para somar.</p></div>
+      <img src="/static/img/LGPD-2026/f7d70b174cd5ae58_443609-551b3daf81212fdf3171080.webp" alt="SOMAXI Group" width="110" height="28">
+      <p>Resposta a incidentes, privacidade, jurídico, governança e cibersegurança.</p>
       <div class="footer-links"><a href="#topo">Voltar ao início</a><a href="https://somaxi.com.br" target="_blank" rel="noopener">Site institucional</a></div>
     </div>
   </footer>
 
-  <div class="mobile-emergency-cta" aria-label="Acionamento rápido"><a href="#acionamento" class="btn" onclick="trackCTA('mobile_sticky')">Solicitar triagem <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+  <div class="mobile-emergency-cta" aria-label="Acionamento rápido">
+    <a href="#acionamento" class="btn" onclick="trackCTA('mobile_sticky')">Solicitar triagem</a>
+  </div>
+
+
+  <script>
+    // Interações da página: formulário em 2 etapas, abas por tipo de incidente, linha do tempo e contadores.
+    document.addEventListener('DOMContentLoaded', function () {
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function push(ev, params) { if (window.trackEvent) { window.trackEvent(ev, params || {}); } }
+
+      // Formulário em 2 etapas
+      var form = document.getElementById('leadForm');
+      var step1 = form.querySelector('[data-step="1"]');
+      var step2 = form.querySelector('[data-step="2"]');
+      var progress = document.querySelector('.form-progress');
+      function goTo(n) {
+        var on = n === 1 ? step1 : step2, off = n === 1 ? step2 : step1;
+        off.hidden = true; off.classList.remove('is-active');
+        on.hidden = false; on.classList.add('is-active');
+        on.classList.remove('is-entering'); void on.offsetWidth; on.classList.add('is-entering');
+        progress.classList.toggle('is-step-2', n === 2);
+        progress.querySelector('[data-step-ind="1"]').classList.toggle('is-active', n === 1);
+        progress.querySelector('[data-step-ind="1"]').classList.toggle('is-done', n === 2);
+        progress.querySelector('[data-step-ind="2"]').classList.toggle('is-active', n === 2);
+      }
+      function step1Valid() {
+        var fields = step1.querySelectorAll('select, input');
+        for (var i = 0; i < fields.length; i++) {
+          if (!fields[i].checkValidity()) { fields[i].reportValidity(); return false; }
+        }
+        return true;
+      }
+      document.getElementById('stepNext').addEventListener('click', function () {
+        if (!step1Valid()) { return; }
+        goTo(2);
+        push('lp_form_step', { form_step: 2, tipo_incidente: form.tipo_incidente.value, situacao_incidente: form.situacao_incidente.value });
+        var nome = document.getElementById('nome');
+        if (nome) { nome.focus({ preventScroll: true }); }
+      });
+      document.getElementById('stepBack').addEventListener('click', function () { goTo(1); });
+      // Enter na etapa 1 avança em vez de enviar
+      form.addEventListener('submit', function (ev) {
+        if (!step2.hidden) { return; }
+        ev.preventDefault(); ev.stopImmediatePropagation();
+        document.getElementById('stepNext').click();
+      }, true);
+
+      // Abas por tipo de incidente
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab-list [role="tab"]'));
+      function selectTab(tab, focus) {
+        tabs.forEach(function (t) {
+          var sel = t === tab;
+          t.setAttribute('aria-selected', sel ? 'true' : 'false');
+          t.tabIndex = sel ? 0 : -1;
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          panel.hidden = !sel;
+          panel.classList.remove('is-entering');
+          if (sel) { void panel.offsetWidth; panel.classList.add('is-entering'); }
+        });
+        if (focus) { tab.focus(); }
+      }
+      tabs.forEach(function (tab, i) {
+        tab.addEventListener('click', function () {
+          selectTab(tab);
+          push('lp_incident_tab', { incident_tab: tab.id.replace('tab-', '') });
+        });
+        tab.addEventListener('keydown', function (e) {
+          var j = null;
+          if (e.key === 'ArrowRight') { j = (i + 1) % tabs.length; }
+          if (e.key === 'ArrowLeft') { j = (i - 1 + tabs.length) % tabs.length; }
+          if (e.key === 'Home') { j = 0; }
+          if (e.key === 'End') { j = tabs.length - 1; }
+          if (j !== null) { e.preventDefault(); selectTab(tabs[j], true); }
+        });
+      });
+      // "Solicitar triagem para este caso" já marca o tipo de incidente no formulário
+      document.querySelectorAll('[data-preselect]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          var sel = document.getElementById('tipo_incidente');
+          if (sel && !sel.value) { sel.value = a.getAttribute('data-preselect'); }
+          if (step1.hidden) { goTo(1); }
+        });
+      });
+
+      // Vídeo do YouTube carregado só no clique (não pesa no carregamento da página)
+      document.querySelectorAll('.video-lite').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (btn.classList.contains('is-playing')) { return; }
+          var id = btn.getAttribute('data-yt');
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+          iframe.title = 'Vídeo institucional SOMAXI';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          iframe.allowFullscreen = true;
+          btn.appendChild(iframe);
+          btn.classList.add('is-playing');
+          push('lp_video_play', { video_id: id });
+        });
+      });
+
+      // Linha do tempo e contadores entram em cena ao aparecer na tela
+      function countUp(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        if (reduceMotion || !target) { el.textContent = target; return; }
+        var start = null, dur = 1400;
+        el.textContent = '0';
+        function tick(ts) {
+          if (!start) { start = ts; }
+          var t = Math.min((ts - start) / dur, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+          if (t < 1) { requestAnimationFrame(tick); }
+        }
+        requestAnimationFrame(tick);
+      }
+      var timeline = document.getElementById('timeline');
+      var counters = document.querySelectorAll('.count');
+      if (!('IntersectionObserver' in window)) {
+        timeline.classList.add('is-live');
+        return;
+      }
+      counters.forEach(function (c) { c.textContent = '0'; });
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) { return; }
+          if (entry.target === timeline) { timeline.classList.add('is-live'); }
+          else { countUp(entry.target); }
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: .35 });
+      obs.observe(timeline);
+      counters.forEach(function (c) { obs.observe(c); });
+    });
+  </script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
 
