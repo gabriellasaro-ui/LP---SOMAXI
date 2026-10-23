@@ -1,0 +1,14 @@
+# Acervo de fotos do escritorio (originais de camera, ~33MB) — fora do repo de deploy.
+# O que o site serve sao os derivados em static/img/<LP>/.
+# Rastreabilidade: cada original selecionado tem o nome src-<funcao> do derivado que gerou.
+static/img/escritorio/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor / SO
+.DS_Store
+Thumbs.db
