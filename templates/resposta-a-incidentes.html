@@ -30,7 +30,7 @@
   <meta property="og:image" content="/static/img/LGPD-2026/hero-resposta-incidentes-carimbo.webp">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" type="image/png" href="/static/img/LGPD-2026/1314beb9ffb78d18_443609-f9cb09e69d49bb84420a199.webp">
+  <link rel="icon" type="image/jpeg" href="/static/img/favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -161,6 +161,38 @@
     .clip-num { margin-top: 12px; font-size: 38px; font-weight: 700; line-height: 1; color: var(--ink) }
     .clip h3 { margin-top: 10px; font-size: 18px; font-weight: 600; line-height: 1.3 }
     .clip p { margin-top: 8px; color: var(--muted); font-size: 14px }
+
+    /* Acontecendo agora - incidentes reais noticiados */
+    .news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 32px }
+    .news { display: flex; flex-direction: column; padding: 20px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .2s ease, transform .2s ease }
+    .news:hover { border-color: var(--cyan); transform: translateY(-2px) }
+    .news--lead { grid-column: 1 / span 3; border-left: 3px solid var(--amber); display: grid; grid-template-columns: 1.05fr 1fr; column-gap: 36px; padding: 24px 26px }
+    .news-tag { align-self: flex-start; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--cyan-dark) }
+    .news--lead .news-tag { grid-area: 1 / 1 / 2 / 3; color: #96650a }
+    .news h3 { margin-top: 10px; font-size: 17px; font-weight: 600; line-height: 1.32 }
+    .news--lead h3 { grid-area: 2 / 1 / 3 / 2; font-size: 26px; font-weight: 400; line-height: 1.22 }
+    .news--lead h3 strong { font-weight: 700 }
+    .news p { margin-top: 8px; color: var(--muted); font-size: 14px }
+    .news--lead p { grid-area: 2 / 2 / 4 / 3; margin-top: 7px; font-size: 15px }
+    .news--lead .news-src { grid-area: 3 / 1 / 4 / 2; margin-top: 16px; padding-top: 0; align-self: end }
+    .news-src { margin-top: auto; padding-top: 14px; color: var(--muted); font-size: 12px; font-weight: 600 }
+    .news-src b { color: var(--cyan-dark); font-weight: 700 }
+    .news-note { margin-top: 20px; color: var(--muted); font-size: 14px; max-width: 820px }
+    .news-note a { border-bottom: 1px solid var(--line); font-weight: 600 }
+    .news-note a:hover { color: var(--cyan-dark); border-color: var(--cyan) }
+    @media(max-width:980px) {
+      .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+      .news--lead { grid-column: 1 / span 2; grid-template-columns: 1fr; column-gap: 0 }
+      .news--lead h3 { grid-area: auto; font-size: 22px }
+      .news--lead p { grid-area: auto }
+      .news--lead .news-src { grid-area: auto; margin-top: 16px }
+    }
+    @media(max-width:640px) {
+      .news-grid { grid-template-columns: 1fr }
+      .news--lead { grid-column: auto; display: flex; padding: 20px }
+      .news--lead h3 { font-size: 20px }
+      .news--lead .news-src { margin-top: auto; padding-top: 14px }
+    }
 
 
     /* Como a Somaxi atua */
@@ -525,6 +557,45 @@
             <p>Contados do conhecimento de que o incidente afetou dados pessoais. A decisão precisa ser documentada.</p>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section" id="acontecendo">
+      <div class="wrap">
+        <div class="kicker">Acontecendo agora</div>
+        <h2>Não é cenário hipotético. <strong>É o noticiário das últimas semanas.</strong></h2>
+        <div class="news-grid">
+
+          <a class="news news--lead reveal" href="https://ohoje.com/2026/10/22/falhas-no-php-levam-tribunais-e-anatel-a-suspender-sistemas-no-brasil/" target="_blank" rel="noopener noreferrer">
+            <span class="news-tag">Alerta em vigor · 21 de outubro de 2026</span>
+            <h3>Duas falhas críticas no PHP levaram <strong>tribunais federais e a Anatel a tirar sistemas do ar.</strong></h3>
+            <p>As vulnerabilidades CVE-2026-109618 e CVE-2026-109619 permitem que um invasor execute código no servidor sem login e sem senha. Atingem praticamente todas as versões do PHP desde a 5.4, e estão no próprio motor da linguagem: o site pode estar exposto mesmo com a aplicação bem escrita. O Centro Integrado de Segurança Cibernética do Governo Digital pediu atualização imediata, e Anatel, TRF1, TRF4 e TRF6 suspenderam o acesso externo a sistemas por precaução.</p>
+            <span class="news-src">Fonte: <b>g1</b> · correções publicadas pelo PHP Group em 21/10</span>
+          </a>
+
+          <a class="news reveal" href="https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/10/20/organizacoes-acionam-anpd-e-pedem-investigacao-sobre-vazamento-do-smart-sampa.ghtm" target="_blank" rel="noopener noreferrer">
+            <span class="news-tag">20 de outubro de 2026</span>
+            <h3>Onze organizações pedem à ANPD investigação sobre vazamento no Smart Sampa</h3>
+            <p>Uma coalizão de entidades acionou a autoridade para apurar o incidente no sistema de videomonitoramento da cidade de São Paulo.</p>
+            <span class="news-src">Fonte: <b>UOL Notícias</b></span>
+          </a>
+
+          <a class="news reveal" href="https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/10/16/hospital-sirio-libanes-possivel-acesso-nao-autorizado-sistema-interno.ghtm" target="_blank" rel="noopener noreferrer">
+            <span class="news-tag">16 de outubro de 2026</span>
+            <h3>Sírio-Libanês identifica possível acesso não autorizado a sistema interno</h3>
+            <p>O hospital informou ter detectado indício de acesso indevido e aberto apuração. Dado de saúde é dado pessoal sensível e eleva o risco aos titulares.</p>
+            <span class="news-src">Fonte: <b>UOL Notícias</b></span>
+          </a>
+
+          <a class="news reveal" href="https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/10/08/hospital-einstein-sofre-ataque-hacker-e-dados-de-pacientes-sao-acessados.ghtm" target="_blank" rel="noopener noreferrer">
+            <span class="news-tag">8 de outubro de 2026</span>
+            <h3>Einstein sofre ataque hacker e dados de pacientes são acessados</h3>
+            <p>Segundo hospital de referência atingido no mesmo mês. Quando há acesso confirmado a dados pessoais, o prazo de comunicação começa a correr.</p>
+            <span class="news-src">Fonte: <b>UOL Notícias</b></span>
+          </a>
+
+        </div>
+        <p class="news-note">Nas mesmas semanas, a <a href="https://www.lupo.com.br/pages/comunicado-de-incidente-de-seguranca" target="_blank" rel="noopener noreferrer">Lupo publicou comunicado de incidente de segurança</a> aos seus clientes e a ANPD <a href="https://www.poder360.com.br/poder-brasil/anpd-apura-vazamento-de-dados-de-500-mil-pacientes/" target="_blank" rel="noopener noreferrer">instaurou processo de sanção contra o Isac</a> por falha na proteção de dados de 500 mil pacientes de unidades públicas de saúde. Não é o ataque que define a exposição da empresa. É o que ela faz nas horas seguintes.</p>
       </div>
     </section>
 
