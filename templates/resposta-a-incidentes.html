@@ -205,6 +205,15 @@
     /* Prova */
     .logos { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; justify-content: flex-start }
     .logos img { height: 40px; width: auto; filter: grayscale(1); opacity: .75; mix-blend-mode: multiply }
+    .logos-strip { display: block; width: 100%; max-width: 1000px; height: auto; margin: 0 auto; mix-blend-mode: screen }
+    .proof--navy { border-top-color: var(--line-dark); border-bottom-color: var(--line-dark); justify-items: center; text-align: center }
+    .proof-label--light { color: #8fa6bd }
+    .logos-scroll { width: 100% }
+    @media (max-width: 640px) {
+      .logos-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none }
+      .logos-scroll::-webkit-scrollbar { display: none }
+      .logos-strip { min-width: 620px; max-width: none }
+    }
 
     /* FAQ */
     .faq-list { display: grid; gap: 0; max-width: 820px; margin-top: 28px; border-top: 1px solid var(--line) }
@@ -732,17 +741,11 @@
       </div>
     </section>
 
-    <section class="section" id="prova">
+    <section class="section section--navy" id="prova">
       <div class="wrap">
-        <div class="proof reveal">
-          <div class="proof-label">Empresas que confiam na SOMAXI</div>
-          <div class="logos" aria-label="Clientes SOMAXI">
-            <img src="/static/img/ETICA/sparq.jpeg" alt="SPARQ" loading="lazy">
-            <img src="/static/img/ETICA/g&amp;p.jpeg" alt="G&amp;P" loading="lazy">
-            <img src="/static/img/ETICA/jp-fm.jpeg" alt="Jovem Pan Fortaleza" loading="lazy">
-            <img src="/static/img/ETICA/americas.jpeg" alt="Grupo Euro Américas Chevrolet" loading="lazy">
-            <img src="/static/img/ETICA/mh.jpeg" alt="MH Têxtil" loading="lazy">
-          </div>
+        <div class="proof proof--navy reveal">
+          <div class="proof-label proof-label--light">Empresas que confiam na SOMAXI</div>
+          <div class="logos-scroll"><img class="logos-strip" src="/static/img/logos-parceiros.webp" alt="Empresas clientes da SOMAXI: Board Academy, Ultrafarma, V4 Company, SME, Decal, Casa Flora, YMB Yamada Brasil, Mundial Logística, PJ Neblina, Loja do Mecânico, ELO e Equity Group" width="1200" height="300" loading="lazy"></div>
         </div>
       </div>
     </section>
