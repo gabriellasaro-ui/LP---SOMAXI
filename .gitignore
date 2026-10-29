@@ -12,3 +12,6 @@ venv/
 # Editor / SO
 .DS_Store
 Thumbs.db
+
+# Artefatos locais de preparacao e verificacao das LPs.
+.local/
