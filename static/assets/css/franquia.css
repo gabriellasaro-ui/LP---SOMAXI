@@ -425,8 +425,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
   gap:75px;
   align-items:center;
 }
-.model-grid>.model-benefits {
-  margin-top:0;
+.model-visual {
+  min-width:0;
+}
+.model-photo {
+  width:100%;
+  height:auto;
+  aspect-ratio:3/2;
+  border-radius:var(--radius);
+  object-fit:cover;
 }
 .model-copy h2 {
   font-size:clamp(32px,3.2vw,43px);
@@ -1114,7 +1121,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
   }
   .model-grid {
     display:flex;
-    flex-direction:column;
+    flex-direction:column-reverse;
     gap:28px;
   }
   .model-copy h2 {
