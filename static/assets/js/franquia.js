@@ -1,7 +1,9 @@
 'use strict';
 
-// PENDENTE: URL do webhook do Make. Um unico destino, sem reaproveitar endpoints da Assessoria.
-const WEBHOOK_URLS = [''];
+// Mesmo cenario do Make da LP de franquia do GreatPages (contato.somaxi.com.br/somaxifranquia).
+const WEBHOOK_URLS = ['https://hook.eu2.make.com/3wjz6gdd2lgwtex0il88ltqlmu8885j6'];
+// Valor que o checkbox de privacidade do GreatPages envia.
+const GP_PRIVACIDADE = 'Acordo de coleta e privacidade dos dados. ';
 // PENDENTE COMERCIAL: data-site do Privamaxi para o dominio desta LP.
 const COOKIE_SITE_ID = '';
 
@@ -121,6 +123,20 @@ const COOKIE_SITE_ID = '';
         user_agent: navigator.userAgent, enviado_em: new Date().toISOString()
       };
       for (const [key, value] of Object.entries(metadata)) payload.set(key, value);
+      // Mesmos campos da LP de franquia do GreatPages, nos dois formatos que o cenario do Make ja recebeu.
+      const digits = payload.get('whatsapp').replace(/\D/g, '');
+      const telefone = digits ? `+55${digits}` : '';
+      const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      const gpFields = {
+        'e-mail': payload.get('email'), 'telefone-com-ddd': telefone,
+        'qual-sua-atuao-hoje': payload.get('atuacao'), 'quanto-voc-tem-para-investir': payload.get('investimento'),
+        'polticas-de-privacidade': GP_PRIVACIDADE,
+        telefone, politicas_privacidade: 'true',
+        Referral_Source: document.referrer, Dispositivo: isMobile ? 'Mobile' : 'Desktop', URL: window.location.href,
+        ad_name: '', adset_name: attribution.utm_content || '',
+        lp: page.slug, nome_lp: 'Franquia Previsibilidade (lp.somaxi.com.br)'
+      };
+      for (const [key, value] of Object.entries(gpFields)) payload.set(key, value ?? '');
       track('lp_form_submit', { form_id: form.id, event_id: eventId });
       track('form_submit', { form_id: form.id, event_id: eventId });
       try {
@@ -128,8 +144,9 @@ const COOKIE_SITE_ID = '';
           const controller = new AbortController();
           const timeout = setTimeout(() => controller.abort(), 15000);
           try {
-            const response = await fetch(url, { method: 'POST', body: new URLSearchParams(payload), signal: controller.signal, credentials: 'omit' });
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            // Formulario urlencoded em no-cors: requisicao simples, entregue mesmo sem CORS no Make (mesmo padrao das LPs de Assessoria).
+            const response = await fetch(url, { method: 'POST', mode: 'no-cors', body: new URLSearchParams(payload), signal: controller.signal, credentials: 'omit', keepalive: true });
+            if (response.type !== 'opaque' && !response.ok) throw new Error(`HTTP ${response.status}`);
             return url;
           } finally { clearTimeout(timeout); }
         }));
@@ -137,7 +154,7 @@ const COOKIE_SITE_ID = '';
         // URLs de webhook nao sao expostas ao GTM. A identificacao e feita por indice.
         track('lp_webhook_dispatch', { form_id: form.id, event_id: eventId, destinos: accepted.map(url => `destino_${destinations.indexOf(url) + 1}`), sucesso: accepted.length > 0 });
         if (!accepted.length) throw new Error('Nenhum destino confirmou o recebimento.');
-        track('lead_franquia', { form_id: form.id, event_id: eventId, perfil_atual: payload.get('perfil_atual'), ...attribution });
+        track('lead_franquia', { form_id: form.id, event_id: eventId, atuacao: payload.get('atuacao'), investimento: payload.get('investimento'), ...attribution });
         sent = true;
         showStatus('Recebemos sua solicitação. A equipe de expansão da Somaxi entrará em contato para apresentar o modelo.', 'success');
         submitButton.textContent = 'Solicitação recebida';
