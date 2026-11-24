@@ -156,28 +156,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
 }
 .brand {
   display:inline-flex;
-  flex-direction:column;
-  align-items:flex-end;
   flex-shrink:0;
-  width:145px;
 }
-.brand-image {
-  width:145px;
-  height:37px;
-  overflow:hidden;
-}
-.brand-image img {
-  width:145px;
+.brand-logo {
+  width:150px;
   height:auto;
-  filter:brightness(0) saturate(100%) invert(88%) sepia(6%) saturate(426%) hue-rotate(167deg);
-  clip-path:polygon(0 0,100% 0,100% 74%,65% 74%,65% 100%,0 100%);
-}
-.brand-label {
-  color:var(--silver);
-  font-size:8px;
-  text-transform:uppercase;
-  letter-spacing:3px;
-  line-height:1.2;
 }
 .header-nav {
   display:flex;
@@ -443,37 +426,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
   align-items:center;
 }
 .model-visual {
-  position:relative;
   min-width:0;
 }
 .model-photo {
   width:100%;
-  height:430px;
+  height:auto;
+  aspect-ratio:3/2;
   border-radius:var(--radius);
   object-fit:cover;
-  object-position:50% 42%;
-}
-.model-visual--team .model-photo {
-  height: auto;
-}
-.model-photo-caption {
-  position:absolute;
-  bottom:22px;
-  left:22px;
-  right:22px;
-  display:flex;
-  align-items:center;
-  gap:11px;
-  background:var(--bg);
-  border-radius:var(--radius);
-  color:var(--fg);
-  padding:13px 17px;
-  font-size:12px;
-}
-.model-photo-caption svg {
-  width:22px;
-  height:22px;
-  color:var(--accent);
 }
 .model-copy h2 {
   font-size:clamp(32px,3.2vw,43px);
@@ -618,9 +578,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
   position:absolute;
   bottom:18px;
   left:20px;
+  right:20px;
   z-index:1;
   font-size:22px;
   font-weight:500;
+  line-height:1.15;
 }
 .journey {
   background:var(--paper);
@@ -958,9 +920,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
   .model-grid {
     gap:32px;
   }
-  .model-photo {
-    height:420px;
-  }
   .model-copy h2 {
     font-size:33px;
   }
@@ -1030,19 +989,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
   .site-header.is-scrolled .header-inner {
     height:64px;
   }
-  .brand {
-    width:128px;
-  }
-  .brand-image {
-    width:128px;
-    height:33px;
-  }
-  .brand-image img {
-    width:128px;
-  }
-  .brand-label {
-    font-size:7px;
-    letter-spacing:2.7px;
+  .brand-logo {
+    width:130px;
   }
   .menu-toggle {
     display:flex;
@@ -1193,20 +1141,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
     font-size:13px;
   }
 
-  .model-visual {
-    width:100%;
-  }
-  .model-photo {
-    height:270px;
-    object-position:50% 38%;
-  }
-  .model-photo-caption {
-    bottom:16px;
-    left:16px;
-    right:16px;
-    font-size:11px;
-    padding:11px 13px;
-  }
   .photo-section {
     min-height:410px;
     background-attachment:scroll;
@@ -1252,8 +1186,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[t
   }
   .video-caption {
     left:14px;
+    right:14px;
     bottom:14px;
-    font-size:22px;
+    font-size:18px;
   }
   .journey h2 {
     font-size:33px;

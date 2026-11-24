@@ -123,6 +123,7 @@
     }
     .field input:focus, .field select:focus { border-color: var(--cyan-dark); box-shadow: 0 0 0 3px rgba(0, 188, 231, .15) }
     .field input::placeholder { color: #98a7b8 }
+    .field input.is-invalid { border-color: #d93c3c; box-shadow: 0 0 0 3px rgba(217, 60, 60, .12) }
     .field select {
       appearance: none; padding-right: 34px;
       background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235d6e84' d='M6 8 0 0h12z'/%3E%3C/svg%3E") no-repeat right 12px center;
@@ -518,8 +519,9 @@
                 </div>
                 <div class="field-row">
                   <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization" required></div>
-                  <div class="field"><label for="email">E-mail <span class="optional-label">(opcional)</span></label><input id="email" name="email" type="email" placeholder="nome@empresa.com.br" autocomplete="email"></div>
+                  <div class="field"><label for="cnpj">CNPJ</label><input id="cnpj" name="cnpj" type="text" placeholder="00.000.000/0000-00" autocapitalize="characters" spellcheck="false" maxlength="18" required></div>
                 </div>
+                <div class="field"><label for="email">E-mail <span class="optional-label">(opcional)</span></label><input id="email" name="email" type="email" placeholder="nome@empresa.com.br" autocomplete="email"></div>
                 <label class="consent"><input type="checkbox" name="consentimento" required><span>Autorizo a SOMAXI a entrar em contato sobre este incidente e aceito o tratamento dos dados informados.</span></label>
                 <button type="submit" class="btn btn--full">Enviar para triagem prioritária <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
                 <button type="button" class="step-back" id="stepBack">← Voltar e revisar</button>
@@ -1069,6 +1071,56 @@
         phone.value = digits;
       });
 
+      // CNPJ: aceita o formato numérico e o alfanumérico (IN RFB 2.229/2024), com validação dos dígitos verificadores.
+      var cnpj = document.getElementById('cnpj');
+
+      function cnpjChars(value) {
+        return (value || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 14);
+      }
+
+      function formatCnpj(value) {
+        var c = cnpjChars(value);
+        if (c.length > 12) { return c.slice(0, 2) + '.' + c.slice(2, 5) + '.' + c.slice(5, 8) + '/' + c.slice(8, 12) + '-' + c.slice(12); }
+        if (c.length > 8) { return c.slice(0, 2) + '.' + c.slice(2, 5) + '.' + c.slice(5, 8) + '/' + c.slice(8); }
+        if (c.length > 5) { return c.slice(0, 2) + '.' + c.slice(2, 5) + '.' + c.slice(5); }
+        if (c.length > 2) { return c.slice(0, 2) + '.' + c.slice(2); }
+        return c;
+      }
+
+      function isValidCnpj(value) {
+        var c = cnpjChars(value);
+        if (!/^[A-Z0-9]{12}\d{2}$/.test(c) || /^(.)\1{13}$/.test(c)) { return false; }
+        function checkDigit(base) {
+          var sum = 0, weight = 2;
+          for (var i = base.length - 1; i >= 0; i--) {
+            sum += (base.charCodeAt(i) - 48) * weight;
+            weight = weight === 9 ? 2 : weight + 1;
+          }
+          var rest = sum % 11;
+          return rest < 2 ? 0 : 11 - rest;
+        }
+        var d1 = checkDigit(c.slice(0, 12));
+        var d2 = checkDigit(c.slice(0, 12) + d1);
+        return c.slice(12) === String(d1) + String(d2);
+      }
+
+      function validateCnpj() {
+        var filled = cnpjChars(cnpj.value).length > 0;
+        var valid = isValidCnpj(cnpj.value);
+        cnpj.setCustomValidity(!filled || valid ? '' : 'Informe um CNPJ válido.');
+        return valid;
+      }
+
+      cnpj.addEventListener('input', function () {
+        cnpj.value = formatCnpj(cnpj.value);
+        validateCnpj();
+        if (cnpj.classList.contains('is-invalid') && cnpj.checkValidity()) { cnpj.classList.remove('is-invalid'); }
+      });
+      cnpj.addEventListener('blur', function () {
+        validateCnpj();
+        cnpj.classList.toggle('is-invalid', cnpjChars(cnpj.value).length > 0 && !cnpj.checkValidity());
+      });
+
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -1088,8 +1140,8 @@
         payload.set('consentimento', form.consentimento.checked ? 'sim' : 'nao');
         payload.set('cargo', '');
         payload.set('porte', '');
-        payload.set('cnpj', '');
-        payload.set('cnpj_numeros', '');
+        payload.set('cnpj', formatCnpj(cnpj.value));
+        payload.set('cnpj_numeros', cnpjChars(cnpj.value));
         payload.set('whatsapp_numeros', onlyDigits(phone.value));
         payload.set('origem', TRACKING_CONFIG.pageId);
         payload.set('form_id', TRACKING_CONFIG.formId);
@@ -1126,6 +1178,7 @@
 
         if (isSubmitting) { return; }
 
+        validateCnpj();
         if (!form.checkValidity()) {
           form.reportValidity();
           return;
